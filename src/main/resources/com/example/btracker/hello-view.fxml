@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.Glow?>
+
+
+<VBox maxHeight="420" maxWidth="660"  prefHeight="402.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+  fx:controller="com.example.btracker.MainController">
+  <children>
+    <Text fx:id="outputError" fill="#eb0404" strokeType="OUTSIDE" strokeWidth="0.0" >
+      <VBox.margin>
+        <Insets left="372.0" top="15.0" />
+      </VBox.margin>
+      <font>
+        <Font name="System Bold Italic" size="13.0" />
+      </font>
+    </Text>
+    <HBox prefHeight="28.0" prefWidth="200.0">
+      <children>
+        <Text fx:id="titleBudget" strokeType="OUTSIDE" strokeWidth="0.0"
+          text="MY BUDGET " textAlignment="CENTER" textOrigin="TOP">
+          <effect>
+            <Glow />
+          </effect>
+          <font>
+            <Font size="24.0" />
+          </font>
+        </Text>
+        <TextField fx:id="inputField" prefHeight="26.0" prefWidth="70.0">
+          <HBox.margin>
+            <Insets left="21.0" right="45.0" />
+          </HBox.margin>
+        </TextField>
+        <Button fx:id="buttonBudget" mnemonicParsing="false"
+          onAction="#handleButtonAction" prefHeight="26.0"
+          prefWidth="60.0" text="ADD" />
+        <Text fx:id="outputText" strokeType="OUTSIDE" strokeWidth="0.0" >
+          <HBox.margin>
+            <Insets left="29.0" top="6.0" />
+          </HBox.margin>
+        </Text>
+      </children>
+      <VBox.margin>
+        <Insets left="24.0" top="14.0" />
+      </VBox.margin>
+    </HBox>
+    <HBox prefHeight="28.0" prefWidth="200.0">
+      <children>
+        <Text fx:id="titleFood" strokeType="OUTSIDE" strokeWidth="0.0"
+          style="-fx-fill: #a11313;" text="FOOD ">
+          <font>
+            <Font size="18.0" />
+          </font>
+          <HBox.margin>
+            <Insets left="59.0" />
+          </HBox.margin>
+        </Text>
+        <TextField fx:id="inputFood" prefHeight="26.0" prefWidth="70.0">
+          <HBox.margin>
+            <Insets left="70.0" right="45.0" />
+          </HBox.margin>
+        </TextField>
+        <Button fx:id="btnFood" mnemonicParsing="false"
+          onAction="#btnFoodAction" prefHeight="26.0"
+          prefWidth="60.0" text="ADD" />
+        <Text fx:id="outputFood" strokeType="OUTSIDE" strokeWidth="0.0" >
+          <HBox.margin>
+            <Insets left="30.0" top="6.0" />
+          </HBox.margin>
+        </Text>
+      </children>
+      <VBox.margin>
+        <Insets top="21.0" />
+      </VBox.margin>
+    </HBox>
+    <HBox prefHeight="28.0" prefWidth="200.0">
+      <children>
+        <Text fx:id="titleHouse" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #a11313;" text="HOUSE ">
+          <font>
+            <Font size="18.0" />
+          </font>
+          <HBox.margin>
+            <Insets left="54.0" />
+          </HBox.margin>
+        </Text>
+        <TextField fx:id="inputHouse" prefHeight="26.0" prefWidth="70.0">
+          <HBox.margin>
+            <Insets left="65.0" right="45.0" />
+          </HBox.margin>
+        </TextField>
+        <Button fx:id="btnHouse" mnemonicParsing="false"
+          onAction="#btnHouseAction" prefHeight="26.0"
+          prefWidth="60.0" text="ADD" />
+        <Text fx:id="outputHouse" strokeType="OUTSIDE" strokeWidth="0.0">
+          <HBox.margin>
+            <Insets left="30.0" top="6.0" />
+          </HBox.margin>
+        </Text>
+      </children>
+      <VBox.margin>
+        <Insets top="21.0" />
+      </VBox.margin>
+    </HBox>
+    <HBox prefHeight="28.0" prefWidth="200.0">
+      <children>
+        <Text fx:id="titleShopping" strokeType="OUTSIDE" strokeWidth="0.0"
+          style="-fx-fill: #a11313;" text="SHOPPING">
+          <font>
+            <Font size="18.0" />
+          </font>
+          <HBox.margin>
+            <Insets left="42.0" />
+          </HBox.margin>
+        </Text>
+        <TextField fx:id="inputShopping" prefHeight="26.0" prefWidth="70.0">
+          <HBox.margin>
+            <Insets left="54.0" right="45.0" />
+          </HBox.margin>
+        </TextField>
+        <Button fx:id="btnShopping" mnemonicParsing="false"
+          onAction="#btnShoppingAction" prefHeight="26.0"
+          prefWidth="60.0" text="ADD" />
+        <Text fx:id="outputShopping" strokeType="OUTSIDE" strokeWidth="0.0">
+          <HBox.margin>
+            <Insets left="30.0" top="6.0" />
+          </HBox.margin>
+        </Text>
+      </children>
+      <VBox.margin>
+        <Insets top="21.0" />
+      </VBox.margin>
+    </HBox>
+    <HBox prefHeight="28.0" prefWidth="200.0">
+      <children>
+        <Text fx:id="titleTransport" strokeType="OUTSIDE"
+          strokeWidth="0.0" style="-fx-fill: #a11313;" text="TRANSPORT">
+          <font>
+            <Font size="18.0" />
+          </font>
+          <HBox.margin>
+            <Insets left="35.0" />
+          </HBox.margin>
+        </Text>
+        <TextField fx:id="inputTransport" prefHeight="26.0" prefWidth="70.0">
+          <HBox.margin>
+            <Insets left="48.0" right="45.0" />
+          </HBox.margin>
+        </TextField>
+        <Button fx:id="btnTransport" mnemonicParsing="false"
+          onAction="#btnTransportAction" prefHeight="26.0"
+          prefWidth="60.0" text="ADD" />
+        <Text fx:id="outputTransport" strokeType="OUTSIDE" strokeWidth="0.0">
+          <HBox.margin>
+            <Insets left="30.0" top="6.0" />
+          </HBox.margin>
+        </Text>
+      </children>
+      <VBox.margin>
+        <Insets top="21.0" />
+      </VBox.margin>
+    </HBox>
+    <HBox prefHeight="28.0" prefWidth="200.0">
+      <children>
+        <Text fx:id="titleEntertainment" strokeType="OUTSIDE"
+          strokeWidth="0.0" style="-fx-fill: #a11313;" text="ENTERTAIMENT">
+          <font>
+            <Font size="18.0" />
+          </font>
+          <HBox.margin>
+            <Insets left="28.0" />
+          </HBox.margin>
+        </Text>
+        <TextField fx:id="inputEntertainment" prefHeight="26.0" prefWidth="70.0">
+          <HBox.margin>
+            <Insets left="28.0" right="45.0" />
+          </HBox.margin>
+        </TextField>
+        <Button fx:id="btnEntertainment" mnemonicParsing="false"
+          onAction="#btnEntertainmentAction" prefHeight="26.0"
+          prefWidth="60.0" text="ADD" />
+        <Text fx:id="outputEntertainment" strokeType="OUTSIDE" strokeWidth="0.0">
+          <HBox.margin>
+            <Insets left="30.0" top="6.0" />
+          </HBox.margin>
+        </Text>
+      </children>
+      <VBox.margin>
+        <Insets top="21.0" />
+      </VBox.margin>
+    </HBox>
+    <HBox prefHeight="28.0" prefWidth="200.0">
+      <children>
+        <Text fx:id="titleOther" strokeType="OUTSIDE" strokeWidth="0.0"
+          style="-fx-fill: #a11313;" text="OTHER ">
+          <font>
+            <Font size="18.0" />
+          </font>
+          <HBox.margin>
+            <Insets left="54.0" />
+          </HBox.margin>
+        </Text>
+        <TextField fx:id="inputOther" prefHeight="26.0" prefWidth="70.0">
+          <HBox.margin>
+            <Insets left="70.0" right="45.0" />
+          </HBox.margin>
+        </TextField>
+        <Button fx:id="btnOther" mnemonicParsing="false"
+          onAction="#btnOtherAction" prefHeight="26.0"
+          prefWidth="60.0" text="ADD" />
+        <Text fx:id="outputOther" strokeType="OUTSIDE" strokeWidth="0.0" >
+          <HBox.margin>
+            <Insets left="30.0" top="6.0" />
+          </HBox.margin>
+        </Text>
+      </children>
+      <VBox.margin>
+        <Insets top="21.0" />
+      </VBox.margin>
+    </HBox>
+  </children>
+</VBox>

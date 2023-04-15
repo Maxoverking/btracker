@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.btracker.MainController">
+  <children>
+      <Text fx:id="outputError" fill="#eb0404" strokeType="OUTSIDE" strokeWidth="0.0" text="Ошибка: введено не число">
+         <VBox.margin>
+            <Insets left="412.0" top="15.0" />
+         </VBox.margin>
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Text>
+    <HBox prefHeight="28.0" prefWidth="200.0">
+      <children>
+        <Text fx:id="titleBudget" strokeType="OUTSIDE" strokeWidth="0.0" text="Мой бюджет" textAlignment="CENTER" textOrigin="TOP">
+          <effect>
+            <Glow />
+          </effect>
+          <font>
+            <Font size="24.0" />
+          </font>
+        </Text>
+        <TextField fx:id="inputField" prefHeight="26.0" prefWidth="120.0">
+          <HBox.margin>
+            <Insets left="20.0" right="45.0" />
+          </HBox.margin>
+        </TextField>
+        <Button fx:id="buttonBudget" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="26.0" prefWidth="100.0" text="Записать " />
+        <Text fx:id="outputText" strokeType="OUTSIDE" strokeWidth="0.0">
+          <HBox.margin>
+            <Insets left="60.0" top="6.0" />
+          </HBox.margin>
+        </Text>
+      </children>
+      <VBox.margin>
+        <Insets left="24.0" top="14.0" />
+      </VBox.margin>
+    </HBox>
+    <HBox prefHeight="28.0" prefWidth="200.0">
+      <children>
+        <Text fx:id="titleFood" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #a11313;" text="FOOD ">
+          <font>
+            <Font size="18.0" />
+          </font>
+          <HBox.margin>
+            <Insets left="59.0" />
+          </HBox.margin>
+        </Text>
+        <TextField fx:id="inputFood" prefHeight="26.0" prefWidth="120.0">
+          <HBox.margin>
+            <Insets left="70.0" right="45.0" />
+          </HBox.margin>
+        </TextField>
+        <Button fx:id="btnFood" mnemonicParsing="false" onAction="#btnFoodAction" prefHeight="26.0" prefWidth="100.0" text="Записать " />
+        <Text fx:id="outputFood" strokeType="OUTSIDE" strokeWidth="0.0">
+          <HBox.margin>
+            <Insets left="60.0" top="6.0" />
+          </HBox.margin>
+        </Text>
+      </children>
+      <VBox.margin>
+        <Insets top="21.0" />
+      </VBox.margin>
+    </HBox>
+    <HBox prefHeight="28.0" prefWidth="200.0">
+      <children>
+        <Text fx:id="titleHouse" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #a11313;" text="FOOD ">
+          <font>
+            <Font size="18.0" />
+          </font>
+          <HBox.margin>
+            <Insets left="59.0" />
+          </HBox.margin>
+        </Text>
+        <TextField fx:id="inputHouse" prefHeight="26.0" prefWidth="120.0">
+          <HBox.margin>
+            <Insets left="70.0" right="45.0" />
+          </HBox.margin>
+        </TextField>
+        <Button fx:id="btnHouse" mnemonicParsing="false" onAction="#btnHouseAction" prefHeight="26.0" prefWidth="100.0" text="Записать " />
+        <Text fx:id="outputHouse" strokeType="OUTSIDE" strokeWidth="0.0">
+          <HBox.margin>
+            <Insets left="60.0" top="6.0" />
+          </HBox.margin>
+        </Text>
+      </children>
+      <VBox.margin>
+        <Insets top="21.0" />
+      </VBox.margin>
+    </HBox>
+  </children>
+</VBox>
