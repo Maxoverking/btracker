@@ -3,11 +3,14 @@ package com.example.btracker;
 import static com.example.btracker.allClasses.GetBudget.getBudget;
 
 import com.example.btracker.myException.customException;
-import javafx.event.ActionEvent;
+//import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 public class MainController {
+  private static final String errorIfMinus = " Отрицательный доход !!!";
+  private static final String errorIfString = "Ошибка: введено не число";
+  private static final String errorReturnMoney = "Нельзя ничего вернуть";
   @FXML
   private TextField inputField;
   @FXML
@@ -16,35 +19,41 @@ public class MainController {
   private Text outputError;
   private int budget = 0;
   @FXML
-  private void handleButtonAction(ActionEvent event) {
+  private void handleButtonAction() {
     try {
       //  преобразовать введенную строку в число
       int myBudget = getBudget(inputField.getText());
 
       if(myBudget<0){
-        throw new customException(" Отрицательный баланс!!!");
+        throw new customException(errorIfMinus);
       }else{
       budget += myBudget;
-      outputText.setText("Бюджет : " + budget + " € "+"  ▲");
+      outputText.setText(budget + " € "+"  ▲");
       outputError.setText("");
       }
     } catch (NumberFormatException e) {
       // вывод сообщения об ошибке, если введенная строка не является числом
-      outputError.setText("Ошибка: введено не число");
+      outputError.setText(errorIfString);
     }catch (customException e){
       outputError.setText(e.getMessage());
     }
 
     inputField.clear();
   }
-    @FXML
+  @FXML
+private void minusBudgetField(){
+    budget = 0;
+    outputText.setText("");
+}
+
+  @FXML
     private TextField inputFood;
 
     @FXML
     private Text outputFood;
     private int budgetFood = 0;
     @FXML
-    void btnFoodAction(ActionEvent event) {
+    private void btnFoodAction() {
       try {
         // попытка преобразовать введенную строку в число
         int priceForFood = Integer.parseInt(inputFood.getText());
@@ -52,17 +61,17 @@ public class MainController {
           throw new NumberFormatException();
         }
         budgetFood +=priceForFood;
-        budget= budget - priceForFood;
-        outputText.setText("Бюджет : " + budget + " € "+ "  ▼");
-        outputFood.setText("Бюджет : " + budgetFood  + " € "+ "  ▲");
+        budget = budget - priceForFood;
+        outputText.setText(budget + " € "+ "  ▼");
+        outputFood.setText(budgetFood  + " € "+ "  ▲");
         outputError.setText("");
         if(budget<0){
-          throw new customException(" Отрицательный баланс!!!");
+          throw new customException(errorIfMinus);
         }
         // вызываем метод из allClasses
       } catch (NumberFormatException e) {
         // вывод сообщения об ошибке, если введенная строка не является числом
-        outputError.setText("Ошибка: введено не число");
+        outputError.setText(errorIfString);
       }catch (customException e){
         outputError.setText(e.getMessage());
       }
@@ -70,12 +79,35 @@ public class MainController {
     }
 
   @FXML
+  private void returnFoodMoney(){
+
+      try {
+        int priceForFoodReturn = Integer.parseInt(inputFood.getText());
+
+        budgetFood = budgetFood-priceForFoodReturn;
+        if(budgetFood<0){
+          budgetFood=0;
+          throw new customException(errorReturnMoney);
+        }
+        budget += priceForFoodReturn;
+        outputText.setText(budget + " € "+ "  ▲");
+        outputFood.setText(budgetFood  + " € "+ "  ▼");
+
+      }catch (NumberFormatException e){
+        outputError.setText(errorIfString);
+      }catch (customException e){
+        outputError.setText(e.getMessage());
+      }
+    inputFood.clear();
+  }
+
+  @FXML
   private TextField inputHouse;
   @FXML
   private Text outputHouse;
   private int budgetHouse = 0;
   @FXML
-  void btnHouseAction(ActionEvent event) {
+  void btnHouseAction() {
     try {
       // преобразовать введенную строку в число
       int priceForHouse = Integer.parseInt(inputHouse.getText());
@@ -84,16 +116,16 @@ public class MainController {
       }else{
         budgetHouse +=priceForHouse;
       budget= budget - priceForHouse;
-      outputText.setText("Бюджет : " + budget + " € "+ "  ▼");
-      outputHouse.setText("Бюджет : " + budgetHouse  + " € "+ "  ▲");
+      outputText.setText(budget + " € "+ "  ▼");
+      outputHouse.setText(budgetHouse  + " € "+ "  ▲");
       outputError.setText("");
       }
       if(budget<0){
-        throw new customException(" Отрицательный баланс!!!");
+        throw new customException(errorIfMinus);
       }
     } catch (NumberFormatException e) {
       // вывод сообщения об ошибке, если введенная строка не является числом
-      outputError.setText("Ошибка: введено не число");
+      outputError.setText(errorIfString);
     }catch (customException e){
       outputError.setText(e.getMessage());
     }
@@ -101,12 +133,11 @@ public class MainController {
   }
   @FXML
   private TextField inputShopping;
-
   @FXML
   private Text outputShopping;
   private int budgetShopping = 0;
   @FXML
-  void btnShoppingAction(ActionEvent event) {
+  void btnShoppingAction() {
     try {
       // преобразовать введенную строку в число
       int priceForShopping = Integer.parseInt(inputShopping.getText());
@@ -115,16 +146,16 @@ public class MainController {
       }else{
         budgetShopping +=priceForShopping;
       budget= budget - priceForShopping;
-      outputText.setText("Бюджет : " + budget + " € "+ "  ▼");
-      outputShopping.setText("Бюджет : " + budgetShopping  + " € "+ "  ▲");
+      outputText.setText(budget + " € "+ "  ▼");
+      outputShopping.setText(budgetShopping  + " € "+ "  ▲");
       outputError.setText("");
       }
       if(budget<0){
-        throw new customException(" Отрицательный баланс!!!");
+        throw new customException(errorIfMinus);
       }
     } catch (NumberFormatException e) {
       // вывод сообщения об ошибке, если введенная строка не является числом
-      outputError.setText("Ошибка: введено не число");
+      outputError.setText(errorIfString);
     }catch (customException e){
       outputError.setText(e.getMessage());
     }
@@ -136,7 +167,7 @@ public class MainController {
   private Text outputTransport;
   private int budgetTransport = 0;
   @FXML
-  void btnTransportAction(ActionEvent event) {
+  void btnTransportAction() {
     try {
       // преобразовать введенную строку в число
       int priceForTransport = Integer.parseInt(inputTransport.getText());
@@ -145,28 +176,28 @@ public class MainController {
       }else{
         budgetTransport += priceForTransport;
       budget= budget - priceForTransport;
-      outputText.setText("Бюджет : " + budget + " € "+ "  ▼");
-      outputTransport.setText("Бюджет : " + budgetTransport + " € "+ "  ▲");
+      outputText.setText(budget + " € "+ "  ▼");
+      outputTransport.setText(budgetTransport + " € "+ "  ▲");
       outputError.setText("");
       }
       if(budget<0){
-        throw new customException(" Отрицательный баланс!!!");
+        throw new customException(errorIfMinus);
       }
     } catch (NumberFormatException e) {
       // вывод сообщения об ошибке, если введенная строка не является числом
-      outputError.setText("Ошибка: введено не число");
+      outputError.setText(errorIfString);
     }catch (customException e){
       outputError.setText(e.getMessage());
     }
     inputTransport.clear();
   }
- @FXML
+  @FXML
   private TextField inputEntertainment;
   @FXML
   private Text outputEntertainment;
   private int budgetEntertainment = 0;
   @FXML
-  void btnEntertainmentAction(ActionEvent event) {
+  void btnEntertainmentAction() {
     try {
       // преобразовать введенную строку в число
       int priceForEntertainment = Integer.parseInt(inputEntertainment.getText());
@@ -175,28 +206,28 @@ public class MainController {
       }else{
         budgetEntertainment += priceForEntertainment;
       budget= budget - priceForEntertainment;
-      outputText.setText("Бюджет : " + budget + " € "+ "  ▼");
-      outputEntertainment.setText("Бюджет : " + budgetEntertainment + " € "+ "  ▲");
+      outputText.setText(budget + " € "+ "  ▼");
+      outputEntertainment.setText(budgetEntertainment + " € "+ "  ▲");
       outputError.setText("");
       }
       if(budget<0){
-        throw new customException(" Отрицательный баланс!!!");
+        throw new customException(errorIfMinus);
       }
     } catch (NumberFormatException e) {
       // вывод сообщения об ошибке, если введенная строка не является числом
-      outputError.setText("Ошибка: введено не число");
+      outputError.setText(errorIfString);
     }catch (customException e){
       outputError.setText(e.getMessage());
     }
     inputEntertainment.clear();
   }
- @FXML
+  @FXML
   private TextField inputOther;
   @FXML
   private Text outputOther;
   private int budgetOther = 0;
   @FXML
-  void btnOtherAction(ActionEvent event) {
+  void btnOtherAction() {
     try {
       // преобразовать введенную строку в число
       int priceForOther = Integer.parseInt(inputOther.getText());
@@ -205,20 +236,38 @@ public class MainController {
       }else{
         budgetOther += priceForOther;
       budget= budget - priceForOther;
-      outputText.setText("Бюджет : " + budget + " € "+ "  ▼");
-      outputOther.setText("Бюджет : " + budgetOther + " € "+ "  ▲");
+      outputText.setText(budget + " € "+ "  ▼");
+      outputOther.setText(budgetOther + " € "+ "  ▲");
       outputError.setText("");
       }
       if(budget<0){
-        throw new customException(" Отрицательный баланс!!!");
+        throw new customException(errorIfMinus);
       }
     } catch (NumberFormatException e) {
       // вывод сообщения об ошибке, если введенная строка не является числом
-      outputError.setText("Ошибка: введено не число");
+      outputError.setText(errorIfString);
     }catch (customException e){
       outputError.setText(e.getMessage());
     }
     inputOther.clear();
+  }
+  @FXML
+  private void clearBudgetAllNotes(){
+    budget = 0;
+    budgetFood = 0;
+    budgetHouse = 0;
+    budgetShopping = 0;
+    budgetTransport = 0;
+    budgetEntertainment = 0;
+    budgetOther = 0;
+    outputText.setText("");
+    outputFood.setText("");
+    outputHouse.setText("");
+    outputShopping.setText("");
+    outputTransport.setText("");
+    outputEntertainment.setText("");
+    outputOther.setText("");
+
   }
 
   }

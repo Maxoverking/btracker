@@ -12,7 +12,7 @@
   <children>
     <Text fx:id="outputError" fill="#eb0404" strokeType="OUTSIDE" strokeWidth="0.0" >
       <VBox.margin>
-        <Insets left="372.0" top="15.0" />
+        <Insets left="348.0" top="15.0" />
       </VBox.margin>
       <font>
         <Font name="System Bold Italic" size="13.0" />
@@ -41,6 +41,9 @@
           <HBox.margin>
             <Insets left="29.0" top="6.0" />
           </HBox.margin>
+          <font>
+            <Font size="17.0" />
+          </font>
         </Text>
       </children>
       <VBox.margin>
@@ -70,6 +73,9 @@
           <HBox.margin>
             <Insets left="30.0" top="6.0" />
           </HBox.margin>
+          <font>
+            <Font size="17.0" />
+          </font>
         </Text>
       </children>
       <VBox.margin>
@@ -98,6 +104,9 @@
           <HBox.margin>
             <Insets left="30.0" top="6.0" />
           </HBox.margin>
+          <font>
+            <Font size="17.0" />
+          </font>
         </Text>
       </children>
       <VBox.margin>
@@ -127,6 +136,9 @@
           <HBox.margin>
             <Insets left="30.0" top="6.0" />
           </HBox.margin>
+          <font>
+            <Font size="17.0" />
+          </font>
         </Text>
       </children>
       <VBox.margin>
@@ -156,6 +168,9 @@
           <HBox.margin>
             <Insets left="30.0" top="6.0" />
           </HBox.margin>
+          <font>
+            <Font size="17.0" />
+          </font>
         </Text>
       </children>
       <VBox.margin>
@@ -185,6 +200,9 @@
           <HBox.margin>
             <Insets left="30.0" top="6.0" />
           </HBox.margin>
+          <font>
+            <Font size="17.0" />
+          </font>
         </Text>
       </children>
       <VBox.margin>
@@ -214,11 +232,60 @@
           <HBox.margin>
             <Insets left="30.0" top="6.0" />
           </HBox.margin>
+          <font>
+            <Font size="17.0" />
+          </font>
         </Text>
       </children>
       <VBox.margin>
         <Insets top="21.0" />
       </VBox.margin>
     </HBox>
+    <VBox prefHeight="329.0" prefWidth="170.0">
+      <VBox.margin>
+        <Insets left="500.0" right="16.0" top="-320.0" />
+      </VBox.margin>
+      <children>
+        <HBox prefHeight="26.0" prefWidth="200.0">
+          <children>
+            <Button fx:id="minusBudgetField" mnemonicParsing="false"
+              onAction="#minusBudgetField" style="-fx-background-color: #763234;"
+              text="-" textFill="#fffafa">
+              <HBox.margin>
+                <Insets right="7.0" />
+              </HBox.margin>
+            </Button>
+            <Button fx:id="clearBudgetAllNotes" mnemonicParsing="false"
+              onAction="#clearBudgetAllNotes" style="-fx-background-color: #B66D34;"
+              text="CLEAR  ALL NOTES" textFill="#f8f8f8">
+              <HBox.margin>
+                <Insets />
+              </HBox.margin>
+            </Button>
+          </children>
+        </HBox>
+        <HBox prefHeight="26.0" prefWidth="200.0">
+          <VBox.margin>
+            <Insets top="20.0" />
+          </VBox.margin>
+          <children>
+<!--            <Button fx:id="minusFoodField" mnemonicParsing="false"-->
+<!--              onAction="#minusFoodField" style="-fx-background-color: #763234;"-->
+<!--              text="-" textFill="#fffafa">-->
+<!--              <HBox.margin>-->
+<!--                <Insets right="7.0" />-->
+<!--              </HBox.margin>-->
+<!--            </Button>-->
+            <Button fx:id="returnFoodMoney" mnemonicParsing="false"
+              onAction="#returnFoodMoney" style="-fx-background-color: #B66D34;"
+              text="RETURN MONEY" textFill="WHITE">
+              <HBox.margin>
+                <Insets left="30.0" />
+              </HBox.margin>
+            </Button>
+          </children>
+        </HBox>
+      </children>
+    </VBox>
   </children>
 </VBox>
