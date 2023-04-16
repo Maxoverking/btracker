@@ -70,7 +70,7 @@
         <Font size="24.0"/>
       </font>
     </Text>
-    <TextField fx:id="inputField"
+    <TextField fx:id="inputBudgetField"
       prefHeight="26.0" prefWidth="70.0"
       promptText="Amount">
       <HBox.margin>
@@ -78,10 +78,10 @@
       </HBox.margin>
     </TextField>
     <Button fx:id="buttonBudget" mnemonicParsing="false"
-      onAction="#handleButtonAction"
+      onAction="#btnBudgetAction"
       prefHeight="26.0" prefWidth="60.0"
       text="ADD"/>
-    <Text fx:id="outputText" strokeType="OUTSIDE"
+    <Text fx:id="outputBudget" strokeType="OUTSIDE"
       strokeWidth="0.0">
       <HBox.margin>
         <Insets left="40.0" top="6.0"/>
