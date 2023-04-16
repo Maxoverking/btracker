@@ -12,7 +12,7 @@ public class Main extends Application {
   @Override
   public void start(Stage stage) throws IOException {
     FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("my-budget.fxml"));
-    Scene scene = new Scene(fxmlLoader.load(), 700, 630);
+    Scene scene = new Scene(fxmlLoader.load(), 750, 630);
     stage.setTitle("MY BUDGET");
     stage.setScene(scene);
     stage.show();

@@ -56,24 +56,25 @@ private Text outputError;
   @FXML
 private void minusBudgetFieldAction(){
     budget = 0;
+    outputError.setText("");
     outputBudget.setText("");
     buttonBudget.setDisable(false);
 }
 
   //  ПОЛЕ FIX AMOUNT
   @FXML
-  public TextField inputMount;
+  public TextField inputMonth;
   @FXML
   public Button fixAmount;
   @FXML
   public Text outputFixAmount;
   @FXML
   private void fixAmountAction() {
-    String month = inputMount.getText();
+    String month = inputMonth.getText();
     System.out.println("сбор даных из поля в методе fixAmountAction :"+ month  + " =  " +freezeFixAmount);
 
     outputFixAmount.setText("");
-    inputMount.clear();
+    inputMonth.clear();
   }
 
   @FXML
@@ -291,6 +292,7 @@ private void minusBudgetFieldAction(){
     budgetTransport = 0;
     budgetEntertainment = 0;
     budgetOther = 0;
+    outputError.setText("");
     outputBudget.setText("");
     outputFood.setText("");
     outputHouse.setText("");
