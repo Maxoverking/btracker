@@ -2,7 +2,7 @@ package com.example.btracker;
 
 import static com.example.btracker.allClasses.GetBudget.getBudget;
 
-import com.example.btracker.myException.customException;
+import com.example.btracker.exception.CustomException;
 //import javafx.event.ActionEvent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,14 +13,21 @@ public class MainController {
   private static final String errorIfMinus = " Отрицательный доход !!!";
   private static final String errorIfString = "Ошибка: введено не число";
   private static final String errorReturnMoney = "Нельзя ничего вернуть";
-//  ПОЛЕ MY BUDGET
+//  ERROR
+@FXML
+private Text outputError;
+
+
+  //  ПОЛЕ MY BUDGET
   @FXML
   private TextField inputBudgetField;
   @FXML
-  private Text outputBudget;
+  public Button buttonBudget;
   @FXML
-  private Text outputError;
+  private Text outputBudget;
+
   private int budget = 0;
+  private int freezeFixAmount = 0;
   @FXML
   private void btnBudgetAction() {
     try {
@@ -28,16 +35,19 @@ public class MainController {
       int myBudget = getBudget(inputBudgetField.getText());
 
       if(myBudget<0){
-        throw new customException(errorIfMinus);
+        throw new CustomException(errorIfMinus);
       }else{
       budget += myBudget;
+      freezeFixAmount +=myBudget;
       outputBudget.setText(budget + " € ");
+      outputFixAmount.setText(budget + " € ");
       outputError.setText("");
+      buttonBudget.setDisable(true);
       }
     } catch (NumberFormatException e) {
       // вывод сообщения об ошибке, если введенная строка не является числом
       outputError.setText(errorIfString);
-    }catch (customException e){
+    }catch (CustomException e){
       outputError.setText(e.getMessage());
     }
 
@@ -47,6 +57,7 @@ public class MainController {
 private void minusBudgetFieldAction(){
     budget = 0;
     outputBudget.setText("");
+    buttonBudget.setDisable(false);
 }
 
   //  ПОЛЕ FIX AMOUNT
@@ -58,7 +69,11 @@ private void minusBudgetFieldAction(){
   public Text outputFixAmount;
   @FXML
   private void fixAmountAction() {
+    String month = inputMount.getText();
+    System.out.println("сбор даных из поля в методе fixAmountAction :"+ month  + " =  " +freezeFixAmount);
 
+    outputFixAmount.setText("");
+    inputMount.clear();
   }
 
   @FXML
@@ -81,13 +96,13 @@ private void minusBudgetFieldAction(){
         outputFood.setText(budgetFood  + " € "+ "  ▲");
         outputError.setText("");
         if(budget<0){
-          throw new customException(errorIfMinus);
+          throw new CustomException(errorIfMinus);
         }
         // вызываем метод из allClasses
       } catch (NumberFormatException e) {
         // вывод сообщения об ошибке, если введенная строка не является числом
         outputError.setText(errorIfString);
-      }catch (customException e){
+      }catch (CustomException e){
         outputError.setText(e.getMessage());
       }
       inputFood.clear();
@@ -102,7 +117,7 @@ private void minusBudgetFieldAction(){
         budgetFood = budgetFood-priceForFoodReturn;
         if(budgetFood<0){
           budgetFood=0;
-          throw new customException(errorReturnMoney);
+          throw new CustomException(errorReturnMoney);
         }
         budget += priceForFoodReturn;
         outputBudget.setText(budget + " € "+ "  ▲");
@@ -111,7 +126,7 @@ private void minusBudgetFieldAction(){
 
       }catch (NumberFormatException e){
         outputError.setText(errorIfString);
-      }catch (customException e){
+      }catch (CustomException e){
         outputError.setText(e.getMessage());
       }
     inputFood.clear();
@@ -137,12 +152,12 @@ private void minusBudgetFieldAction(){
       outputError.setText("");
       }
       if(budget<0){
-        throw new customException(errorIfMinus);
+        throw new CustomException(errorIfMinus);
       }
     } catch (NumberFormatException e) {
       // вывод сообщения об ошибке, если введенная строка не является числом
       outputError.setText(errorIfString);
-    }catch (customException e){
+    }catch (CustomException e){
       outputError.setText(e.getMessage());
     }
     inputHouse.clear();
@@ -167,12 +182,12 @@ private void minusBudgetFieldAction(){
       outputError.setText("");
       }
       if(budget<0){
-        throw new customException(errorIfMinus);
+        throw new CustomException(errorIfMinus);
       }
     } catch (NumberFormatException e) {
       // вывод сообщения об ошибке, если введенная строка не является числом
       outputError.setText(errorIfString);
-    }catch (customException e){
+    }catch (CustomException e){
       outputError.setText(e.getMessage());
     }
     inputShopping.clear();
@@ -197,12 +212,12 @@ private void minusBudgetFieldAction(){
       outputError.setText("");
       }
       if(budget<0){
-        throw new customException(errorIfMinus);
+        throw new CustomException(errorIfMinus);
       }
     } catch (NumberFormatException e) {
       // вывод сообщения об ошибке, если введенная строка не является числом
       outputError.setText(errorIfString);
-    }catch (customException e){
+    }catch (CustomException e){
       outputError.setText(e.getMessage());
     }
     inputTransport.clear();
@@ -227,12 +242,12 @@ private void minusBudgetFieldAction(){
       outputError.setText("");
       }
       if(budget<0){
-        throw new customException(errorIfMinus);
+        throw new CustomException(errorIfMinus);
       }
     } catch (NumberFormatException e) {
       // вывод сообщения об ошибке, если введенная строка не является числом
       outputError.setText(errorIfString);
-    }catch (customException e){
+    }catch (CustomException e){
       outputError.setText(e.getMessage());
     }
     inputEntertainment.clear();
@@ -257,12 +272,12 @@ private void minusBudgetFieldAction(){
       outputError.setText("");
       }
       if(budget<0){
-        throw new customException(errorIfMinus);
+        throw new CustomException(errorIfMinus);
       }
     } catch (NumberFormatException e) {
       // вывод сообщения об ошибке, если введенная строка не является числом
       outputError.setText(errorIfString);
-    }catch (customException e){
+    }catch (CustomException e){
       outputError.setText(e.getMessage());
     }
     inputOther.clear();
@@ -283,6 +298,8 @@ private void minusBudgetFieldAction(){
     outputTransport.setText("");
     outputEntertainment.setText("");
     outputOther.setText("");
+    buttonBudget.setDisable(false);
+    outputFixAmount.setText("");
 
   }
 
