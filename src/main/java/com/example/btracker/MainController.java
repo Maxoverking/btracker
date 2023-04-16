@@ -4,13 +4,16 @@ import static com.example.btracker.allClasses.GetBudget.getBudget;
 
 import com.example.btracker.myException.customException;
 //import javafx.event.ActionEvent;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 public class MainController {
   private static final String errorIfMinus = " Отрицательный доход !!!";
   private static final String errorIfString = "Ошибка: введено не число";
   private static final String errorReturnMoney = "Нельзя ничего вернуть";
+//  ПОЛЕ MY BUDGET
   @FXML
   private TextField inputField;
   @FXML
@@ -28,7 +31,7 @@ public class MainController {
         throw new customException(errorIfMinus);
       }else{
       budget += myBudget;
-      outputText.setText(budget + " € "+"  ▲");
+      outputText.setText(budget + " € ");
       outputError.setText("");
       }
     } catch (NumberFormatException e) {
@@ -41,10 +44,22 @@ public class MainController {
     inputField.clear();
   }
   @FXML
-private void minusBudgetField(){
+private void minusBudgetFieldAction(){
     budget = 0;
     outputText.setText("");
 }
+
+  //  ПОЛЕ FIX AMOUNT
+  @FXML
+  public TextField inputMount;
+  @FXML
+  public Button fixAmount;
+  @FXML
+  public Text outputFixAmount;
+  @FXML
+  private void fixAmountAction() {
+
+  }
 
   @FXML
     private TextField inputFood;
@@ -79,7 +94,7 @@ private void minusBudgetField(){
     }
 
   @FXML
-  private void returnFoodMoney(){
+  private void returnFoodMoneyAction(){
 
       try {
         int priceForFoodReturn = Integer.parseInt(inputFood.getText());
@@ -92,6 +107,7 @@ private void minusBudgetField(){
         budget += priceForFoodReturn;
         outputText.setText(budget + " € "+ "  ▲");
         outputFood.setText(budgetFood  + " € "+ "  ▼");
+        outputError.setText("");
 
       }catch (NumberFormatException e){
         outputError.setText(errorIfString);
@@ -252,7 +268,7 @@ private void minusBudgetField(){
     inputOther.clear();
   }
   @FXML
-  private void clearBudgetAllNotes(){
+  private void clearBudgetAllNotesAction(){
     budget = 0;
     budgetFood = 0;
     budgetHouse = 0;
@@ -270,6 +286,20 @@ private void minusBudgetField(){
 
   }
 
+  public void returnHouseMoneyAction(ActionEvent actionEvent) {
   }
+
+  public void returnShoppingMoneyAction(ActionEvent actionEvent) {
+  }
+
+  public void returnTransportMoneyAction(ActionEvent actionEvent) {
+  }
+
+  public void returnEntertaimentMoneyAction(ActionEvent actionEvent) {
+  }
+
+  public void returnOtherMoneyAction(ActionEvent actionEvent) {
+  }
+}
 
 
