@@ -303,6 +303,7 @@ private void minusIncomeFieldAction(){
   @FXML
   private void clearAllNotesAction(){
     income = 0;
+    freezeFixAmount = 0;
     budgetFood = 0;
     budgetHouse = 0;
     budgetShopping = 0;
