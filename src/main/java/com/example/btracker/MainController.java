@@ -13,9 +13,35 @@ public class MainController {
   private static final String errorIfMinus = " Отрицательный доход !!!";
   private static final String errorIfString = "Ошибка: введено не число";
   private static final String errorReturnMoney = "Нельзя ничего вернуть";
-//  ERROR
+
+
+  //  ERROR
 @FXML
 private Text outputError;
+
+  @FXML
+  public TextField inputMonth;
+  @FXML
+  public Button fixAmount;
+  @FXML
+  public Text outputFixAmount;
+  @FXML
+  public Text enterMonth;
+  private String getMonth = "";
+  @FXML
+  private void fixAmountAction() {
+    String month = inputMonth.getText();
+    if(month.isEmpty()){
+      outputError.setText("Field a month is required");
+      return;
+    }
+    getMonth = month;
+
+    System.out.println("сбор даных из поля в методе fixAmountAction :"+ month  + " =  " +freezeFixAmount);
+    outputError.setText("");
+    inputMonth.clear();
+  }
+
 
 
   //  ПОЛЕ MY BUDGET
@@ -40,9 +66,10 @@ private Text outputError;
       budget += myBudget;
       freezeFixAmount +=myBudget;
       outputBudget.setText(budget + " € ");
-      outputFixAmount.setText(budget + " € ");
       outputError.setText("");
       buttonBudget.setDisable(true);
+      outputFixAmount.setText(budget + " € ");
+      fixAmount.setDisable(false);
       }
     } catch (NumberFormatException e) {
       // вывод сообщения об ошибке, если введенная строка не является числом
@@ -60,22 +87,6 @@ private void minusBudgetFieldAction(){
     outputBudget.setText("");
     buttonBudget.setDisable(false);
 }
-
-  //  ПОЛЕ FIX AMOUNT
-  @FXML
-  public TextField inputMonth;
-  @FXML
-  public Button fixAmount;
-  @FXML
-  public Text outputFixAmount;
-  @FXML
-  private void fixAmountAction() {
-    String month = inputMonth.getText();
-    System.out.println("сбор даных из поля в методе fixAmountAction :"+ month  + " =  " +freezeFixAmount);
-
-    outputFixAmount.setText("");
-    inputMonth.clear();
-  }
 
   @FXML
     private TextField inputFood;
@@ -99,7 +110,6 @@ private void minusBudgetFieldAction(){
         if(budget<0){
           throw new CustomException(errorIfMinus);
         }
-        // вызываем метод из allClasses
       } catch (NumberFormatException e) {
         // вывод сообщения об ошибке, если введенная строка не является числом
         outputError.setText(errorIfString);
@@ -302,22 +312,44 @@ private void minusBudgetFieldAction(){
     outputOther.setText("");
     buttonBudget.setDisable(false);
     outputFixAmount.setText("");
-
+    fixAmount.setDisable(true);
+    btnDecember.setStyle("");
   }
-
+  @FXML
   public void returnHouseMoneyAction(ActionEvent actionEvent) {
   }
-
+  @FXML
   public void returnShoppingMoneyAction(ActionEvent actionEvent) {
   }
-
+  @FXML
   public void returnTransportMoneyAction(ActionEvent actionEvent) {
   }
-
+  @FXML
   public void returnEntertaimentMoneyAction(ActionEvent actionEvent) {
   }
-
+  @FXML
   public void returnOtherMoneyAction(ActionEvent actionEvent) {
+  }
+  @FXML
+  public Button btnDecember;
+  @FXML
+  public Button btnDecemberShow;
+  @FXML
+  public void btnDecemberAction(ActionEvent actionEvent) {
+    btnDecemberShow.setText("Show");
+    btnDecemberShow.setVisible(true);
+    btnDecember.setStyle("-fx-background-color: #FF8034;");
+//    btnDecember.setVisible(false);
+//    btnDecember.setDisable(true);
+  }
+  @FXML
+  public void btnDecemberShowAction(ActionEvent actionEvent) {
+//    btnDecemberShow.setStyle("-fx-background-color: #4CAF50;");
+    btnDecemberShow.setVisible(false);
+
+//    btnDecember.setDisable(true);
+    outputOther.setText(budgetOther+"");
+    outputFixAmount.setText(freezeFixAmount+"");
   }
 }
 
