@@ -339,6 +339,7 @@ private void minusBudgetFieldAction(){
     btnDecemberShow.setText("Show");
     btnDecemberShow.setVisible(true);
     btnDecember.setStyle("-fx-background-color: #FF8034;");
+    outputError.setText("");
 //    btnDecember.setVisible(false);
 //    btnDecember.setDisable(true);
   }
@@ -349,7 +350,7 @@ private void minusBudgetFieldAction(){
 
 //    btnDecember.setDisable(true);
     outputOther.setText(budgetOther+"");
-    outputFixAmount.setText(freezeFixAmount+"");
+    outputFixAmount.setText(freezeFixAmount+" € ");
   }
 }
 
