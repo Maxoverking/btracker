@@ -18,7 +18,7 @@
   xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
   fx:controller="com.example.btracker.MainController">
   <!--    БЛОК МЕСЯЦ ФИКС СУММУ И ОШИБКА-->
-  <HBox prefHeight="24.0" prefWidth="200.0">
+  <HBox prefHeight="24.0" prefWidth="200.0" >
     <VBox.margin>
       <Insets top="20.0" />
     </VBox.margin>
@@ -28,7 +28,7 @@
         <Font size="18.0" />
       </font>
       <HBox.margin>
-        <Insets left="44.0" right="20.0" />
+        <Insets left="41.0" right="24.0" />
       </HBox.margin>
     </Text>
     <TextField fx:id="inputMonth" maxWidth="90" prefWidth="90" promptText="Month">
@@ -44,12 +44,12 @@
         <Insets left="16.0" />
       </HBox.margin>
     </Button>
-    <Text fx:id="outputFixAmount" fill="#5ea453" strokeType="OUTSIDE" strokeWidth="0.0">
+    <Text fx:id="outputFix" strokeType="OUTSIDE" strokeWidth="0.0">
       <HBox.margin>
-        <Insets left="20.0" />
+        <Insets left="26.0"  top="6.0" />
       </HBox.margin>
       <font>
-        <Font size="20.0" />
+        <Font size="16.0" />
       </font>
     </Text>
     <Text fx:id="outputError" fill="#eb0404" strokeType="OUTSIDE" strokeWidth="0.0">
@@ -64,12 +64,13 @@
   <!--    БЛОК МЕСЯЦ ФИКС СУММУ И ОШИБКА-->
 
   <!--    БЛОК ПОЛЯ ДОБАВЛЕНИЯ СУММЫ-->
-  <!--    MY BUDGET-->
+  <!--   INCOME  -->
   <HBox prefHeight="28.0" prefWidth="200.0">
     <VBox.margin>
-      <Insets left="24.0" top="14.0" />
+      <Insets left="42.0" top="14.0" />
     </VBox.margin>
-    <Text fx:id="titleBudget" strokeType="OUTSIDE" strokeWidth="0.0" text="MY BUDGET " textAlignment="CENTER" textOrigin="TOP">
+    <Text fx:id="titleIncome" strokeType="OUTSIDE" strokeWidth="0.0"
+      text="INCOME" textAlignment="CENTER" textOrigin="TOP">
       <effect>
         <Glow />
       </effect>
@@ -77,18 +78,24 @@
         <Font size="24.0" />
       </font>
     </Text>
-    <TextField fx:id="inputBudgetField" prefHeight="26.0" prefWidth="70.0" promptText="Amount">
+    <TextField fx:id="inputIncomeField" prefHeight="26.0" prefWidth="70.0"
+      promptText="Amount">
       <HBox.margin>
-        <Insets left="21.0" right="45.0" />
+        <Insets left="49.0" right="45.0" />
       </HBox.margin>
     </TextField>
-    <Button fx:id="buttonBudget" mnemonicParsing="false" onAction="#btnBudgetAction" prefHeight="26.0" prefWidth="60.0" text="ADD" />
-    <Text fx:id="outputBudget" strokeType="OUTSIDE" strokeWidth="0.0">
+    <Button fx:id="buttonIncome" mnemonicParsing="false"
+      onAction="#btnIncomeAction"
+      prefHeight="26.0" prefWidth="60.0"
+      text="ADD" />
+
+     <Text fx:id="outputIncome" fill="#5ea453" strokeType="OUTSIDE" strokeWidth="0.0">
+
       <HBox.margin>
-        <Insets left="40.0" top="6.0" />
+        <Insets left="40.0" />
       </HBox.margin>
       <font>
-        <Font size="16.0" />
+        <Font size="22.0" />
       </font>
     </Text>
   </HBox>
@@ -268,12 +275,17 @@
       <Insets left="526.0" right="16.0" top="-310.0" />
     </VBox.margin>
     <HBox prefHeight="26.0" prefWidth="200.0">
-      <Button fx:id="minusBudgetField" mnemonicParsing="false" onAction="#minusBudgetFieldAction" style="-fx-background-color: #763234;" text="-" textFill="#fffafa">
+      <Button fx:id="minusBudgetField" mnemonicParsing="false"
+        onAction="#minusIncomeFieldAction" style="-fx-background-color: #763234;"
+        text="-" textFill="#fffafa">
         <HBox.margin>
           <Insets right="7.0" />
         </HBox.margin>
       </Button>
-      <Button fx:id="clearBudgetAllNotes" mnemonicParsing="false" onAction="#clearBudgetAllNotesAction" style="-fx-background-color: #B66D34;" text="CLEAR  ALL NOTES" textFill="#f8f8f8">
+      <Button fx:id="clearAllNotes" mnemonicParsing="false"
+
+        onAction="#clearAllNotesAction" style="-fx-background-color: #B66D34;"
+        text="CLEAR  ALL NOTES" textFill="#f8f8f8">
         <HBox.margin>
           <Insets />
         </HBox.margin>

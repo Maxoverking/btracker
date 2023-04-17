@@ -1,7 +1,9 @@
 package com.example.btracker;
 
-import static com.example.btracker.allClasses.GetBudget.getBudget;
+import static com.example.btracker.allClasses.ParsingFieldsAmount.parsingFieldsAmount;
 
+import com.example.btracker.allClasses.GetMonthAndIncome;
+import com.example.btracker.allClasses.NewAmountIncome;
 import com.example.btracker.exception.CustomException;
 //import javafx.event.ActionEvent;
 import javafx.event.ActionEvent;
@@ -24,10 +26,11 @@ private Text outputError;
   @FXML
   public Button fixAmount;
   @FXML
-  public Text outputFixAmount;
+  public Text outputIncome;
   @FXML
   public Text enterMonth;
-  private String getMonth = "";
+  public int incomeFix;
+
   @FXML
   private void fixAmountAction() {
     String month = inputMonth.getText();
@@ -35,40 +38,43 @@ private Text outputError;
       outputError.setText("Field a month is required");
       return;
     }
-    getMonth = month;
+    GetMonthAndIncome dataMonthAndIncome = new GetMonthAndIncome(month,freezeFixAmount);
 
-    System.out.println("сбор даных из поля в методе fixAmountAction :"+ month  + " =  " +freezeFixAmount);
+    System.out.println("сбор даных из поля в методе fixAmountAction :"
+        + dataMonthAndIncome.getMonth()  + " =  " +dataMonthAndIncome.getIncome());
+    incomeFix = dataMonthAndIncome.getIncome();
     outputError.setText("");
+    freezeFixAmount = 0;
+    outputIncome.setText("");
+    outputFix.setText("");
     inputMonth.clear();
   }
 
 
+  //  ПОЛЕ INCOME
+  @FXML
+  private TextField inputIncomeField;
+  @FXML
+  public Button buttonIncome;
+  @FXML
+  private Text outputFix;
 
-  //  ПОЛЕ MY BUDGET
-  @FXML
-  private TextField inputBudgetField;
-  @FXML
-  public Button buttonBudget;
-  @FXML
-  private Text outputBudget;
-
-  private int budget = 0;
+  private int income = 0;
   private int freezeFixAmount = 0;
   @FXML
-  private void btnBudgetAction() {
+  private void btnIncomeAction() {
     try {
       //  преобразовать введенную строку в число
-      int myBudget = getBudget(inputBudgetField.getText());
+      int newAmountIncome = parsingFieldsAmount(inputIncomeField.getText());
 
-      if(myBudget<0){
+      if(newAmountIncome<0){
         throw new CustomException(errorIfMinus);
       }else{
-      budget += myBudget;
-      freezeFixAmount +=myBudget;
-      outputBudget.setText(budget + " € ");
+      freezeFixAmount += newAmountIncome ;
+      income += new NewAmountIncome(newAmountIncome).getIncome() ;
+      outputFix.setText(income + " €  ▲");
       outputError.setText("");
-      buttonBudget.setDisable(true);
-      outputFixAmount.setText(budget + " € ");
+      outputIncome.setText(freezeFixAmount + " € ");
       fixAmount.setDisable(false);
       }
     } catch (NumberFormatException e) {
@@ -78,15 +84,16 @@ private Text outputError;
       outputError.setText(e.getMessage());
     }
 
-    inputBudgetField.clear();
+    inputIncomeField.clear();
   }
   @FXML
-private void minusBudgetFieldAction(){
-    budget = 0;
+private void minusIncomeFieldAction(){
+    income = 0;
+    freezeFixAmount = 0;
     outputError.setText("");
-    outputBudget.setText("");
-    buttonBudget.setDisable(false);
-}
+    outputFix.setText("");
+    outputIncome.setText("");
+  }
 
   @FXML
     private TextField inputFood;
@@ -98,16 +105,16 @@ private void minusBudgetFieldAction(){
     private void btnFoodAction() {
       try {
         // попытка преобразовать введенную строку в число
-        int priceForFood = Integer.parseInt(inputFood.getText());
+        int priceForFood = parsingFieldsAmount(inputFood.getText());
         if(priceForFood<0){
           throw new NumberFormatException();
         }
         budgetFood +=priceForFood;
-        budget = budget - priceForFood;
-        outputBudget.setText(budget + " € "+ "  ▼");
-        outputFood.setText(budgetFood  + " € "+ "  ▲");
+        income = income - priceForFood;
+        outputFix.setText(income + " €  ▼");
+        outputFood.setText(budgetFood  + " €  ▲");
         outputError.setText("");
-        if(budget<0){
+        if(income<0){
           throw new CustomException(errorIfMinus);
         }
       } catch (NumberFormatException e) {
@@ -123,16 +130,16 @@ private void minusBudgetFieldAction(){
   private void returnFoodMoneyAction(){
 
       try {
-        int priceForFoodReturn = Integer.parseInt(inputFood.getText());
+        int priceForFoodReturn = parsingFieldsAmount(inputFood.getText());
 
         budgetFood = budgetFood-priceForFoodReturn;
         if(budgetFood<0){
           budgetFood=0;
           throw new CustomException(errorReturnMoney);
         }
-        budget += priceForFoodReturn;
-        outputBudget.setText(budget + " € "+ "  ▲");
-        outputFood.setText(budgetFood  + " € "+ "  ▼");
+        income += priceForFoodReturn;
+        outputFix.setText(income + " €  ▲");
+        outputFood.setText(budgetFood  + " €  ▼");
         outputError.setText("");
 
       }catch (NumberFormatException e){
@@ -152,17 +159,17 @@ private void minusBudgetFieldAction(){
   void btnHouseAction() {
     try {
       // преобразовать введенную строку в число
-      int priceForHouse = Integer.parseInt(inputHouse.getText());
+      int priceForHouse = parsingFieldsAmount(inputHouse.getText());
       if(priceForHouse<0){
         throw new NumberFormatException();
       }else{
         budgetHouse +=priceForHouse;
-      budget= budget - priceForHouse;
-      outputBudget.setText(budget + " € "+ "  ▼");
-      outputHouse.setText(budgetHouse  + " € "+ "  ▲");
+        income= income - priceForHouse;
+        outputFix.setText(income + " €  ▼");
+      outputHouse.setText(budgetHouse  + " €  ▲");
       outputError.setText("");
       }
-      if(budget<0){
+      if(income<0){
         throw new CustomException(errorIfMinus);
       }
     } catch (NumberFormatException e) {
@@ -182,17 +189,17 @@ private void minusBudgetFieldAction(){
   void btnShoppingAction() {
     try {
       // преобразовать введенную строку в число
-      int priceForShopping = Integer.parseInt(inputShopping.getText());
+      int priceForShopping = parsingFieldsAmount(inputShopping.getText());
       if(priceForShopping<0){
         throw new NumberFormatException();
       }else{
         budgetShopping +=priceForShopping;
-      budget= budget - priceForShopping;
-      outputBudget.setText(budget + " € "+ "  ▼");
-      outputShopping.setText(budgetShopping  + " € "+ "  ▲");
+        income= income - priceForShopping;
+        outputFix.setText(income + " €  ▼");
+      outputShopping.setText(budgetShopping  + " €  ▲");
       outputError.setText("");
       }
-      if(budget<0){
+      if(income<0){
         throw new CustomException(errorIfMinus);
       }
     } catch (NumberFormatException e) {
@@ -212,17 +219,17 @@ private void minusBudgetFieldAction(){
   void btnTransportAction() {
     try {
       // преобразовать введенную строку в число
-      int priceForTransport = Integer.parseInt(inputTransport.getText());
+      int priceForTransport = parsingFieldsAmount(inputTransport.getText());
       if(priceForTransport<0){
         throw new NumberFormatException();
       }else{
         budgetTransport += priceForTransport;
-      budget= budget - priceForTransport;
-        outputBudget.setText(budget + " € "+ "  ▼");
-      outputTransport.setText(budgetTransport + " € "+ "  ▲");
+        income= income - priceForTransport;
+        outputFix.setText(income + " €  ▼");
+      outputTransport.setText(budgetTransport + " €  ▲");
       outputError.setText("");
       }
-      if(budget<0){
+      if(income<0){
         throw new CustomException(errorIfMinus);
       }
     } catch (NumberFormatException e) {
@@ -242,17 +249,17 @@ private void minusBudgetFieldAction(){
   void btnEntertainmentAction() {
     try {
       // преобразовать введенную строку в число
-      int priceForEntertainment = Integer.parseInt(inputEntertainment.getText());
+      int priceForEntertainment = parsingFieldsAmount(inputEntertainment.getText());
       if(priceForEntertainment<0){
         throw new NumberFormatException();
       }else{
         budgetEntertainment += priceForEntertainment;
-      budget= budget - priceForEntertainment;
-        outputBudget.setText(budget + " € "+ "  ▼");
-      outputEntertainment.setText(budgetEntertainment + " € "+ "  ▲");
+        income = income - priceForEntertainment;
+        outputFix.setText(income + " €  ▼");
+      outputEntertainment.setText(budgetEntertainment + " €  ▲");
       outputError.setText("");
       }
-      if(budget<0){
+      if(income<0){
         throw new CustomException(errorIfMinus);
       }
     } catch (NumberFormatException e) {
@@ -272,17 +279,17 @@ private void minusBudgetFieldAction(){
   void btnOtherAction() {
     try {
       // преобразовать введенную строку в число
-      int priceForOther = Integer.parseInt(inputOther.getText());
+      int priceForOther = parsingFieldsAmount(inputOther.getText());
       if(priceForOther<0){
         throw new NumberFormatException();
       }else{
         budgetOther += priceForOther;
-      budget= budget - priceForOther;
-        outputBudget.setText(budget + " € "+ "  ▼");
-      outputOther.setText(budgetOther + " € "+ "  ▲");
+        income= income - priceForOther;
+        outputFix.setText(income + " €  ▼");
+      outputOther.setText(budgetOther + " €  ▲");
       outputError.setText("");
       }
-      if(budget<0){
+      if(income<0){
         throw new CustomException(errorIfMinus);
       }
     } catch (NumberFormatException e) {
@@ -294,8 +301,8 @@ private void minusBudgetFieldAction(){
     inputOther.clear();
   }
   @FXML
-  private void clearBudgetAllNotesAction(){
-    budget = 0;
+  private void clearAllNotesAction(){
+    income = 0;
     budgetFood = 0;
     budgetHouse = 0;
     budgetShopping = 0;
@@ -303,15 +310,14 @@ private void minusBudgetFieldAction(){
     budgetEntertainment = 0;
     budgetOther = 0;
     outputError.setText("");
-    outputBudget.setText("");
+    outputFix.setText("");
     outputFood.setText("");
     outputHouse.setText("");
     outputShopping.setText("");
     outputTransport.setText("");
     outputEntertainment.setText("");
     outputOther.setText("");
-    buttonBudget.setDisable(false);
-    outputFixAmount.setText("");
+    outputIncome.setText("");
     fixAmount.setDisable(true);
     btnDecember.setStyle("");
   }
@@ -350,7 +356,7 @@ private void minusBudgetFieldAction(){
 
 //    btnDecember.setDisable(true);
     outputOther.setText(budgetOther+"");
-    outputFixAmount.setText(freezeFixAmount+" € ");
+    outputIncome.setText(incomeFix+" € ");
   }
 }
 
