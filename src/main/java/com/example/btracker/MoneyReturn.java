@@ -12,7 +12,7 @@ public class MoneyReturn {
      * @param priceReturn - количество денег, которые хотим вернуть
      * @return - разница между расходами по текущей категории и вводимым значением
      */
-    public static int moneyReturn(int amount, int priceReturn) {
+    public static int returnMoney(int amount, int priceReturn) {
         if (amount > 0 && priceReturn <= amount) {
             return amount - priceReturn;
         } else {
