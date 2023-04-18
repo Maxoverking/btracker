@@ -1,6 +1,6 @@
 package com.example.btracker;
 
-import static com.example.btracker.allClasses.ParsingFieldsAmount.parsingFieldsAmount;
+import static com.example.btracker.MoneyReturn.moneyReturn;
 
 import com.example.btracker.allClasses.GetMonthAndIncome;
 import com.example.btracker.allClasses.NewAmountIncome;
@@ -14,7 +14,7 @@ import javafx.scene.text.Text;
 public class MainController {
   private static final String errorIfMinus = " Отрицательный доход !!!";
   private static final String errorIfString = "Ошибка: введено не число";
-  private static final String errorReturnMoney = "Нельзя ничего вернуть";
+//  static final String errorReturnMoney = "Нельзя ничего вернуть";
 
 
   //  ERROR
@@ -60,12 +60,13 @@ private Text outputError;
   private Text outputFix;
 
   private int income = 0;
+
   private int freezeFixAmount = 0;
   @FXML
   private void btnIncomeAction() {
     try {
       //  преобразовать введенную строку в число
-      int newAmountIncome = parsingFieldsAmount(inputIncomeField.getText());
+      int newAmountIncome = Integer.parseInt(inputIncomeField.getText());
 
       if(newAmountIncome<0){
         throw new CustomException(errorIfMinus);
@@ -98,18 +99,20 @@ private void minusIncomeFieldAction(){
   @FXML
     private TextField inputFood;
 
-    @FXML
+  @FXML
     private Text outputFood;
+
     private int budgetFood = 0;
+
     @FXML
     private void btnFoodAction() {
       try {
         // попытка преобразовать введенную строку в число
-        int priceForFood = parsingFieldsAmount(inputFood.getText());
+        int priceForFood = Integer.parseInt(inputFood.getText());
         if(priceForFood<0){
           throw new NumberFormatException();
         }
-        budgetFood +=priceForFood;
+        budgetFood += priceForFood;
         income = income - priceForFood;
         outputFix.setText(income + " €  ▼");
         outputFood.setText(budgetFood  + " €  ▲");
@@ -128,23 +131,19 @@ private void minusIncomeFieldAction(){
 
   @FXML
   private void returnFoodMoneyAction(){
-
       try {
-        int priceForFoodReturn = parsingFieldsAmount(inputFood.getText());
+        int priceForFoodReturn = Integer.parseInt(inputFood.getText());
 
-        budgetFood = budgetFood-priceForFoodReturn;
-        if(budgetFood<0){
-          budgetFood=0;
-          throw new CustomException(errorReturnMoney);
-        }
+        budgetFood = moneyReturn(budgetFood, priceForFoodReturn);
+
         income += priceForFoodReturn;
         outputFix.setText(income + " €  ▲");
         outputFood.setText(budgetFood  + " €  ▼");
         outputError.setText("");
 
-      }catch (NumberFormatException e){
+      } catch (NumberFormatException e) {
         outputError.setText(errorIfString);
-      }catch (CustomException e){
+      } catch (CustomException e) {
         outputError.setText(e.getMessage());
       }
     inputFood.clear();
@@ -159,7 +158,7 @@ private void minusIncomeFieldAction(){
   void btnHouseAction() {
     try {
       // преобразовать введенную строку в число
-      int priceForHouse = parsingFieldsAmount(inputHouse.getText());
+      int priceForHouse = Integer.parseInt(inputHouse.getText());
       if(priceForHouse<0){
         throw new NumberFormatException();
       }else{
@@ -189,7 +188,7 @@ private void minusIncomeFieldAction(){
   void btnShoppingAction() {
     try {
       // преобразовать введенную строку в число
-      int priceForShopping = parsingFieldsAmount(inputShopping.getText());
+      int priceForShopping = Integer.parseInt(inputShopping.getText());
       if(priceForShopping<0){
         throw new NumberFormatException();
       }else{
@@ -219,7 +218,7 @@ private void minusIncomeFieldAction(){
   void btnTransportAction() {
     try {
       // преобразовать введенную строку в число
-      int priceForTransport = parsingFieldsAmount(inputTransport.getText());
+      int priceForTransport = Integer.parseInt(inputTransport.getText());
       if(priceForTransport<0){
         throw new NumberFormatException();
       }else{
@@ -249,7 +248,7 @@ private void minusIncomeFieldAction(){
   void btnEntertainmentAction() {
     try {
       // преобразовать введенную строку в число
-      int priceForEntertainment = parsingFieldsAmount(inputEntertainment.getText());
+      int priceForEntertainment = Integer.parseInt(inputEntertainment.getText());
       if(priceForEntertainment<0){
         throw new NumberFormatException();
       }else{
@@ -279,7 +278,7 @@ private void minusIncomeFieldAction(){
   void btnOtherAction() {
     try {
       // преобразовать введенную строку в число
-      int priceForOther = parsingFieldsAmount(inputOther.getText());
+      int priceForOther = Integer.parseInt(inputOther.getText());
       if(priceForOther<0){
         throw new NumberFormatException();
       }else{
