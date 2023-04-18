@@ -1,6 +1,7 @@
 package com.example.btracker;
 
-import static com.example.btracker.MoneyReturn.moneyReturn;
+import static com.example.btracker.MoneyAdd.addMoney;
+import static com.example.btracker.MoneyReturn.returnMoney;
 
 import com.example.btracker.allClasses.GetMonthAndIncome;
 import com.example.btracker.allClasses.NewAmountIncome;
@@ -102,10 +103,12 @@ public class MainController {
         try {
             // попытка преобразовать введенную строку в число
             int priceForFood = Integer.parseInt(inputFood.getText());
-            if (priceForFood < 0) {
-                throw new NumberFormatException();
-            }
-            budgetFood += priceForFood;
+
+            budgetFood = addMoney(priceForFood, budgetFood);
+//            if (priceForFood < 0) {
+//                throw new NumberFormatException();
+//            }
+//            budgetFood += priceForFood;
             income = income - priceForFood;
             outputFix.setText(income + " € ");
             outputFood.setText(budgetFood + " € ");
@@ -319,7 +322,7 @@ public class MainController {
     private void returnFoodMoneyAction() {
         try {
             int priceForFoodReturn = Integer.parseInt(inputFood.getText());
-            budgetFood = moneyReturn(budgetFood, priceForFoodReturn);
+            budgetFood = returnMoney(budgetFood, priceForFoodReturn);
             income += priceForFoodReturn;
             outputFix.setText(income + " € ");
             outputFood.setText(budgetFood + " € ");
@@ -336,7 +339,7 @@ public class MainController {
     public void returnHouseMoneyAction() {
         try {
             int priceForHouseReturn = Integer.parseInt(inputHouse.getText());
-            budgetHouse = moneyReturn(budgetHouse, priceForHouseReturn);
+            budgetHouse = returnMoney(budgetHouse, priceForHouseReturn);
             income += priceForHouseReturn;
             outputFix.setText(income + " € ");
             outputHouse.setText(budgetHouse + " € ");
@@ -354,7 +357,7 @@ public class MainController {
     public void returnShoppingMoneyAction() {
         try {
             int priceForShoppingReturn = Integer.parseInt(inputShopping.getText());
-            budgetShopping = moneyReturn(budgetShopping, priceForShoppingReturn);
+            budgetShopping = returnMoney(budgetShopping, priceForShoppingReturn);
             income += priceForShoppingReturn;
             outputFix.setText(income + " € ");
             outputShopping.setText(budgetShopping + " € ");
@@ -371,7 +374,7 @@ public class MainController {
     public void returnTransportMoneyAction() {
         try {
             int priceForTransportReturn = Integer.parseInt(inputTransport.getText());
-            budgetTransport = moneyReturn(budgetTransport, priceForTransportReturn);
+            budgetTransport = returnMoney(budgetTransport, priceForTransportReturn);
             income += priceForTransportReturn;
             outputFix.setText(income + " € ");
             outputTransport.setText(budgetTransport + " € ");
@@ -388,7 +391,7 @@ public class MainController {
     public void returnEntertainmentMoneyAction() {
         try {
             int priceForEntertainmentReturn = Integer.parseInt(inputEntertainment.getText());
-            budgetEntertainment = moneyReturn(budgetEntertainment, priceForEntertainmentReturn);
+            budgetEntertainment = returnMoney(budgetEntertainment, priceForEntertainmentReturn);
             income += priceForEntertainmentReturn;
             outputFix.setText(income + " € ");
             outputEntertainment.setText(budgetEntertainment + " € ");
@@ -405,7 +408,7 @@ public class MainController {
     public void returnOtherMoneyAction() {
         try {
             int priceForOtherReturn = Integer.parseInt(inputOther.getText());
-            budgetOther = moneyReturn(budgetOther, priceForOtherReturn);
+            budgetOther = returnMoney(budgetOther, priceForOtherReturn);
             income += priceForOtherReturn;
             outputFix.setText(income + " € ");
             outputOther.setText(budgetOther + " € ");
