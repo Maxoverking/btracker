@@ -335,7 +335,7 @@
       <VBox.margin>
         <Insets top="21.0" />
       </VBox.margin>
-      <Button fx:id="returnEntertaimentMoney" mnemonicParsing="false" onAction="#returnEntertaimentMoneyAction" style="-fx-background-color: #B66D34;" text="RETURN MONEY" textFill="WHITE">
+      <Button fx:id="returnEntertainmentMoney" mnemonicParsing="false" onAction="#returnEntertainmentMoneyAction" style="-fx-background-color: #B66D34;" text="RETURN MONEY" textFill="WHITE">
         <HBox.margin>
           <Insets left="30.0" top="-1.0" />
         </HBox.margin>
