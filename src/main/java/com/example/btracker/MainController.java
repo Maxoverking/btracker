@@ -2,6 +2,7 @@ package com.example.btracker;
 
 import static com.example.btracker.AddMoney.addMoney;
 import static com.example.btracker.ReturnMoney.returnMoney;
+import static com.example.btracker.allClasses.CollectData.expenses;
 
 import com.example.btracker.allClasses.GetMonthAndIncome;
 import com.example.btracker.allClasses.NewAmountIncome;
@@ -15,7 +16,6 @@ public class MainController {
     private static final String errorIfMinus = " Отрицательный доход!";
     private static final String errorIfString = "Ошибка: Вы ввели не число";
 //  static final String errorReturnMoney = "Вы не можете вернуть такую сумму";
-
 
     //  ERROR
     @FXML
@@ -38,6 +38,7 @@ public class MainController {
             return;
         }
         GetMonthAndIncome dataMonthAndIncome = new GetMonthAndIncome(month, freezeFixAmount);
+        expenses.put(month, freezeFixAmount);
 
         System.out.println("Сбор данных из поля в методе fixAmountAction :"
                 + dataMonthAndIncome.getMonth() + " =  " + dataMonthAndIncome.getIncome());
@@ -105,6 +106,7 @@ public class MainController {
             // попытка преобразовать введенную строку в число
             int priceForFood = Integer.parseInt(inputFood.getText());
             budgetFood = addMoney(priceForFood, budgetFood);
+
 //            if (priceForFood < 0) {
 //                throw new NumberFormatException();
 //            }
