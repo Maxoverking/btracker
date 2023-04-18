@@ -14,6 +14,7 @@ import javafx.scene.text.Text;
 public class MainController {
   private static final String errorIfMinus = " Отрицательный доход !!!";
   private static final String errorIfString = "Ошибка: введено не число";
+
 //  static final String errorReturnMoney = "Нельзя ничего вернуть";
 
 
@@ -320,9 +321,36 @@ private void minusIncomeFieldAction(){
     outputIncome.setText("");
     fixAmount.setDisable(true);
     btnDecember.setStyle("");
+    btnJanuary.setStyle("");
+    btnFebruary.setStyle("");
+    btnMarch.setStyle("");
+    btnApril.setStyle("");
+    btnMay.setStyle("");
+    btnJune.setStyle("");
+    btnJuly.setStyle("");
+    btnAugust.setStyle("");
+    btnSeptember.setStyle("");
+    btnOctober.setStyle("");
+    btnNovember.setStyle("");
   }
   @FXML
   public void returnHouseMoneyAction(ActionEvent actionEvent) {
+    try {
+      int priceForHouseReturn = Integer.parseInt(inputHouse.getText());
+
+      budgetHouse = moneyReturn(budgetHouse, priceForHouseReturn);
+
+      income += priceForHouseReturn;
+      outputFix.setText(income + " € ");
+      outputHouse.setText(budgetHouse  + " € ");
+      outputError.setText("");
+
+    } catch (NumberFormatException e) {
+      outputError.setText(errorIfString);
+    } catch (CustomException e) {
+      outputError.setText(e.getMessage());
+    }
+    inputHouse.clear();
   }
   @FXML
   public void returnShoppingMoneyAction(ActionEvent actionEvent) {
@@ -355,6 +383,205 @@ private void minusIncomeFieldAction(){
     btnDecemberShow.setVisible(false);
 
 //    btnDecember.setDisable(true);
+    outputOther.setText(budgetOther+"");
+    outputIncome.setText(incomeFix+" € ");
+  }
+
+  @FXML
+  public Button btnJanuary;
+  @FXML
+  public Button btnJanuaryShow;
+  @FXML
+  public void btnJanuaryAction(ActionEvent actionEvent) {
+    btnJanuaryShow.setText("Show");
+    btnJanuaryShow.setVisible(true);
+    btnJanuary.setStyle("-fx-background-color: #FF8034;");
+    outputError.setText("");
+  }
+
+  @FXML
+  public void btnJanuaryShowAction(ActionEvent actionEvent) {
+    btnJanuaryShow.setVisible(false);
+    outputOther.setText(budgetOther+"");
+    outputIncome.setText(incomeFix+" € ");
+  }
+  @FXML
+  public Button btnFebruary;
+  @FXML
+  public Button btnFebruaryShow;
+  @FXML
+  public void btnFebruaryAction(ActionEvent actionEvent) {
+    btnFebruaryShow.setText("Show");
+    btnFebruaryShow.setVisible(true);
+    btnFebruary.setStyle("-fx-background-color: #FF8034;");
+    outputError.setText("");
+  }
+
+  @FXML
+  public void btnFebruaryShowAction(ActionEvent actionEvent) {
+    btnFebruaryShow.setVisible(false);
+    outputOther.setText(budgetOther+"");
+    outputIncome.setText(incomeFix+" € ");
+  }
+  @FXML
+  public Button btnMarch;
+  @FXML
+  public Button btnMarchShow;
+  @FXML
+  public void btnMarchAction(ActionEvent actionEvent) {
+    btnMarchShow.setText("Show");
+    btnMarchShow.setVisible(true);
+    btnMarch.setStyle("-fx-background-color: #FF8034;");
+    outputError.setText("");
+  }
+
+  @FXML
+  public void btnMarchShowAction(ActionEvent actionEvent) {
+    btnMarchShow.setVisible(false);
+    outputOther.setText(budgetOther+"");
+    outputIncome.setText(incomeFix+" € ");
+  }
+  @FXML
+  public Button btnApril;
+  @FXML
+  public Button btnAprilShow;
+  @FXML
+  public void btnAprilAction(ActionEvent actionEvent) {
+    btnAprilShow.setText("Show");
+    btnAprilShow.setVisible(true);
+    btnApril.setStyle("-fx-background-color: #FF8034;");
+    outputError.setText("");
+  }
+
+  @FXML
+  public void btnAprilShowAction(ActionEvent actionEvent) {
+    btnAprilShow.setVisible(false);
+    outputOther.setText(budgetOther+"");
+    outputIncome.setText(incomeFix+" € ");
+  }
+  @FXML
+  public Button btnMay;
+  @FXML
+  public Button btnMayShow;
+  @FXML
+  public void btnMayAction(ActionEvent actionEvent) {
+    btnMayShow.setText("Show");
+    btnMayShow.setVisible(true);
+    btnMay.setStyle("-fx-background-color: #FF8034;");
+    outputError.setText("");
+  }
+
+  @FXML
+  public void btnMayShowAction(ActionEvent actionEvent) {
+    btnMayShow.setVisible(false);
+    outputOther.setText(budgetOther+"");
+    outputIncome.setText(incomeFix+" € ");
+  }
+  @FXML
+  public Button btnJune;
+  @FXML
+  public Button btnJuneShow;
+  @FXML
+  public void btnJuneAction(ActionEvent actionEvent) {
+    btnJuneShow.setText("Show");
+    btnJuneShow.setVisible(true);
+    btnJune.setStyle("-fx-background-color: #FF8034;");
+    outputError.setText("");
+  }
+
+  @FXML
+  public void btnJuneShowAction(ActionEvent actionEvent) {
+    btnJuneShow.setVisible(false);
+    outputOther.setText(budgetOther+"");
+    outputIncome.setText(incomeFix+" € ");
+  }
+  @FXML
+  public Button btnJuly;
+  @FXML
+  public Button btnJulyShow;
+  @FXML
+  public void btnJulyAction(ActionEvent actionEvent) {
+    btnJulyShow.setText("Show");
+    btnJulyShow.setVisible(true);
+    btnJuly.setStyle("-fx-background-color: #FF8034;");
+    outputError.setText("");
+  }
+
+  @FXML
+  public void btnJulyShowAction(ActionEvent actionEvent) {
+    btnJulyShow.setVisible(false);
+    outputOther.setText(budgetOther+"");
+    outputIncome.setText(incomeFix+" € ");
+  }
+  @FXML
+  public Button btnAugust;
+  @FXML
+  public Button btnAugustShow;
+  @FXML
+  public void btnAugustAction(ActionEvent actionEvent) {
+    btnAugustShow.setText("Show");
+    btnAugustShow.setVisible(true);
+    btnAugust.setStyle("-fx-background-color: #FF8034;");
+    outputError.setText("");
+  }
+
+  @FXML
+  public void btnAugustShowAction(ActionEvent actionEvent) {
+    btnAugustShow.setVisible(false);
+    outputOther.setText(budgetOther+"");
+    outputIncome.setText(incomeFix+" € ");
+  }
+  @FXML
+  public Button btnSeptember;
+  @FXML
+  public Button btnSeptemberShow;
+  @FXML
+  public void btnSeptemberAction(ActionEvent actionEvent) {
+    btnSeptemberShow.setText("Show");
+    btnSeptemberShow.setVisible(true);
+    btnSeptember.setStyle("-fx-background-color: #FF8034;");
+    outputError.setText("");
+  }
+
+  @FXML
+  public void btnSeptemberShowAction(ActionEvent actionEvent) {
+    btnSeptemberShow.setVisible(false);
+    outputOther.setText(budgetOther+"");
+    outputIncome.setText(incomeFix+" € ");
+  }
+  @FXML
+  public Button btnOctober;
+  @FXML
+  public Button btnOctoberShow;
+  @FXML
+  public void btnOctoberAction(ActionEvent actionEvent) {
+    btnOctoberShow.setText("Show");
+    btnOctoberShow.setVisible(true);
+    btnOctober.setStyle("-fx-background-color: #FF8034;");
+    outputError.setText("");
+  }
+
+  @FXML
+  public void btnOctoberShowAction(ActionEvent actionEvent) {
+    btnOctoberShow.setVisible(false);
+    outputOther.setText(budgetOther+"");
+    outputIncome.setText(incomeFix+" € ");
+  }
+  @FXML
+  public Button btnNovember;
+  @FXML
+  public Button btnNovemberShow;
+  @FXML
+  public void btnNovemberAction(ActionEvent actionEvent) {
+    btnNovemberShow.setText("Show");
+    btnNovemberShow.setVisible(true);
+    btnNovember.setStyle("-fx-background-color: #FF8034;");
+    outputError.setText("");
+  }
+
+  @FXML
+  public void btnNovemberShowAction(ActionEvent actionEvent) {
+    btnNovemberShow.setVisible(false);
     outputOther.setText(budgetOther+"");
     outputIncome.setText(incomeFix+" € ");
   }
