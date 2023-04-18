@@ -417,8 +417,8 @@
           <Insets top="10.0" />
         </VBox.margin>
 
-        <Button mnemonicParsing="false" text="JANUARY" />
-        <Button mnemonicParsing="false">
+        <Button fx:id="btnJanuary" mnemonicParsing="false" onAction="#btnJanuaryAction" text="JANUARY" />
+        <Button fx:id="btnJanuaryShow" mnemonicParsing="false" onAction="#btnJanuaryShowAction" visible="false">
           <HBox.margin>
             <Insets left="21.0" />
           </HBox.margin>
@@ -470,8 +470,9 @@
         <VBox.margin>
           <Insets top="10.0" />
         </VBox.margin>
-        <Button mnemonicParsing="false" text="FEBRUARY" />
-        <Button mnemonicParsing="false">
+
+        <Button fx:id="btnFebruary" mnemonicParsing="false" onAction="#btnFebruaryAction" text="FEBRUARY" />
+        <Button fx:id="btnFebruaryShow" mnemonicParsing="false" onAction="#btnFebruaryShowAction" visible="false">
           <HBox.margin>
             <Insets left="15.0" />
           </HBox.margin>
@@ -523,8 +524,8 @@
     <!--           ВЕСНА-->
     <VBox alignment="CENTER" prefHeight="234.0" prefWidth="150.0">
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-        <Button mnemonicParsing="false" text="MARCH" />
-        <Button mnemonicParsing="false">
+        <Button fx:id="btnMarch" mnemonicParsing="false" onAction="#btnMarchAction" text="MARCH" />
+        <Button fx:id="btnMarchShow" mnemonicParsing="false" onAction="#btnMarchShowAction" visible="false">
           <HBox.margin>
             <Insets left="33.0" />
           </HBox.margin>
@@ -575,8 +576,8 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
         <children>
-          <Button mnemonicParsing="false" text="APRIL" />
-          <Button mnemonicParsing="false">
+          <Button fx:id="btnApril" mnemonicParsing="false" onAction="#btnAprilAction" text="APRIL" />
+          <Button fx:id="btnAprilShow" mnemonicParsing="false" onAction="#btnAprilShowAction" visible="false">
             <HBox.margin>
               <Insets left="45.0" />
             </HBox.margin>
@@ -630,8 +631,8 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
         <children>
-          <Button mnemonicParsing="false" text="MAY" />
-          <Button mnemonicParsing="false">
+          <Button fx:id="btnMay" mnemonicParsing="false" onAction="#btnMayAction" text="MAY" />
+          <Button fx:id="btnMayShow" mnemonicParsing="false" onAction="#btnMayShowAction" visible="false">
             <HBox.margin>
               <Insets left="51.0" />
             </HBox.margin>
@@ -687,8 +688,8 @@
     <!--           ЛЕТО-->
     <VBox alignment="CENTER" prefHeight="234.0" prefWidth="150.0">
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-        <Button mnemonicParsing="false" text="JUNE" />
-        <Button mnemonicParsing="false">
+        <Button fx:id="btnJune" mnemonicParsing="false" onAction="#btnJuneAction" text="JUNE" />
+        <Button fx:id="btnJuneShow" mnemonicParsing="false" onAction="#btnJuneShowAction" visible="false">
           <HBox.margin>
             <Insets left="46.0" />
           </HBox.margin>
@@ -739,8 +740,8 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
         <children>
-          <Button mnemonicParsing="false" text="JULY" />
-          <Button mnemonicParsing="false">
+          <Button fx:id="btnJuly" mnemonicParsing="false" onAction="#btnJulyAction" text="JULY" />
+          <Button fx:id="btnJulyShow" mnemonicParsing="false" onAction="#btnJulyShowAction" visible="false">
             <HBox.margin>
               <Insets left="48.0" />
             </HBox.margin>
@@ -794,8 +795,8 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
         <children>
-          <Button mnemonicParsing="false" text="AUGUST" />
-          <Button mnemonicParsing="false">
+          <Button fx:id="btnAugust" mnemonicParsing="false" onAction="#btnAugustAction" text="AUGUST" />
+          <Button fx:id="btnAugustShow" mnemonicParsing="false" onAction="#btnAugustShowAction" visible="false">
             <HBox.margin>
               <Insets left="27.0" />
             </HBox.margin>
@@ -851,8 +852,8 @@
     <!--           ОСЕНЬ-->
     <VBox alignment="CENTER" prefHeight="234.0" prefWidth="150.0">
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-        <Button mnemonicParsing="false" text="SEPTEMBER" />
-        <Button mnemonicParsing="false">
+        <Button fx:id="btnSeptember" mnemonicParsing="false" onAction="#btnSeptemberAction" text="SEPTEMBER" />
+        <Button fx:id="btnSeptemberShow" mnemonicParsing="false" onAction="#btnSeptemberShowAction" visible="false">
           <HBox.margin>
             <Insets left="7.0" />
           </HBox.margin>
@@ -903,8 +904,8 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
         <children>
-          <Button mnemonicParsing="false" text="OCTOBER" />
-          <Button mnemonicParsing="false">
+          <Button fx:id="btnOctober" mnemonicParsing="false" onAction="#btnOctoberAction" text="OCTOBER" />
+          <Button fx:id="btnOctoberShow" mnemonicParsing="false" onAction="#btnOctoberShowAction" visible="false">
             <HBox.margin>
               <Insets left="20.0" />
             </HBox.margin>
@@ -958,18 +959,14 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
         <children>
-          <Button mnemonicParsing="false" text="NOVEMBER">
+          <Button fx:id="btnNovember" mnemonicParsing="false" onAction="#btnNovemberAction" text="NOVEMBER" />
+          <Button fx:id="btnNovemberShow" mnemonicParsing="false" onAction="#btnNovemberShowAction" visible="false">
             <HBox.margin>
-              <Insets />
+              <Insets left="20.0" />
             </HBox.margin>
-          </Button>
-          <Button mnemonicParsing="false">
-            <HBox.margin>
-              <Insets left="10.0" />
-            </HBox.margin>
-                  <cursor>
-                     <Cursor fx:constant="OPEN_HAND" />
-                  </cursor>
+            <cursor>
+              <Cursor fx:constant="OPEN_HAND" />
+            </cursor>
           </Button>
         </children>
         <VBox.margin>
