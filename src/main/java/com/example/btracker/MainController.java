@@ -13,7 +13,6 @@ import javafx.scene.text.Text;
 public class MainController {
     private static final String errorIfMinus = " Отрицательный доход!";
     private static final String errorIfString = "Ошибка: Вы ввели не число";
-
 //  static final String errorReturnMoney = "Вы не можете вернуть такую сумму";
 
 
@@ -69,7 +68,7 @@ public class MainController {
             } else {
                 freezeFixAmount += newAmountIncome;
                 income += new NewAmountIncome(newAmountIncome).getIncome();
-                outputFix.setText(income + " €  ▲");
+                outputFix.setText(income + " € ");
                 outputError.setText("");
                 outputIncome.setText(freezeFixAmount + " € ");
                 fixAmount.setDisable(false);
@@ -108,8 +107,8 @@ public class MainController {
             }
             budgetFood += priceForFood;
             income = income - priceForFood;
-            outputFix.setText(income + " €  ▼");
-            outputFood.setText(budgetFood + " €  ▲");
+            outputFix.setText(income + " € ");
+            outputFood.setText(budgetFood + " € ");
             outputError.setText("");
             if (income < 0) {
                 throw new CustomException(errorIfMinus);
@@ -139,8 +138,8 @@ public class MainController {
             } else {
                 budgetHouse += priceForHouse;
                 income = income - priceForHouse;
-                outputFix.setText(income + " €  ▼");
-                outputHouse.setText(budgetHouse + " €  ▲");
+                outputFix.setText(income + " € ");
+                outputHouse.setText(budgetHouse + " € ");
                 outputError.setText("");
             }
             if (income < 0) {
@@ -172,7 +171,7 @@ public class MainController {
                 budgetShopping += priceForShopping;
                 income = income - priceForShopping;
                 outputFix.setText(income + " €  ▼");
-                outputShopping.setText(budgetShopping + " €  ▲");
+                outputShopping.setText(budgetShopping + " € ");
                 outputError.setText("");
             }
             if (income < 0) {
@@ -202,8 +201,8 @@ public class MainController {
             } else {
                 budgetTransport += priceForTransport;
                 income = income - priceForTransport;
-                outputFix.setText(income + " €  ▼");
-                outputTransport.setText(budgetTransport + " €  ▲");
+                outputFix.setText(income + " € ");
+                outputTransport.setText(budgetTransport + " € ");
                 outputError.setText("");
             }
             if (income < 0) {
@@ -234,8 +233,8 @@ public class MainController {
             } else {
                 budgetEntertainment += priceForEntertainment;
                 income = income - priceForEntertainment;
-                outputFix.setText(income + " €  ▼");
-                outputEntertainment.setText(budgetEntertainment + " €  ▲");
+                outputFix.setText(income + " € ");
+                outputEntertainment.setText(budgetEntertainment + " € ");
                 outputError.setText("");
             }
             if (income < 0) {
@@ -266,8 +265,8 @@ public class MainController {
             } else {
                 budgetOther += priceForOther;
                 income = income - priceForOther;
-                outputFix.setText(income + " €  ▼");
-                outputOther.setText(budgetOther + " €  ▲");
+                outputFix.setText(income + " € ");
+                outputOther.setText(budgetOther + " € ");
                 outputError.setText("");
             }
             if (income < 0) {
@@ -322,8 +321,8 @@ public class MainController {
             int priceForFoodReturn = Integer.parseInt(inputFood.getText());
             budgetFood = moneyReturn(budgetFood, priceForFoodReturn);
             income += priceForFoodReturn;
-            outputFix.setText(income + " €  ▲");
-            outputFood.setText(budgetFood + " €  ▼");
+            outputFix.setText(income + " € ");
+            outputFood.setText(budgetFood + " € ");
             outputError.setText("");
         } catch (NumberFormatException e) {
             outputError.setText(errorIfString);
