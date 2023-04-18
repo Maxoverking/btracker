@@ -2,7 +2,7 @@ package com.example.btracker;
 
 import com.example.btracker.exception.CustomException;
 
-public class MoneyReturn {
+public class ReturnMoney {
 
     static final String errorReturnMoney = "Вы не можете вернуть такую сумму";
 
