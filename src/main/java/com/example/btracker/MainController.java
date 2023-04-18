@@ -1,27 +1,24 @@
 package com.example.btracker;
 
 import static com.example.btracker.MoneyReturn.moneyReturn;
-
 import com.example.btracker.allClasses.GetMonthAndIncome;
 import com.example.btracker.allClasses.NewAmountIncome;
 import com.example.btracker.exception.CustomException;
-//import javafx.event.ActionEvent;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-public class MainController {
-  private static final String errorIfMinus = " Отрицательный доход !!!";
-  private static final String errorIfString = "Ошибка: введено не число";
 
-//  static final String errorReturnMoney = "Нельзя ничего вернуть";
+public class MainController {
+  private static final String errorIfMinus = " Отрицательный доход!";
+  private static final String errorIfString = "Ошибка: Вы ввели не число";
+
+//  static final String errorReturnMoney = "Вы не можете вернуть такую сумму";
 
 
   //  ERROR
-@FXML
-private Text outputError;
-
+  @FXML
+  private Text outputError;
   @FXML
   public TextField inputMonth;
   @FXML
@@ -41,7 +38,7 @@ private Text outputError;
     }
     GetMonthAndIncome dataMonthAndIncome = new GetMonthAndIncome(month,freezeFixAmount);
 
-    System.out.println("сбор даных из поля в методе fixAmountAction :"
+    System.out.println("Сбор данных из поля в методе fixAmountAction :"
         + dataMonthAndIncome.getMonth()  + " =  " +dataMonthAndIncome.getIncome());
     incomeFix = dataMonthAndIncome.getIncome();
     outputError.setText("");
@@ -59,9 +56,7 @@ private Text outputError;
   public Button buttonIncome;
   @FXML
   private Text outputFix;
-
   private int income = 0;
-
   private int freezeFixAmount = 0;
   @FXML
   private void btnIncomeAction() {
@@ -334,7 +329,7 @@ private void minusIncomeFieldAction(){
     btnNovember.setStyle("");
   }
   @FXML
-  public void returnHouseMoneyAction(ActionEvent actionEvent) {
+  public void returnHouseMoneyAction() {
     try {
       int priceForHouseReturn = Integer.parseInt(inputHouse.getText());
 
@@ -353,38 +348,100 @@ private void minusIncomeFieldAction(){
     inputHouse.clear();
   }
   @FXML
-  public void returnShoppingMoneyAction(ActionEvent actionEvent) {
+  public void returnShoppingMoneyAction() {
+    try {
+      int priceForShoppingReturn = Integer.parseInt(inputShopping.getText());
+
+      budgetShopping = moneyReturn(budgetShopping, priceForShoppingReturn);
+
+      income += priceForShoppingReturn;
+      outputFix.setText(income + " € ");
+      outputShopping.setText(budgetShopping  + " € ");
+      outputError.setText("");
+
+    } catch (NumberFormatException e) {
+      outputError.setText(errorIfString);
+    } catch (CustomException e) {
+      outputError.setText(e.getMessage());
+    }
+    inputShopping.clear();
   }
   @FXML
-  public void returnTransportMoneyAction(ActionEvent actionEvent) {
+  public void returnTransportMoneyAction() {
+    try {
+      int priceForTransportReturn = Integer.parseInt(inputTransport.getText());
+
+      budgetTransport = moneyReturn(budgetTransport, priceForTransportReturn);
+
+      income += priceForTransportReturn;
+      outputFix.setText(income + " € ");
+      outputTransport.setText(budgetTransport  + " € ");
+      outputError.setText("");
+
+    } catch (NumberFormatException e) {
+      outputError.setText(errorIfString);
+    } catch (CustomException e) {
+      outputError.setText(e.getMessage());
+    }
+    inputTransport.clear();
   }
   @FXML
-  public void returnEntertaimentMoneyAction(ActionEvent actionEvent) {
+  public void returnEntertainmentMoneyAction() {
+    try {
+      int priceForEntertainmentReturn = Integer.parseInt(inputEntertainment.getText());
+
+      budgetEntertainment = moneyReturn(budgetEntertainment, priceForEntertainmentReturn);
+
+      income += priceForEntertainmentReturn;
+      outputFix.setText(income + " € ");
+      outputEntertainment.setText(budgetEntertainment  + " € ");
+      outputError.setText("");
+
+    } catch (NumberFormatException e) {
+      outputError.setText(errorIfString);
+    } catch (CustomException e) {
+      outputError.setText(e.getMessage());
+    }
+    inputEntertainment.clear();
   }
   @FXML
-  public void returnOtherMoneyAction(ActionEvent actionEvent) {
+  public void returnOtherMoneyAction() {
+    try {
+      int priceForOtherReturn = Integer.parseInt(inputOther.getText());
+
+      budgetOther = moneyReturn(budgetOther, priceForOtherReturn);
+
+      income += priceForOtherReturn;
+      outputFix.setText(income + " € ");
+      outputOther.setText(budgetOther  + " € ");
+      outputError.setText("");
+
+    } catch (NumberFormatException e) {
+      outputError.setText(errorIfString);
+    } catch (CustomException e) {
+      outputError.setText(e.getMessage());
+    }
+    inputOther.clear();
   }
   @FXML
   public Button btnDecember;
   @FXML
   public Button btnDecemberShow;
   @FXML
-  public void btnDecemberAction(ActionEvent actionEvent) {
+  public void btnDecemberAction() {
     btnDecemberShow.setText("Show");
     btnDecemberShow.setVisible(true);
     btnDecember.setStyle("-fx-background-color: #FF8034;");
     outputError.setText("");
-//    btnDecember.setVisible(false);
-//    btnDecember.setDisable(true);
   }
   @FXML
-  public void btnDecemberShowAction(ActionEvent actionEvent) {
+  public void btnDecemberShowAction() {
 //    btnDecemberShow.setStyle("-fx-background-color: #4CAF50;");
     btnDecemberShow.setVisible(false);
 
 //    btnDecember.setDisable(true);
-    outputOther.setText(budgetOther+"");
-    outputIncome.setText(incomeFix+" € ");
+    outputOther.setText(budgetOther + "");
+    outputIncome.setText(incomeFix + " € ");
   }
 
   @FXML
@@ -392,7 +449,7 @@ private void minusIncomeFieldAction(){
   @FXML
   public Button btnJanuaryShow;
   @FXML
-  public void btnJanuaryAction(ActionEvent actionEvent) {
+  public void btnJanuaryAction() {
     btnJanuaryShow.setText("Show");
     btnJanuaryShow.setVisible(true);
     btnJanuary.setStyle("-fx-background-color: #FF8034;");
@@ -400,17 +457,17 @@ private void minusIncomeFieldAction(){
   }
 
   @FXML
-  public void btnJanuaryShowAction(ActionEvent actionEvent) {
+  public void btnJanuaryShowAction() {
     btnJanuaryShow.setVisible(false);
-    outputOther.setText(budgetOther+"");
-    outputIncome.setText(incomeFix+" € ");
+    outputOther.setText(budgetOther + "");
+    outputIncome.setText(incomeFix + " € ");
   }
   @FXML
   public Button btnFebruary;
   @FXML
   public Button btnFebruaryShow;
   @FXML
-  public void btnFebruaryAction(ActionEvent actionEvent) {
+  public void btnFebruaryAction() {
     btnFebruaryShow.setText("Show");
     btnFebruaryShow.setVisible(true);
     btnFebruary.setStyle("-fx-background-color: #FF8034;");
@@ -418,7 +475,7 @@ private void minusIncomeFieldAction(){
   }
 
   @FXML
-  public void btnFebruaryShowAction(ActionEvent actionEvent) {
+  public void btnFebruaryShowAction() {
     btnFebruaryShow.setVisible(false);
     outputOther.setText(budgetOther+"");
     outputIncome.setText(incomeFix+" € ");
@@ -428,7 +485,7 @@ private void minusIncomeFieldAction(){
   @FXML
   public Button btnMarchShow;
   @FXML
-  public void btnMarchAction(ActionEvent actionEvent) {
+  public void btnMarchAction() {
     btnMarchShow.setText("Show");
     btnMarchShow.setVisible(true);
     btnMarch.setStyle("-fx-background-color: #FF8034;");
@@ -436,7 +493,7 @@ private void minusIncomeFieldAction(){
   }
 
   @FXML
-  public void btnMarchShowAction(ActionEvent actionEvent) {
+  public void btnMarchShowAction() {
     btnMarchShow.setVisible(false);
     outputOther.setText(budgetOther+"");
     outputIncome.setText(incomeFix+" € ");
@@ -446,7 +503,7 @@ private void minusIncomeFieldAction(){
   @FXML
   public Button btnAprilShow;
   @FXML
-  public void btnAprilAction(ActionEvent actionEvent) {
+  public void btnAprilAction() {
     btnAprilShow.setText("Show");
     btnAprilShow.setVisible(true);
     btnApril.setStyle("-fx-background-color: #FF8034;");
@@ -454,7 +511,7 @@ private void minusIncomeFieldAction(){
   }
 
   @FXML
-  public void btnAprilShowAction(ActionEvent actionEvent) {
+  public void btnAprilShowAction() {
     btnAprilShow.setVisible(false);
     outputOther.setText(budgetOther+"");
     outputIncome.setText(incomeFix+" € ");
@@ -464,7 +521,7 @@ private void minusIncomeFieldAction(){
   @FXML
   public Button btnMayShow;
   @FXML
-  public void btnMayAction(ActionEvent actionEvent) {
+  public void btnMayAction() {
     btnMayShow.setText("Show");
     btnMayShow.setVisible(true);
     btnMay.setStyle("-fx-background-color: #FF8034;");
@@ -472,7 +529,7 @@ private void minusIncomeFieldAction(){
   }
 
   @FXML
-  public void btnMayShowAction(ActionEvent actionEvent) {
+  public void btnMayShowAction() {
     btnMayShow.setVisible(false);
     outputOther.setText(budgetOther+"");
     outputIncome.setText(incomeFix+" € ");
@@ -482,7 +539,7 @@ private void minusIncomeFieldAction(){
   @FXML
   public Button btnJuneShow;
   @FXML
-  public void btnJuneAction(ActionEvent actionEvent) {
+  public void btnJuneAction() {
     btnJuneShow.setText("Show");
     btnJuneShow.setVisible(true);
     btnJune.setStyle("-fx-background-color: #FF8034;");
@@ -490,7 +547,7 @@ private void minusIncomeFieldAction(){
   }
 
   @FXML
-  public void btnJuneShowAction(ActionEvent actionEvent) {
+  public void btnJuneShowAction() {
     btnJuneShow.setVisible(false);
     outputOther.setText(budgetOther+"");
     outputIncome.setText(incomeFix+" € ");
@@ -500,7 +557,7 @@ private void minusIncomeFieldAction(){
   @FXML
   public Button btnJulyShow;
   @FXML
-  public void btnJulyAction(ActionEvent actionEvent) {
+  public void btnJulyAction() {
     btnJulyShow.setText("Show");
     btnJulyShow.setVisible(true);
     btnJuly.setStyle("-fx-background-color: #FF8034;");
@@ -508,7 +565,7 @@ private void minusIncomeFieldAction(){
   }
 
   @FXML
-  public void btnJulyShowAction(ActionEvent actionEvent) {
+  public void btnJulyShowAction() {
     btnJulyShow.setVisible(false);
     outputOther.setText(budgetOther+"");
     outputIncome.setText(incomeFix+" € ");
@@ -518,7 +575,7 @@ private void minusIncomeFieldAction(){
   @FXML
   public Button btnAugustShow;
   @FXML
-  public void btnAugustAction(ActionEvent actionEvent) {
+  public void btnAugustAction() {
     btnAugustShow.setText("Show");
     btnAugustShow.setVisible(true);
     btnAugust.setStyle("-fx-background-color: #FF8034;");
@@ -526,7 +583,7 @@ private void minusIncomeFieldAction(){
   }
 
   @FXML
-  public void btnAugustShowAction(ActionEvent actionEvent) {
+  public void btnAugustShowAction() {
     btnAugustShow.setVisible(false);
     outputOther.setText(budgetOther+"");
     outputIncome.setText(incomeFix+" € ");
@@ -536,7 +593,7 @@ private void minusIncomeFieldAction(){
   @FXML
   public Button btnSeptemberShow;
   @FXML
-  public void btnSeptemberAction(ActionEvent actionEvent) {
+  public void btnSeptemberAction() {
     btnSeptemberShow.setText("Show");
     btnSeptemberShow.setVisible(true);
     btnSeptember.setStyle("-fx-background-color: #FF8034;");
@@ -544,7 +601,7 @@ private void minusIncomeFieldAction(){
   }
 
   @FXML
-  public void btnSeptemberShowAction(ActionEvent actionEvent) {
+  public void btnSeptemberShowAction() {
     btnSeptemberShow.setVisible(false);
     outputOther.setText(budgetOther+"");
     outputIncome.setText(incomeFix+" € ");
@@ -554,7 +611,7 @@ private void minusIncomeFieldAction(){
   @FXML
   public Button btnOctoberShow;
   @FXML
-  public void btnOctoberAction(ActionEvent actionEvent) {
+  public void btnOctoberAction() {
     btnOctoberShow.setText("Show");
     btnOctoberShow.setVisible(true);
     btnOctober.setStyle("-fx-background-color: #FF8034;");
@@ -562,7 +619,7 @@ private void minusIncomeFieldAction(){
   }
 
   @FXML
-  public void btnOctoberShowAction(ActionEvent actionEvent) {
+  public void btnOctoberShowAction() {
     btnOctoberShow.setVisible(false);
     outputOther.setText(budgetOther+"");
     outputIncome.setText(incomeFix+" € ");
@@ -572,7 +629,7 @@ private void minusIncomeFieldAction(){
   @FXML
   public Button btnNovemberShow;
   @FXML
-  public void btnNovemberAction(ActionEvent actionEvent) {
+  public void btnNovemberAction() {
     btnNovemberShow.setText("Show");
     btnNovemberShow.setVisible(true);
     btnNovember.setStyle("-fx-background-color: #FF8034;");
@@ -580,7 +637,7 @@ private void minusIncomeFieldAction(){
   }
 
   @FXML
-  public void btnNovemberShowAction(ActionEvent actionEvent) {
+  public void btnNovemberShowAction() {
     btnNovemberShow.setVisible(false);
     outputOther.setText(budgetOther+"");
     outputIncome.setText(incomeFix+" € ");
