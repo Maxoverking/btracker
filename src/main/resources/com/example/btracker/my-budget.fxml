@@ -17,7 +17,7 @@
   minWidth="-Infinity" prefHeight="630.0" prefWidth="800.0"
   xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
   fx:controller="com.example.btracker.MainController">
-  <!--    БЛОК МЕСЯЦ ФИКС СУММУ И ОШИБКА-->
+  <!--    БЛОК МЕСЯЦ. ФИКСИРУЕМ СУММУ И ОШИБКА-->
   <HBox prefHeight="24.0" prefWidth="200.0" >
     <VBox.margin>
       <Insets top="20.0" />
@@ -39,7 +39,7 @@
     <Button fx:id="fixAmount"
       disable="true"
       mnemonicParsing="false"
-      onAction="#fixAmountAction" text="FIX AMOUNT">
+      onAction="#fixAmountAction" text="Save changes">
       <HBox.margin>
         <Insets left="16.0" />
       </HBox.margin>
@@ -75,13 +75,13 @@
         <Glow />
       </effect>
       <font>
-        <Font size="24.0" />
+        <Font size="18.0" />
       </font>
     </Text>
     <TextField fx:id="inputIncomeField" prefHeight="26.0" prefWidth="70.0"
       promptText="Amount">
       <HBox.margin>
-        <Insets left="49.0" right="45.0" />
+        <Insets left="70.0" right="45.0" />
       </HBox.margin>
     </TextField>
     <Button fx:id="buttonIncome" mnemonicParsing="false"
