@@ -1,8 +1,7 @@
 package com.example.btracker;
 
-import static com.example.btracker.MoneyAdd.addMoney;
-import static com.example.btracker.MoneyReturn.returnMoney;
-
+import static com.example.btracker.AddMoney.addMoney;
+import static com.example.btracker.ReturnMoney.returnMoney;
 import com.example.btracker.allClasses.GetMonthAndIncome;
 import com.example.btracker.allClasses.NewAmountIncome;
 import com.example.btracker.exception.CustomException;
@@ -34,7 +33,7 @@ public class MainController {
     private void fixAmountAction() {
         String month = inputMonth.getText();
         if (month.isEmpty()) {
-            outputError.setText("Field a month is required");
+            outputError.setText("Month is required");
             return;
         }
         GetMonthAndIncome dataMonthAndIncome = new GetMonthAndIncome(month, freezeFixAmount);
@@ -58,6 +57,7 @@ public class MainController {
     private Text outputFix;
     private int income = 0;
     private int freezeFixAmount = 0;
+
     @FXML
     private void btnIncomeAction() {
         try {
@@ -103,7 +103,6 @@ public class MainController {
         try {
             // попытка преобразовать введенную строку в число
             int priceForFood = Integer.parseInt(inputFood.getText());
-
             budgetFood = addMoney(priceForFood, budgetFood);
 //            if (priceForFood < 0) {
 //                throw new NumberFormatException();
@@ -136,15 +135,16 @@ public class MainController {
         try {
             // преобразовать введенную строку в число
             int priceForHouse = Integer.parseInt(inputHouse.getText());
-            if (priceForHouse < 0) {
-                throw new NumberFormatException();
-            } else {
-                budgetHouse += priceForHouse;
-                income = income - priceForHouse;
-                outputFix.setText(income + " € ");
-                outputHouse.setText(budgetHouse + " € ");
-                outputError.setText("");
-            }
+            budgetHouse = addMoney(priceForHouse, budgetHouse);
+//            if (priceForHouse < 0) {
+//                throw new NumberFormatException();
+//            }
+            // budgetHouse += priceForHouse;
+            income = income - priceForHouse;
+            outputFix.setText(income + " € ");
+            outputHouse.setText(budgetHouse + " € ");
+            outputError.setText("");
+
             if (income < 0) {
                 throw new CustomException(errorIfMinus);
             }
@@ -168,15 +168,11 @@ public class MainController {
         try {
             // преобразовать введенную строку в число
             int priceForShopping = Integer.parseInt(inputShopping.getText());
-            if (priceForShopping < 0) {
-                throw new NumberFormatException();
-            } else {
-                budgetShopping += priceForShopping;
-                income = income - priceForShopping;
-                outputFix.setText(income + " €  ▼");
-                outputShopping.setText(budgetShopping + " € ");
-                outputError.setText("");
-            }
+            budgetShopping = addMoney(priceForShopping, budgetShopping);
+            income = income - priceForShopping;
+            outputFix.setText(income + " € ");
+            outputShopping.setText(budgetShopping + " € ");
+            outputError.setText("");
             if (income < 0) {
                 throw new CustomException(errorIfMinus);
             }
@@ -194,20 +190,17 @@ public class MainController {
     @FXML
     private Text outputTransport;
     private int budgetTransport = 0;
+
     @FXML
     void btnTransportAction() {
         try {
             // преобразовать введенную строку в число
             int priceForTransport = Integer.parseInt(inputTransport.getText());
-            if (priceForTransport < 0) {
-                throw new NumberFormatException();
-            } else {
-                budgetTransport += priceForTransport;
-                income = income - priceForTransport;
-                outputFix.setText(income + " € ");
-                outputTransport.setText(budgetTransport + " € ");
-                outputError.setText("");
-            }
+            budgetTransport = addMoney(priceForTransport, budgetTransport);
+            income = income - priceForTransport;
+            outputFix.setText(income + " € ");
+            outputTransport.setText(budgetTransport + " € ");
+            outputError.setText("");
             if (income < 0) {
                 throw new CustomException(errorIfMinus);
             }
@@ -231,15 +224,11 @@ public class MainController {
         try {
             // преобразовать введенную строку в число
             int priceForEntertainment = Integer.parseInt(inputEntertainment.getText());
-            if (priceForEntertainment < 0) {
-                throw new NumberFormatException();
-            } else {
-                budgetEntertainment += priceForEntertainment;
-                income = income - priceForEntertainment;
-                outputFix.setText(income + " € ");
-                outputEntertainment.setText(budgetEntertainment + " € ");
-                outputError.setText("");
-            }
+            budgetEntertainment = addMoney(priceForEntertainment, budgetEntertainment);
+            income = income - priceForEntertainment;
+            outputFix.setText(income + " € ");
+            outputEntertainment.setText(budgetEntertainment + " € ");
+            outputError.setText("");
             if (income < 0) {
                 throw new CustomException(errorIfMinus);
             }
@@ -263,15 +252,11 @@ public class MainController {
         try {
             // преобразовать введенную строку в число
             int priceForOther = Integer.parseInt(inputOther.getText());
-            if (priceForOther < 0) {
-                throw new NumberFormatException();
-            } else {
-                budgetOther += priceForOther;
-                income = income - priceForOther;
-                outputFix.setText(income + " € ");
-                outputOther.setText(budgetOther + " € ");
-                outputError.setText("");
-            }
+            budgetOther = addMoney(priceForOther, budgetOther);
+            income = income - priceForOther;
+            outputFix.setText(income + " € ");
+            outputOther.setText(budgetOther + " € ");
+            outputError.setText("");
             if (income < 0) {
                 throw new CustomException(errorIfMinus);
             }
