@@ -4,7 +4,7 @@ import com.example.btracker.exception.CustomException;
 
 public class MoneyReturn {
 
-    static final String errorReturnMoney = "Нельзя ничего вернуть";
+    static final String errorReturnMoney = "Вы не можете вернуть такую сумму";
 
     /**
      * Метод, возвращающий разницу между текущим значением поля и вводимым значением
