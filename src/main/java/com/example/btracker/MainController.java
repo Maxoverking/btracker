@@ -29,6 +29,8 @@ public class MainController {
     public static Map<String, List<Integer>> budgetByMonth = new HashMap<>();
     public static final String errorIfMinus = " Отрицательный доход!";
     private static final String errorIfString = "Ошибка: Вы ввели не число";
+    public static final String errorSpendMoreBudget = "Вы не можете внести сумму больше бюджета";
+
 
 
 
@@ -123,7 +125,8 @@ public class MainController {
         try {
             // попытка преобразовать введенную строку в число
             int priceForFood = Integer.parseInt(inputFood.getText());
-            budgetFood = addMoney(priceForFood, budgetFood);
+            budgetFood = addMoney(priceForFood, budgetFood, income);
+
 //            if (priceForFood < 0) {
 //                throw new NumberFormatException();
 //            }
@@ -157,7 +160,7 @@ public class MainController {
         try {
             // преобразовать введенную строку в число
             int priceForHouse = Integer.parseInt(inputHouse.getText());
-            budgetHouse = addMoney(priceForHouse, budgetHouse);
+            budgetHouse = addMoney(priceForHouse, budgetHouse, income);
             income = calculateIncome(income, priceForHouse);
             showButtonsAction(outputFix, outputHouse, outputError, income, budgetHouse);
 //            outputFix.setText(income + " € ");
@@ -186,7 +189,7 @@ public class MainController {
         try {
             // преобразовать введенную строку в число
             int priceForShopping = Integer.parseInt(inputShopping.getText());
-            budgetShopping = addMoney(priceForShopping, budgetShopping);
+            budgetShopping = addMoney(priceForShopping, budgetShopping, income);
             income = calculateIncome(income, priceForShopping);
             showButtonsAction(outputFix, outputShopping, outputError, income, budgetShopping);
 //            outputFix.setText(income + " € ");
@@ -215,7 +218,7 @@ public class MainController {
         try {
             // преобразовать введенную строку в число
             int priceForTransport = Integer.parseInt(inputTransport.getText());
-            budgetTransport = addMoney(priceForTransport, budgetTransport);
+            budgetTransport = addMoney(priceForTransport, budgetTransport, income);
             income = calculateIncome(income, priceForTransport);
             showButtonsAction(outputFix, outputTransport, outputError, income, budgetTransport);
 //            outputFix.setText(income + " € ");
@@ -244,7 +247,7 @@ public class MainController {
         try {
             // преобразовать введенную строку в число
             int priceForEntertainment = Integer.parseInt(inputEntertainment.getText());
-            budgetEntertainment = addMoney(priceForEntertainment, budgetEntertainment);
+            budgetEntertainment = addMoney(priceForEntertainment, budgetEntertainment, income);
             income = calculateIncome(income, priceForEntertainment);
             showButtonsAction(outputFix, outputEntertainment, outputError, income, budgetEntertainment);
 //            outputFix.setText(income + " € ");
@@ -273,7 +276,7 @@ public class MainController {
         try {
             // преобразовать введенную строку в число
             int priceForOther = Integer.parseInt(inputOther.getText());
-            budgetOther = addMoney(priceForOther, budgetOther);
+            budgetOther = addMoney(priceForOther, budgetOther, income);
             income = calculateIncome(income, priceForOther);
             showButtonsAction(outputFix, outputOther, outputError, income, budgetOther);
 //            outputFix.setText(income + " € ");
