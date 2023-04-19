@@ -46,7 +46,6 @@ public class OperationBtnAction {
         outputTransport.setText(budgetByMonth.get(month).get(4) + " € ");
         outputEntertainment.setText(budgetByMonth.get(month).get(5) + " € ");
         outputOther.setText(budgetByMonth.get(month).get(6) + " € ");
-
     }
 }
 
