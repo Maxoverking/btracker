@@ -13,51 +13,44 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-      minWidth="-Infinity" prefHeight="630.0" prefWidth="800.0"
-      xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.example.btracker.MainController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.btracker.MainController">
     <!--    БЛОК МЕСЯЦ. ФИКСИРУЕМ СУММУ И ОШИБКА-->
     <HBox prefHeight="24.0" prefWidth="200.0">
         <VBox.margin>
-            <Insets top="20.0"/>
+            <Insets top="20.0" />
         </VBox.margin>
-        <Text fx:id="enterMonth" fill="#5ea453" strokeType="OUTSIDE"
-              strokeWidth="0.0" text="Enter month">
+        <Text fx:id="enterMonth" fill="#5ea453" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter month">
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
             <HBox.margin>
-                <Insets left="41.0" right="24.0"/>
+                <Insets left="41.0" right="24.0" />
             </HBox.margin>
         </Text>
         <TextField fx:id="inputMonth" maxWidth="90" prefWidth="90" promptText="Month">
             <HBox.margin>
-                <Insets left="16.0"/>
+                <Insets left="16.0" />
             </HBox.margin>
         </TextField>
-        <Button fx:id="fixAmount"
-                disable="true"
-                mnemonicParsing="false"
-                onAction="#fixAmountAction" text="Save changes">
+        <Button fx:id="fixAmount" disable="true" mnemonicParsing="false" onAction="#fixAmountAction" text="Save changes">
             <HBox.margin>
-                <Insets left="16.0"/>
+                <Insets left="16.0" />
             </HBox.margin>
         </Button>
         <Text fx:id="outputFix" strokeType="OUTSIDE" strokeWidth="0.0">
             <HBox.margin>
-                <Insets left="26.0" top="6.0"/>
+                <Insets left="26.0" top="6.0" />
             </HBox.margin>
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Text>
         <Text fx:id="outputError" fill="#eb0404" strokeType="OUTSIDE" strokeWidth="0.0">
             <font>
-                <Font name="System Bold Italic" size="13.0"/>
+                <Font name="System Bold Italic" size="13.0" />
             </font>
             <HBox.margin>
-                <Insets left="60.0" top="6.0"/>
+                <Insets left="60.0" top="6.0" />
             </HBox.margin>
         </Text>
     </HBox>
@@ -67,300 +60,277 @@
     <!--   INCOME  -->
     <HBox prefHeight="28.0" prefWidth="200.0">
         <VBox.margin>
-            <Insets left="42.0" top="14.0"/>
+            <Insets left="42.0" top="14.0" />
         </VBox.margin>
-        <Text fx:id="titleIncome" strokeType="OUTSIDE" strokeWidth="0.0"
-              text="INCOME" textAlignment="CENTER" textOrigin="TOP">
+        <Text fx:id="titleIncome" strokeType="OUTSIDE" strokeWidth="0.0" text="INCOME" textAlignment="CENTER" textOrigin="TOP">
             <effect>
-                <Glow/>
+                <Glow />
             </effect>
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
         </Text>
-        <TextField fx:id="inputIncomeField" prefHeight="26.0" prefWidth="70.0"
-                   promptText="Amount">
+        <TextField fx:id="inputIncomeField" prefHeight="26.0" prefWidth="70.0" promptText="Amount">
             <HBox.margin>
-                <Insets left="70.0" right="45.0"/>
+                <Insets left="70.0" right="45.0" />
             </HBox.margin>
         </TextField>
-        <Button fx:id="buttonIncome" mnemonicParsing="false"
-                onAction="#btnIncomeAction"
-                prefHeight="26.0" prefWidth="60.0"
-                text="ADD"/>
+        <Button fx:id="buttonIncome" mnemonicParsing="false" onAction="#btnIncomeAction" prefHeight="26.0" prefWidth="60.0" text="ADD" />
 
         <Text fx:id="outputIncome" fill="#5ea453" strokeType="OUTSIDE" strokeWidth="0.0">
 
             <HBox.margin>
-                <Insets left="40.0"/>
+                <Insets left="40.0" />
             </HBox.margin>
             <font>
-                <Font size="22.0"/>
+                <Font size="22.0" />
             </font>
         </Text>
     </HBox>
     <!--    FOOD-->
     <HBox prefHeight="28.0" prefWidth="200.0">
         <VBox.margin>
-            <Insets top="21.0"/>
+            <Insets top="21.0" />
         </VBox.margin>
         <Text fx:id="titleFood" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #a11313;" text="FOOD ">
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
             <HBox.margin>
-                <Insets left="59.0"/>
+                <Insets left="59.0" />
             </HBox.margin>
         </Text>
         <TextField fx:id="inputFood" prefHeight="26.0" prefWidth="70.0" promptText="Amount">
             <HBox.margin>
-                <Insets left="70.0" right="45.0"/>
+                <Insets left="70.0" right="45.0" />
             </HBox.margin>
         </TextField>
-        <Button fx:id="btnFood" mnemonicParsing="false" onAction="#btnFoodAction" prefHeight="26.0" prefWidth="60.0"
-                text="ADD"/>
+        <Button fx:id="btnFood" mnemonicParsing="false" onAction="#btnFoodAction" prefHeight="26.0" prefWidth="60.0" text="ADD" />
         <Text fx:id="outputFood" strokeType="OUTSIDE" strokeWidth="0.0">
             <HBox.margin>
-                <Insets left="42.0" top="6.0"/>
+                <Insets left="42.0" top="6.0" />
             </HBox.margin>
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Text>
     </HBox>
     <!--    HOUSE-->
     <HBox prefHeight="28.0" prefWidth="200.0">
         <VBox.margin>
-            <Insets top="21.0"/>
+            <Insets top="21.0" />
         </VBox.margin>
         <Text fx:id="titleHouse" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #a11313;" text="HOUSE ">
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
             <HBox.margin>
-                <Insets left="54.0"/>
+                <Insets left="54.0" />
             </HBox.margin>
         </Text>
         <TextField fx:id="inputHouse" prefHeight="26.0" prefWidth="70.0" promptText="Amount">
             <HBox.margin>
-                <Insets left="65.0" right="45.0"/>
+                <Insets left="65.0" right="45.0" />
             </HBox.margin>
         </TextField>
-        <Button fx:id="btnHouse" mnemonicParsing="false" onAction="#btnHouseAction" prefHeight="26.0" prefWidth="60.0"
-                text="ADD"/>
+        <Button fx:id="btnHouse" mnemonicParsing="false" onAction="#btnHouseAction" prefHeight="26.0" prefWidth="60.0" text="ADD" />
         <Text fx:id="outputHouse" strokeType="OUTSIDE" strokeWidth="0.0">
             <HBox.margin>
-                <Insets left="42.0" top="6.0"/>
+                <Insets left="42.0" top="6.0" />
             </HBox.margin>
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Text>
     </HBox>
     <!--    SHOPPING-->
     <HBox prefHeight="28.0" prefWidth="200.0">
         <VBox.margin>
-            <Insets top="21.0"/>
+            <Insets top="21.0" />
         </VBox.margin>
         <Text fx:id="titleShopping" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #a11313;" text="SHOPPING">
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
             <HBox.margin>
-                <Insets left="42.0"/>
+                <Insets left="42.0" />
             </HBox.margin>
         </Text>
         <TextField fx:id="inputShopping" prefHeight="26.0" prefWidth="70.0" promptText="Amount">
             <HBox.margin>
-                <Insets left="54.0" right="45.0"/>
+                <Insets left="54.0" right="45.0" />
             </HBox.margin>
         </TextField>
-        <Button fx:id="btnShopping" mnemonicParsing="false" onAction="#btnShoppingAction" prefHeight="26.0"
-                prefWidth="60.0" text="ADD"/>
+        <Button fx:id="btnShopping" mnemonicParsing="false" onAction="#btnShoppingAction" prefHeight="26.0" prefWidth="60.0" text="ADD" />
         <Text fx:id="outputShopping" strokeType="OUTSIDE" strokeWidth="0.0">
             <HBox.margin>
-                <Insets left="42.0" top="6.0"/>
+                <Insets left="42.0" top="6.0" />
             </HBox.margin>
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Text>
     </HBox>
     <!--    TRANSPORT-->
     <HBox prefHeight="28.0" prefWidth="200.0">
         <VBox.margin>
-            <Insets top="21.0"/>
+            <Insets top="21.0" />
         </VBox.margin>
         <Text fx:id="titleTransport" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #a11313;" text="TRANSPORT">
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
             <HBox.margin>
-                <Insets left="35.0"/>
+                <Insets left="35.0" />
             </HBox.margin>
         </Text>
         <TextField fx:id="inputTransport" prefHeight="26.0" prefWidth="70.0" promptText="Amount">
             <HBox.margin>
-                <Insets left="48.0" right="45.0"/>
+                <Insets left="48.0" right="45.0" />
             </HBox.margin>
         </TextField>
-        <Button fx:id="btnTransport" mnemonicParsing="false" onAction="#btnTransportAction" prefHeight="26.0"
-                prefWidth="60.0" text="ADD"/>
+        <Button fx:id="btnTransport" mnemonicParsing="false" onAction="#btnTransportAction" prefHeight="26.0" prefWidth="60.0" text="ADD" />
         <Text fx:id="outputTransport" strokeType="OUTSIDE" strokeWidth="0.0">
             <HBox.margin>
-                <Insets left="42.0" top="6.0"/>
+                <Insets left="42.0" top="6.0" />
             </HBox.margin>
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Text>
     </HBox>
     <!--    ENTERTAINMENT-->
     <HBox prefHeight="28.0" prefWidth="200.0">
         <VBox.margin>
-            <Insets top="21.0"/>
+            <Insets top="21.0" />
         </VBox.margin>
-        <Text fx:id="titleEntertainment" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #a11313;"
-              text="ENTERTAINMENT">
+        <Text fx:id="titleEntertainment" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #a11313;" text="ENTERTAINMENT">
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
             <HBox.margin>
-                <Insets left="28.0"/>
+                <Insets left="28.0" />
             </HBox.margin>
         </Text>
         <TextField fx:id="inputEntertainment" prefHeight="26.0" prefWidth="70.0" promptText="Amount">
             <HBox.margin>
-                <Insets left="17.0" right="45.0"/>
+                <Insets left="17.0" right="45.0" />
             </HBox.margin>
         </TextField>
-        <Button fx:id="btnEntertainment" mnemonicParsing="false" onAction="#btnEntertainmentAction" prefHeight="26.0"
-                prefWidth="60.0" text="ADD"/>
+        <Button fx:id="btnEntertainment" mnemonicParsing="false" onAction="#btnEntertainmentAction" prefHeight="26.0" prefWidth="60.0" text="ADD" />
         <Text fx:id="outputEntertainment" strokeType="OUTSIDE" strokeWidth="0.0">
             <HBox.margin>
-                <Insets left="43.0" top="6.0"/>
+                <Insets left="43.0" top="6.0" />
             </HBox.margin>
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Text>
     </HBox>
     <!--    OTHER-->
     <HBox prefHeight="28.0" prefWidth="200.0">
         <VBox.margin>
-            <Insets top="21.0"/>
+            <Insets top="21.0" />
         </VBox.margin>
         <Text fx:id="titleOther" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #a11313;" text="OTHER ">
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
             <HBox.margin>
-                <Insets left="54.0"/>
+                <Insets left="54.0" />
             </HBox.margin>
         </Text>
         <TextField fx:id="inputOther" prefHeight="26.0" prefWidth="70.0" promptText="Amount">
             <HBox.margin>
-                <Insets left="70.0" right="45.0"/>
+                <Insets left="70.0" right="45.0" />
             </HBox.margin>
         </TextField>
-        <Button fx:id="btnOther" mnemonicParsing="false" onAction="#btnOtherAction" prefHeight="26.0" prefWidth="60.0"
-                text="ADD"/>
+        <Button fx:id="btnOther" mnemonicParsing="false" onAction="#btnOtherAction" prefHeight="26.0" prefWidth="60.0" text="ADD" />
         <Text fx:id="outputOther" strokeType="OUTSIDE" strokeWidth="0.0">
             <HBox.margin>
-                <Insets left="43.0" top="6.0"/>
+                <Insets left="43.0" top="6.0" />
             </HBox.margin>
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Text>
     </HBox>
     <!--    БЛОК ПОЛЯ ДОБАВЛЕНИЯ СУММЫ-->
 
     <!--    БЛОК КНОПКИ ВОЗВРАТА И ОЧИСТКИ ПОЛЕЙ-->
-    <VBox prefHeight="416.0" prefWidth="193.0">
+    <VBox prefHeight="338.0" prefWidth="193.0">
         <VBox.margin>
-            <Insets left="600.0" right="16.0" top="-310.0"/>
+            <Insets left="582.0" right="58.0" top="-313.0" />
         </VBox.margin>
         <HBox prefHeight="26.0" prefWidth="200.0">
-            <Button fx:id="minusBudgetField" mnemonicParsing="false"
-                    onAction="#minusIncomeFieldAction" style="-fx-background-color: #763234;"
-                    text="-" textFill="#fffafa">
+            <Button fx:id="minusBudgetField" mnemonicParsing="false" onAction="#minusIncomeFieldAction" style="-fx-background-color: #763234;" text="-" textFill="#fffafa">
                 <HBox.margin>
-                    <Insets right="7.0"/>
+                    <Insets right="7.0" />
                 </HBox.margin>
             </Button>
-            <Button fx:id="clearAllNotes" mnemonicParsing="false"
-
-                    onAction="#clearAllNotesAction" style="-fx-background-color: #B66D34;"
-                    text="CLEAR  ALL NOTES" textFill="#f8f8f8">
+            <Button fx:id="clearAllNotes" mnemonicParsing="false" onAction="#clearAllNotesAction" style="-fx-background-color: #B66D34;" text="CLEAR  ALL NOTES" textFill="#f8f8f8">
                 <HBox.margin>
-                    <Insets/>
+                    <Insets />
                 </HBox.margin>
             </Button>
         </HBox>
         <HBox prefHeight="26.0" prefWidth="200.0">
             <VBox.margin>
-                <Insets top="23.0"/>
+                <Insets top="23.0" />
             </VBox.margin>
-            <Button fx:id="returnFoodMoney" mnemonicParsing="false" onAction="#returnFoodMoneyAction"
-                    style="-fx-background-color: #B66D34;" text="RETURN MONEY" textFill="WHITE">
+            <Button fx:id="returnFoodMoney" mnemonicParsing="false" onAction="#returnFoodMoneyAction" style="-fx-background-color: #B66D34;" text="RETURN MONEY" textFill="WHITE">
                 <HBox.margin>
-                    <Insets left="30.0"/>
+                    <Insets left="31.0" />
                 </HBox.margin>
             </Button>
         </HBox>
         <HBox prefHeight="26.0" prefWidth="200.0">
             <VBox.margin>
-                <Insets top="22.0"/>
+                <Insets top="22.0" />
             </VBox.margin>
-            <Button fx:id="returnHouseMoney" mnemonicParsing="false" onAction="#returnHouseMoneyAction"
-                    style="-fx-background-color: #B66D34;" text="RETURN MONEY" textFill="WHITE">
+            <Button fx:id="returnHouseMoney" mnemonicParsing="false" onAction="#returnHouseMoneyAction" style="-fx-background-color: #B66D34;" text="RETURN MONEY" textFill="WHITE">
                 <HBox.margin>
-                    <Insets left="30.0" top="-1.0"/>
+                    <Insets left="31.0" top="-1.0" />
                 </HBox.margin>
             </Button>
         </HBox>
         <HBox prefHeight="26.0" prefWidth="200.0">
             <VBox.margin>
-                <Insets top="21.0"/>
+                <Insets top="21.0" />
             </VBox.margin>
-            <Button fx:id="returnShoppingMoney" mnemonicParsing="false" onAction="#returnShoppingMoneyAction"
-                    style="-fx-background-color: #B66D34;" text="RETURN MONEY" textFill="WHITE">
+            <Button fx:id="returnShoppingMoney" mnemonicParsing="false" onAction="#returnShoppingMoneyAction" style="-fx-background-color: #B66D34;" text="RETURN MONEY" textFill="WHITE">
                 <HBox.margin>
-                    <Insets left="30.0" top="-1.0"/>
+                    <Insets left="31.0" top="-1.0" />
                 </HBox.margin>
             </Button>
         </HBox>
         <HBox prefHeight="26.0" prefWidth="200.0">
             <VBox.margin>
-                <Insets top="21.0"/>
+                <Insets top="21.0" />
             </VBox.margin>
-            <Button fx:id="returnTransportMoney" mnemonicParsing="false" onAction="#returnTransportMoneyAction"
-                    style="-fx-background-color: #B66D34;" text="RETURN MONEY" textFill="WHITE">
+            <Button fx:id="returnTransportMoney" mnemonicParsing="false" onAction="#returnTransportMoneyAction" style="-fx-background-color: #B66D34;" text="RETURN MONEY" textFill="WHITE">
                 <HBox.margin>
-                    <Insets left="30.0" top="-1.0"/>
+                    <Insets left="31.0" top="-1.0" />
                 </HBox.margin>
             </Button>
         </HBox>
         <HBox prefHeight="26.0" prefWidth="200.0">
             <VBox.margin>
-                <Insets top="21.0"/>
+                <Insets top="21.0" />
             </VBox.margin>
-            <Button fx:id="returnEntertainmentMoney" mnemonicParsing="false" onAction="#returnEntertainmentMoneyAction"
-                    style="-fx-background-color: #B66D34;" text="RETURN MONEY" textFill="WHITE">
+            <Button fx:id="returnEntertainmentMoney" mnemonicParsing="false" onAction="#returnEntertainmentMoneyAction" style="-fx-background-color: #B66D34;" text="RETURN MONEY" textFill="WHITE">
                 <HBox.margin>
-                    <Insets left="30.0" top="-1.0"/>
+                    <Insets left="31.0" top="-1.0" />
                 </HBox.margin>
             </Button>
         </HBox>
         <HBox prefHeight="26.0" prefWidth="200.0">
             <VBox.margin>
-                <Insets top="21.0"/>
+                <Insets top="21.0" />
             </VBox.margin>
-            <Button fx:id="returnOtherMoney" mnemonicParsing="false" onAction="#returnOtherMoneyAction"
-                    style="-fx-background-color: #B66D34;" text="RETURN MONEY" textFill="WHITE">
+            <Button fx:id="returnOtherMoney" mnemonicParsing="false" onAction="#returnOtherMoneyAction" style="-fx-background-color: #B66D34;" text="RETURN MONEY" textFill="WHITE">
                 <HBox.margin>
-                    <Insets left="30.0" top="-1.0"/>
+                    <Insets left="31.0" top="-1.0" />
                 </HBox.margin>
             </Button>
         </HBox>
@@ -368,59 +338,56 @@
     <!--    БЛОК КНОПКИ ВОЗВРАТА И ОЧИСТКИ ПОЛЕЙ-->
 
     <!--    БЛОК СТАТИСТИКИ ПО МЕСЯЦАМ-->
-    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="8.0">
         <VBox.margin>
-            <Insets bottom="13.0"/>
+            <Insets bottom="13.0" />
         </VBox.margin>
         <!--           ЗИМА-->
         <VBox alignment="CENTER" prefHeight="234.0" prefWidth="150.0">
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                <Button fx:id="btnDecember"  disable="true" mnemonicParsing="false" onAction="#btnDecemberAction" text="DECEMBER"/>
-                <Button fx:id="btnDecemberShow" mnemonicParsing="false" onAction="#btnDecemberShowAction"
-                        visible="false">
+                <Button fx:id="btnDecember" disable="true" mnemonicParsing="false" onAction="#btnDecemberAction" text="DECEMBER" />
+                <Button fx:id="btnDecemberShow" mnemonicParsing="false" onAction="#btnDecemberShowAction" visible="false">
                     <HBox.margin>
-                        <Insets left="12.0"/>
+                        <Insets left="12.0" />
                     </HBox.margin>
                     <cursor>
-                        <Cursor fx:constant="OPEN_HAND"/>
+                        <Cursor fx:constant="OPEN_HAND" />
                     </cursor>
                 </Button>
             </HBox>
 
             <HBox opacity="0.83" prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #92A050;">
                 <VBox.margin>
-                    <Insets top="6.0"/>
+                    <Insets top="6.0" />
                 </VBox.margin>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="EARN">
                     <HBox.margin>
-                        <Insets left="20.0" right="30.0"/>
+                        <Insets left="20.0" right="30.0" />
                     </HBox.margin>
                 </Text>
-                <Text fx:id="earnDecember"  smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
+                <Text fx:id="earnDecember" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
             </HBox>
             <HBox prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #6C699C;">
                 <VBox.margin>
-                    <Insets top="4.0"/>
+                    <Insets top="4.0" />
                 </VBox.margin>
-                <Text  strokeType="OUTSIDE" strokeWidth="0.0" text="SPEND">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SPEND">
                     <HBox.margin>
-                        <Insets left="20.0" right="22.0"/>
+                        <Insets left="20.0" right="22.0" />
                     </HBox.margin>
                 </Text>
-                <Text fx:id="spendDecember" strokeType="OUTSIDE" strokeWidth="0.0" >
+                <Text fx:id="spendDecember" strokeType="OUTSIDE" strokeWidth="0.0">
                     <fill>
-                        <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575"
-                                        startY="0.5558194774346793">
+                        <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575" startY="0.5558194774346793">
                             <stops>
                                 <Stop>
                                     <color>
-                                        <Color red="0.9201677441596985" green="0.9300000071525574"
-                                               blue="0.04650000110268593"/>
+                                        <Color red="0.9201677441596985" green="0.9300000071525574" blue="0.04650000110268593" />
                                     </color>
                                 </Stop>
                                 <Stop offset="1.0">
                                     <color>
-                                        <Color red="0.21296297013759613" green="1.0" blue="0.4621913433074951"/>
+                                        <Color red="0.21296297013759613" green="1.0" blue="0.4621913433074951" />
                                     </color>
                                 </Stop>
                             </stops>
@@ -430,53 +397,51 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="89.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets top="10.0"/>
+                    <Insets top="10.0" />
                 </VBox.margin>
 
-                <Button fx:id="btnJanuary" disable="true" mnemonicParsing="false" onAction="#btnJanuaryAction" text="JANUARY"/>
+                <Button fx:id="btnJanuary" disable="true" mnemonicParsing="false" onAction="#btnJanuaryAction" text="JANUARY" />
                 <Button fx:id="btnJanuaryShow" mnemonicParsing="false" onAction="#btnJanuaryShowAction" visible="false">
                     <HBox.margin>
-                        <Insets left="21.0"/>
+                        <Insets left="21.0" />
                     </HBox.margin>
                     <cursor>
-                        <Cursor fx:constant="OPEN_HAND"/>
+                        <Cursor fx:constant="OPEN_HAND" />
                     </cursor>
                 </Button>
             </HBox>
             <HBox opacity="0.83" prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #92A050;">
                 <VBox.margin>
-                    <Insets top="6.0"/>
+                    <Insets top="6.0" />
                 </VBox.margin>
-                <Text  strokeType="OUTSIDE" strokeWidth="0.0" text="EARN">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="EARN">
                     <HBox.margin>
-                        <Insets left="20.0" right="30.0"/>
+                        <Insets left="20.0" right="30.0" />
                     </HBox.margin>
                 </Text>
-                <Text fx:id="earnJanuary"  smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
+                <Text fx:id="earnJanuary" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
             </HBox>
             <HBox prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #6C699C;">
                 <VBox.margin>
-                    <Insets top="4.0"/>
+                    <Insets top="4.0" />
                 </VBox.margin>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SPEND">
                     <HBox.margin>
-                        <Insets left="20.0" right="22.0"/>
+                        <Insets left="20.0" right="22.0" />
                     </HBox.margin>
                 </Text>
-                <Text fx:id="spendJanuary"  strokeType="OUTSIDE" strokeWidth="0.0" >
+                <Text fx:id="spendJanuary" strokeType="OUTSIDE" strokeWidth="0.0">
                     <fill>
-                        <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575"
-                                        startY="0.5558194774346793">
+                        <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575" startY="0.5558194774346793">
                             <stops>
                                 <Stop>
                                     <color>
-                                        <Color red="0.9201677441596985" green="0.9300000071525574"
-                                               blue="0.04650000110268593"/>
+                                        <Color red="0.9201677441596985" green="0.9300000071525574" blue="0.04650000110268593" />
                                     </color>
                                 </Stop>
                                 <Stop offset="1.0">
                                     <color>
-                                        <Color red="0.21296297013759613" green="1.0" blue="0.4621913433074951"/>
+                                        <Color red="0.21296297013759613" green="1.0" blue="0.4621913433074951" />
                                     </color>
                                 </Stop>
                             </stops>
@@ -486,54 +451,51 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="89.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets top="10.0"/>
+                    <Insets top="10.0" />
                 </VBox.margin>
 
-                <Button fx:id="btnFebruary" disable="true" mnemonicParsing="false" onAction="#btnFebruaryAction" text="FEBRUARY"/>
-                <Button fx:id="btnFebruaryShow" mnemonicParsing="false" onAction="#btnFebruaryShowAction"
-                        visible="false">
+                <Button fx:id="btnFebruary" disable="true" mnemonicParsing="false" onAction="#btnFebruaryAction" text="FEBRUARY" />
+                <Button fx:id="btnFebruaryShow" mnemonicParsing="false" onAction="#btnFebruaryShowAction" visible="false">
                     <HBox.margin>
-                        <Insets left="15.0"/>
+                        <Insets left="15.0" />
                     </HBox.margin>
                     <cursor>
-                        <Cursor fx:constant="OPEN_HAND"/>
+                        <Cursor fx:constant="OPEN_HAND" />
                     </cursor>
                 </Button>
             </HBox>
             <HBox opacity="0.83" prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #92A050;">
                 <VBox.margin>
-                    <Insets top="6.0"/>
+                    <Insets top="6.0" />
                 </VBox.margin>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="EARN">
                     <HBox.margin>
-                        <Insets left="20.0" right="30.0"/>
+                        <Insets left="20.0" right="30.0" />
                     </HBox.margin>
                 </Text>
-                <Text fx:id="earnFebruary"  smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
+                <Text fx:id="earnFebruary" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
             </HBox>
             <HBox prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #6C699C;">
                 <VBox.margin>
-                    <Insets top="4.0"/>
+                    <Insets top="4.0" />
                 </VBox.margin>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SPEND">
                     <HBox.margin>
-                        <Insets left="20.0" right="22.0"/>
+                        <Insets left="20.0" right="22.0" />
                     </HBox.margin>
                 </Text>
-                <Text  fx:id="spendFebruary" strokeType="OUTSIDE" strokeWidth="0.0" >
+                <Text fx:id="spendFebruary" strokeType="OUTSIDE" strokeWidth="0.0">
                     <fill>
-                        <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575"
-                                        startY="0.5558194774346793">
+                        <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575" startY="0.5558194774346793">
                             <stops>
                                 <Stop>
                                     <color>
-                                        <Color red="0.9201677441596985" green="0.9300000071525574"
-                                               blue="0.04650000110268593"/>
+                                        <Color red="0.9201677441596985" green="0.9300000071525574" blue="0.04650000110268593" />
                                     </color>
                                 </Stop>
                                 <Stop offset="1.0">
                                     <color>
-                                        <Color red="0.21296297013759613" green="1.0" blue="0.4621913433074951"/>
+                                        <Color red="0.21296297013759613" green="1.0" blue="0.4621913433074951" />
                                     </color>
                                 </Stop>
                             </stops>
@@ -545,51 +507,49 @@
         <!--           ВЕСНА-->
         <VBox alignment="CENTER" prefHeight="234.0" prefWidth="150.0">
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                <Button fx:id="btnMarch" disable="true" mnemonicParsing="false" onAction="#btnMarchAction" text="MARCH"/>
+                <Button fx:id="btnMarch" disable="true" mnemonicParsing="false" onAction="#btnMarchAction" text="MARCH" />
                 <Button fx:id="btnMarchShow" mnemonicParsing="false" onAction="#btnMarchShowAction" visible="false">
                     <HBox.margin>
-                        <Insets left="33.0"/>
+                        <Insets left="33.0" />
                     </HBox.margin>
                     <cursor>
-                        <Cursor fx:constant="OPEN_HAND"/>
+                        <Cursor fx:constant="OPEN_HAND" />
                     </cursor>
                 </Button>
             </HBox>
 
             <HBox opacity="0.83" prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #92A050;">
                 <VBox.margin>
-                    <Insets top="6.0"/>
+                    <Insets top="6.0" />
                 </VBox.margin>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="EARN">
                     <HBox.margin>
-                        <Insets left="20.0" right="30.0"/>
+                        <Insets left="20.0" right="30.0" />
                     </HBox.margin>
                 </Text>
                 <Text fx:id="earnMarch" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
             </HBox>
             <HBox prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #6C699C;">
                 <VBox.margin>
-                    <Insets top="4.0"/>
+                    <Insets top="4.0" />
                 </VBox.margin>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SPEND">
                     <HBox.margin>
-                        <Insets left="20.0" right="22.0"/>
+                        <Insets left="20.0" right="22.0" />
                     </HBox.margin>
                 </Text>
-                <Text fx:id="spendMarch" strokeType="OUTSIDE" strokeWidth="0.0" >
+                <Text fx:id="spendMarch" strokeType="OUTSIDE" strokeWidth="0.0">
                     <fill>
-                        <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575"
-                                        startY="0.5558194774346793">
+                        <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575" startY="0.5558194774346793">
                             <stops>
                                 <Stop>
                                     <color>
-                                        <Color red="0.9201677441596985" green="0.9300000071525574"
-                                               blue="0.04650000110268593"/>
+                                        <Color red="0.9201677441596985" green="0.9300000071525574" blue="0.04650000110268593" />
                                     </color>
                                 </Stop>
                                 <Stop offset="1.0">
                                     <color>
-                                        <Color red="0.21296297013759613" green="1.0" blue="0.4621913433074951"/>
+                                        <Color red="0.21296297013759613" green="1.0" blue="0.4621913433074951" />
                                     </color>
                                 </Stop>
                             </stops>
@@ -599,54 +559,50 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets top="10.0"/>
+                    <Insets top="10.0" />
                 </VBox.margin>
-                <Button fx:id="btnApril" disable="true" mnemonicParsing="false" onAction="#btnAprilAction"
-                  text="APRIL"/>
-                <Button fx:id="btnAprilShow" mnemonicParsing="false" onAction="#btnAprilShowAction"
-                  visible="false">
+                <Button fx:id="btnApril" disable="true" mnemonicParsing="false" onAction="#btnAprilAction" text="APRIL" />
+                <Button fx:id="btnAprilShow" mnemonicParsing="false" onAction="#btnAprilShowAction" visible="false">
                     <HBox.margin>
-                        <Insets left="45.0"/>
+                        <Insets left="45.0" />
                     </HBox.margin>
                     <cursor>
-                        <Cursor fx:constant="OPEN_HAND"/>
+                        <Cursor fx:constant="OPEN_HAND" />
                     </cursor>
                 </Button>
             </HBox>
             <HBox opacity="0.83" prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #92A050;">
                 <VBox.margin>
-                    <Insets top="6.0"/>
+                    <Insets top="6.0" />
                 </VBox.margin>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="EARN">
                     <HBox.margin>
-                        <Insets left="20.0" right="30.0"/>
+                        <Insets left="20.0" right="30.0" />
                     </HBox.margin>
                 </Text>
                 <Text fx:id="earnApril" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
             </HBox>
             <HBox prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #6C699C;">
                 <VBox.margin>
-                    <Insets top="4.0"/>
+                    <Insets top="4.0" />
                 </VBox.margin>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SPEND">
                     <HBox.margin>
-                        <Insets left="20.0" right="22.0"/>
+                        <Insets left="20.0" right="22.0" />
                     </HBox.margin>
                 </Text>
-                <Text fx:id="spendApril" strokeType="OUTSIDE" strokeWidth="0.0" >
+                <Text fx:id="spendApril" strokeType="OUTSIDE" strokeWidth="0.0">
                     <fill>
-                        <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575"
-                                        startY="0.5558194774346793">
+                        <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575" startY="0.5558194774346793">
                             <stops>
                                 <Stop>
                                     <color>
-                                        <Color red="0.9201677441596985" green="0.9300000071525574"
-                                               blue="0.04650000110268593"/>
+                                        <Color red="0.9201677441596985" green="0.9300000071525574" blue="0.04650000110268593" />
                                     </color>
                                 </Stop>
                                 <Stop offset="1.0">
                                     <color>
-                                        <Color red="0.21296297013759613" green="1.0" blue="0.4621913433074951"/>
+                                        <Color red="0.21296297013759613" green="1.0" blue="0.4621913433074951" />
                                     </color>
                                 </Stop>
                             </stops>
@@ -656,53 +612,50 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets top="10.0"/>
+                    <Insets top="10.0" />
                 </VBox.margin>
-                <Button fx:id="btnMay" disable="true" mnemonicParsing="false" onAction="#btnMayAction" text="MAY"/>
-                <Button fx:id="btnMayShow" mnemonicParsing="false" onAction="#btnMayShowAction"
-                  visible="false">
+                <Button fx:id="btnMay" disable="true" mnemonicParsing="false" onAction="#btnMayAction" text="MAY" />
+                <Button fx:id="btnMayShow" mnemonicParsing="false" onAction="#btnMayShowAction" visible="false">
                     <HBox.margin>
-                        <Insets left="51.0"/>
+                        <Insets left="51.0" />
                     </HBox.margin>
                     <cursor>
-                        <Cursor fx:constant="OPEN_HAND"/>
+                        <Cursor fx:constant="OPEN_HAND" />
                     </cursor>
                 </Button>
             </HBox>
             <HBox opacity="0.83" prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #92A050;">
                 <VBox.margin>
-                    <Insets top="6.0"/>
+                    <Insets top="6.0" />
                 </VBox.margin>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="EARN">
                     <HBox.margin>
-                        <Insets left="20.0" right="30.0"/>
+                        <Insets left="20.0" right="30.0" />
                     </HBox.margin>
                 </Text>
-                <Text fx:id="earnMay"  smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
+                <Text fx:id="earnMay" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
             </HBox>
             <HBox prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #6C699C;">
                 <VBox.margin>
-                    <Insets top="4.0"/>
+                    <Insets top="4.0" />
                 </VBox.margin>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SPEND">
                     <HBox.margin>
-                        <Insets left="20.0" right="22.0"/>
+                        <Insets left="20.0" right="22.0" />
                     </HBox.margin>
                 </Text>
-                <Text fx:id="spendMay"  strokeType="OUTSIDE" strokeWidth="0.0" >
+                <Text fx:id="spendMay" strokeType="OUTSIDE" strokeWidth="0.0">
                     <fill>
-                        <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575"
-                                        startY="0.5558194774346793">
+                        <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575" startY="0.5558194774346793">
                             <stops>
                                 <Stop>
                                     <color>
-                                        <Color red="0.9201677441596985" green="0.9300000071525574"
-                                               blue="0.04650000110268593"/>
+                                        <Color red="0.9201677441596985" green="0.9300000071525574" blue="0.04650000110268593" />
                                     </color>
                                 </Stop>
                                 <Stop offset="1.0">
                                     <color>
-                                        <Color red="0.21296297013759613" green="1.0" blue="0.4621913433074951"/>
+                                        <Color red="0.21296297013759613" green="1.0" blue="0.4621913433074951" />
                                     </color>
                                 </Stop>
                             </stops>
@@ -710,55 +663,91 @@
                     </fill>
                 </Text>
             </HBox>
+            <VBox.margin>
+                <Insets left="40.0" />
+            </VBox.margin>
+         <HBox.margin>
+            <Insets left="44.0" />
+         </HBox.margin>
+        </VBox>
+<!--        SORT BOX-->
+        <VBox fx:id="sortBox" alignment="CENTER" prefHeight="202.0" prefWidth="43.0">
+
+            <HBox alignment="CENTER" prefHeight="16.0" prefWidth="178.0">
+                <VBox.margin>
+                    <Insets top="19.0" />
+                </VBox.margin>
+            <Text fx:id="sortText" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill:  #a11313;" text="SORT" visible="false">
+               <font>
+                  <Font name="System Font" size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Text>
+            </HBox>
+            <HBox alignment="TOP_CENTER" prefHeight="16.0" prefWidth="200.0">
+                <VBox.margin>
+                    <Insets top="4.0" />
+                </VBox.margin>
+            <Button fx:id="btnSortUp" mnemonicParsing="false" onAction="#btnSortUpAction" style="-fx-background-color: #763234;" text="-" textFill="#fffafa" visible="false" />
+            </HBox>
+            <HBox alignment="CENTER"  prefHeight="16.0" prefWidth="200.0">
+                <VBox.margin>
+                    <Insets top="6.0" />
+                </VBox.margin>
+            <Button fx:id="btnSortDown" mnemonicParsing="false" onAction="#btnSortDownAction" style="-fx-background-color: #763234;" text="-" textFill="#fffafa" visible="false" />
+            </HBox>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
         </VBox>
         <!--           ЛЕТО-->
         <VBox alignment="CENTER" prefHeight="234.0" prefWidth="150.0">
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                <Button fx:id="btnJune" disable="true" mnemonicParsing="false" onAction="#btnJuneAction" text="JUNE"/>
+                <Button fx:id="btnJune" disable="true" mnemonicParsing="false" onAction="#btnJuneAction" text="JUNE" />
                 <Button fx:id="btnJuneShow" mnemonicParsing="false" onAction="#btnJuneShowAction" visible="false">
                     <HBox.margin>
-                        <Insets left="46.0"/>
+                        <Insets left="46.0" />
                     </HBox.margin>
                     <cursor>
-                        <Cursor fx:constant="OPEN_HAND"/>
+                        <Cursor fx:constant="OPEN_HAND" />
                     </cursor>
                 </Button>
             </HBox>
 
             <HBox opacity="0.83" prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #92A050;">
                 <VBox.margin>
-                    <Insets top="6.0"/>
+                    <Insets top="6.0" />
                 </VBox.margin>
-                <Text  strokeType="OUTSIDE" strokeWidth="0.0" text="EARN">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="EARN">
                     <HBox.margin>
-                        <Insets left="20.0" right="30.0"/>
+                        <Insets left="20.0" right="30.0" />
                     </HBox.margin>
                 </Text>
-                <Text fx:id="earnJune"  smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
+                <Text fx:id="earnJune" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
             </HBox>
             <HBox prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #6C699C;">
                 <VBox.margin>
-                    <Insets top="4.0"/>
+                    <Insets top="4.0" />
                 </VBox.margin>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SPEND">
                     <HBox.margin>
-                        <Insets left="20.0" right="22.0"/>
+                        <Insets left="20.0" right="22.0" />
                     </HBox.margin>
                 </Text>
-                <Text fx:id="spendJune"  strokeType="OUTSIDE" strokeWidth="0.0" >
+                <Text fx:id="spendJune" strokeType="OUTSIDE" strokeWidth="0.0">
                     <fill>
-                        <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575"
-                                        startY="0.5558194774346793">
+                        <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575" startY="0.5558194774346793">
                             <stops>
                                 <Stop>
                                     <color>
-                                        <Color red="0.9201677441596985" green="0.9300000071525574"
-                                               blue="0.04650000110268593"/>
+                                        <Color red="0.9201677441596985" green="0.9300000071525574" blue="0.04650000110268593" />
                                     </color>
                                 </Stop>
                                 <Stop offset="1.0">
                                     <color>
-                                        <Color red="0.21296297013759613" green="1.0" blue="0.4621913433074951"/>
+                                        <Color red="0.21296297013759613" green="1.0" blue="0.4621913433074951" />
                                     </color>
                                 </Stop>
                             </stops>
@@ -768,54 +757,50 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets top="10.0"/>
+                    <Insets top="10.0" />
                 </VBox.margin>
-                <Button fx:id="btnJuly"  disable="true" mnemonicParsing="false" onAction="#btnJulyAction"
-                  text="JULY"/>
-                <Button fx:id="btnJulyShow" mnemonicParsing="false" onAction="#btnJulyShowAction"
-                  visible="false">
+                <Button fx:id="btnJuly" disable="true" mnemonicParsing="false" onAction="#btnJulyAction" text="JULY" />
+                <Button fx:id="btnJulyShow" mnemonicParsing="false" onAction="#btnJulyShowAction" visible="false">
                     <HBox.margin>
-                        <Insets left="48.0"/>
+                        <Insets left="48.0" />
                     </HBox.margin>
                     <cursor>
-                        <Cursor fx:constant="OPEN_HAND"/>
+                        <Cursor fx:constant="OPEN_HAND" />
                     </cursor>
                 </Button>
             </HBox>
             <HBox opacity="0.83" prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #92A050;">
                 <VBox.margin>
-                    <Insets top="6.0"/>
+                    <Insets top="6.0" />
                 </VBox.margin>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="EARN">
                     <HBox.margin>
-                        <Insets left="20.0" right="30.0"/>
+                        <Insets left="20.0" right="30.0" />
                     </HBox.margin>
                 </Text>
-                <Text fx:id="earnJuly"  smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
+                <Text fx:id="earnJuly" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
             </HBox>
             <HBox prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #6C699C;">
                 <VBox.margin>
-                    <Insets top="4.0"/>
+                    <Insets top="4.0" />
                 </VBox.margin>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SPEND">
                     <HBox.margin>
-                        <Insets left="20.0" right="22.0"/>
+                        <Insets left="20.0" right="22.0" />
                     </HBox.margin>
                 </Text>
-                <Text fx:id="spendJuly"  strokeType="OUTSIDE" strokeWidth="0.0">
+                <Text fx:id="spendJuly" strokeType="OUTSIDE" strokeWidth="0.0">
                     <fill>
-                        <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575"
-                                        startY="0.5558194774346793">
+                        <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575" startY="0.5558194774346793">
                             <stops>
                                 <Stop>
                                     <color>
-                                        <Color red="0.9201677441596985" green="0.9300000071525574"
-                                               blue="0.04650000110268593"/>
+                                        <Color red="0.9201677441596985" green="0.9300000071525574" blue="0.04650000110268593" />
                                     </color>
                                 </Stop>
                                 <Stop offset="1.0">
                                     <color>
-                                        <Color red="0.21296297013759613" green="1.0" blue="0.4621913433074951"/>
+                                        <Color red="0.21296297013759613" green="1.0" blue="0.4621913433074951" />
                                     </color>
                                 </Stop>
                             </stops>
@@ -825,55 +810,50 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets top="10.0"/>
+                    <Insets top="10.0" />
                 </VBox.margin>
-                <Button fx:id="btnAugust" disable="true" mnemonicParsing="false" onAction="#btnAugustAction"
-                  text="AUGUST"/>
-                <Button fx:id="btnAugustShow" mnemonicParsing="false"
-                  onAction="#btnAugustShowAction"
-                  visible="false">
+                <Button fx:id="btnAugust" disable="true" mnemonicParsing="false" onAction="#btnAugustAction" text="AUGUST" />
+                <Button fx:id="btnAugustShow" mnemonicParsing="false" onAction="#btnAugustShowAction" visible="false">
                     <HBox.margin>
-                        <Insets left="27.0"/>
+                        <Insets left="27.0" />
                     </HBox.margin>
                     <cursor>
-                        <Cursor fx:constant="OPEN_HAND"/>
+                        <Cursor fx:constant="OPEN_HAND" />
                     </cursor>
                 </Button>
             </HBox>
             <HBox opacity="0.83" prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #92A050;">
                 <VBox.margin>
-                    <Insets top="6.0"/>
+                    <Insets top="6.0" />
                 </VBox.margin>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="EARN">
                     <HBox.margin>
-                        <Insets left="20.0" right="30.0"/>
+                        <Insets left="20.0" right="30.0" />
                     </HBox.margin>
                 </Text>
-                <Text fx:id="earnAugust"  smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
+                <Text fx:id="earnAugust" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
             </HBox>
             <HBox prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #6C699C;">
                 <VBox.margin>
-                    <Insets top="4.0"/>
+                    <Insets top="4.0" />
                 </VBox.margin>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SPEND">
                     <HBox.margin>
-                        <Insets left="20.0" right="22.0"/>
+                        <Insets left="20.0" right="22.0" />
                     </HBox.margin>
                 </Text>
-                <Text fx:id="spendAugust"  strokeType="OUTSIDE" strokeWidth="0.0" >
+                <Text fx:id="spendAugust" strokeType="OUTSIDE" strokeWidth="0.0">
                     <fill>
-                        <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575"
-                                        startY="0.5558194774346793">
+                        <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575" startY="0.5558194774346793">
                             <stops>
                                 <Stop>
                                     <color>
-                                        <Color red="0.9201677441596985" green="0.9300000071525574"
-                                               blue="0.04650000110268593"/>
+                                        <Color red="0.9201677441596985" green="0.9300000071525574" blue="0.04650000110268593" />
                                     </color>
                                 </Stop>
                                 <Stop offset="1.0">
                                     <color>
-                                        <Color red="0.21296297013759613" green="1.0" blue="0.4621913433074951"/>
+                                        <Color red="0.21296297013759613" green="1.0" blue="0.4621913433074951" />
                                     </color>
                                 </Stop>
                             </stops>
@@ -881,56 +861,56 @@
                     </fill>
                 </Text>
             </HBox>
+         <HBox.margin>
+            <Insets right="42.0" />
+         </HBox.margin>
         </VBox>
         <!--           ОСЕНЬ-->
         <VBox alignment="CENTER" prefHeight="234.0" prefWidth="150.0">
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                <Button fx:id="btnSeptember" disable="true" mnemonicParsing="false" onAction="#btnSeptemberAction" text="SEPTEMBER"/>
-                <Button fx:id="btnSeptemberShow" mnemonicParsing="false" onAction="#btnSeptemberShowAction"
-                        visible="false">
+                <Button fx:id="btnSeptember" disable="true" mnemonicParsing="false" onAction="#btnSeptemberAction" text="SEPTEMBER" />
+                <Button fx:id="btnSeptemberShow" mnemonicParsing="false" onAction="#btnSeptemberShowAction" visible="false">
                     <HBox.margin>
-                        <Insets left="7.0"/>
+                        <Insets left="7.0" />
                     </HBox.margin>
                     <cursor>
-                        <Cursor fx:constant="OPEN_HAND"/>
+                        <Cursor fx:constant="OPEN_HAND" />
                     </cursor>
                 </Button>
             </HBox>
 
             <HBox opacity="0.83" prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #92A050;">
                 <VBox.margin>
-                    <Insets top="6.0"/>
+                    <Insets top="6.0" />
                 </VBox.margin>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="EARN">
                     <HBox.margin>
-                        <Insets left="20.0" right="30.0"/>
+                        <Insets left="20.0" right="30.0" />
                     </HBox.margin>
                 </Text>
                 <Text fx:id="earnSeptember" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
             </HBox>
             <HBox prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #6C699C;">
                 <VBox.margin>
-                    <Insets top="4.0"/>
+                    <Insets top="4.0" />
                 </VBox.margin>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SPEND">
                     <HBox.margin>
-                        <Insets left="20.0" right="22.0"/>
+                        <Insets left="20.0" right="22.0" />
                     </HBox.margin>
                 </Text>
-                <Text fx:id="spendSeptember" strokeType="OUTSIDE" strokeWidth="0.0" >
+                <Text fx:id="spendSeptember" strokeType="OUTSIDE" strokeWidth="0.0">
                     <fill>
-                        <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575"
-                                        startY="0.5558194774346793">
+                        <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575" startY="0.5558194774346793">
                             <stops>
                                 <Stop>
                                     <color>
-                                        <Color red="0.9201677441596985" green="0.9300000071525574"
-                                               blue="0.04650000110268593"/>
+                                        <Color red="0.9201677441596985" green="0.9300000071525574" blue="0.04650000110268593" />
                                     </color>
                                 </Stop>
                                 <Stop offset="1.0">
                                     <color>
-                                        <Color red="0.21296297013759613" green="1.0" blue="0.4621913433074951"/>
+                                        <Color red="0.21296297013759613" green="1.0" blue="0.4621913433074951" />
                                     </color>
                                 </Stop>
                             </stops>
@@ -940,55 +920,50 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets top="10.0"/>
+                    <Insets top="10.0" />
                 </VBox.margin>
-                <Button fx:id="btnOctober" disable="true" mnemonicParsing="false" onAction="#btnOctoberAction"
-                  text="OCTOBER"/>
-                <Button fx:id="btnOctoberShow" mnemonicParsing="false"
-                  onAction="#btnOctoberShowAction"
-                  visible="false">
+                <Button fx:id="btnOctober" disable="true" mnemonicParsing="false" onAction="#btnOctoberAction" text="OCTOBER" />
+                <Button fx:id="btnOctoberShow" mnemonicParsing="false" onAction="#btnOctoberShowAction" visible="false">
                     <HBox.margin>
-                        <Insets left="20.0"/>
+                        <Insets left="20.0" />
                     </HBox.margin>
                     <cursor>
-                        <Cursor fx:constant="OPEN_HAND"/>
+                        <Cursor fx:constant="OPEN_HAND" />
                     </cursor>
                 </Button>
             </HBox>
             <HBox opacity="0.83" prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #92A050;">
                 <VBox.margin>
-                    <Insets top="6.0"/>
+                    <Insets top="6.0" />
                 </VBox.margin>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="EARN">
                     <HBox.margin>
-                        <Insets left="20.0" right="30.0"/>
+                        <Insets left="20.0" right="30.0" />
                     </HBox.margin>
                 </Text>
-                <Text fx:id="earnOctober" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="12000"/>
+                <Text fx:id="earnOctober" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
             </HBox>
             <HBox prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #6C699C;">
                 <VBox.margin>
-                    <Insets top="4.0"/>
+                    <Insets top="4.0" />
                 </VBox.margin>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SPEND">
                     <HBox.margin>
-                        <Insets left="20.0" right="22.0"/>
+                        <Insets left="20.0" right="22.0" />
                     </HBox.margin>
                 </Text>
-                <Text  fx:id="spendOctober" strokeType="OUTSIDE" strokeWidth="0.0" text="10000">
+                <Text fx:id="spendOctober" strokeType="OUTSIDE" strokeWidth="0.0">
                     <fill>
-                        <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575"
-                                        startY="0.5558194774346793">
+                        <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575" startY="0.5558194774346793">
                             <stops>
                                 <Stop>
                                     <color>
-                                        <Color red="0.9201677441596985" green="0.9300000071525574"
-                                               blue="0.04650000110268593"/>
+                                        <Color red="0.9201677441596985" green="0.9300000071525574" blue="0.04650000110268593" />
                                     </color>
                                 </Stop>
                                 <Stop offset="1.0">
                                     <color>
-                                        <Color red="0.21296297013759613" green="1.0" blue="0.4621913433074951"/>
+                                        <Color red="0.21296297013759613" green="1.0" blue="0.4621913433074951" />
                                     </color>
                                 </Stop>
                             </stops>
@@ -998,55 +973,50 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets top="10.0"/>
+                    <Insets top="10.0" />
                 </VBox.margin>
-                <Button fx:id="btnNovember" disable="true" mnemonicParsing="false" onAction="#btnNovemberAction"
-                  text="NOVEMBER"/>
-                <Button fx:id="btnNovemberShow" mnemonicParsing="false"
-                  onAction="#btnNovemberShowAction"
-                  visible="false">
+                <Button fx:id="btnNovember" disable="true" mnemonicParsing="false" onAction="#btnNovemberAction" text="NOVEMBER" />
+                <Button fx:id="btnNovemberShow" mnemonicParsing="false" onAction="#btnNovemberShowAction" visible="false">
                     <HBox.margin>
-                        <Insets left="20.0"/>
+                        <Insets left="20.0" />
                     </HBox.margin>
                     <cursor>
-                        <Cursor fx:constant="OPEN_HAND"/>
+                        <Cursor fx:constant="OPEN_HAND" />
                     </cursor>
                 </Button>
             </HBox>
             <HBox opacity="0.83" prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #92A050;">
                 <VBox.margin>
-                    <Insets top="6.0"/>
+                    <Insets top="6.0" />
                 </VBox.margin>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="EARN">
                     <HBox.margin>
-                        <Insets left="20.0" right="30.0"/>
+                        <Insets left="20.0" right="30.0" />
                     </HBox.margin>
                 </Text>
                 <Text fx:id="earnNovember" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
             </HBox>
             <HBox prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #6C699C;">
                 <VBox.margin>
-                    <Insets top="4.0"/>
+                    <Insets top="4.0" />
                 </VBox.margin>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SPEND">
                     <HBox.margin>
-                        <Insets left="20.0" right="22.0"/>
+                        <Insets left="20.0" right="22.0" />
                     </HBox.margin>
                 </Text>
-                <Text fx:id="spendNovember" strokeType="OUTSIDE" strokeWidth="0.0" >
+                <Text fx:id="spendNovember" strokeType="OUTSIDE" strokeWidth="0.0">
                     <fill>
-                        <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575"
-                                        startY="0.5558194774346793">
+                        <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575" startY="0.5558194774346793">
                             <stops>
                                 <Stop>
                                     <color>
-                                        <Color red="0.9201677441596985" green="0.9300000071525574"
-                                               blue="0.04650000110268593"/>
+                                        <Color red="0.9201677441596985" green="0.9300000071525574" blue="0.04650000110268593" />
                                     </color>
                                 </Stop>
                                 <Stop offset="1.0">
                                     <color>
-                                        <Color red="0.21296297013759613" green="1.0" blue="0.4621913433074951"/>
+                                        <Color red="0.21296297013759613" green="1.0" blue="0.4621913433074951" />
                                     </color>
                                 </Stop>
                             </stops>

@@ -21,6 +21,7 @@ import java.util.Map;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 public class MainController {
@@ -28,6 +29,7 @@ public class MainController {
     public static Map<String, List<Integer>> budgetByMonth = new HashMap<>();
     public static final String errorIfMinus = " Отрицательный доход!";
     private static final String errorIfString = "Ошибка: Вы ввели не число";
+
 
 
     //  ERROR
@@ -418,7 +420,7 @@ public class MainController {
 
     @FXML
     public void btnDecemberShowAction() {
-        showButtonsMonth(btnDecemberShow,btnDecember);
+        showButtonsMonth(btnDecember,sortText,btnSortUp,btnSortDown);
         outputOther.setText(budgetOther + "");
         outputIncome.setText(incomeFix + " € ");
 
@@ -437,7 +439,7 @@ public class MainController {
 
     @FXML
     public void btnJanuaryShowAction() {
-        showButtonsMonth(btnJanuaryShow,btnJanuary);
+        showButtonsMonth(btnJanuary,sortText,btnSortUp,btnSortDown);
         outputOther.setText(budgetOther + "");
         outputIncome.setText(incomeFix + " € ");
     }
@@ -455,7 +457,7 @@ public class MainController {
 
     @FXML
     public void btnFebruaryShowAction() {
-        showButtonsMonth(btnFebruaryShow,btnFebruary);
+        showButtonsMonth(btnFebruary,sortText,btnSortUp,btnSortDown);
         outputOther.setText(budgetOther + "");
         outputIncome.setText(incomeFix + " € ");
     }
@@ -473,9 +475,7 @@ public class MainController {
 
     @FXML
     public void btnMarchShowAction() {
-
-        showButtonsMonth(btnMarchShow,btnMarch);
-
+        showButtonsMonth(btnMarch,sortText,btnSortUp,btnSortDown);
         outputOther.setText(budgetOther + "");
         outputIncome.setText(incomeFix + " € ");
     }
@@ -493,7 +493,7 @@ public class MainController {
 
     @FXML
     public void btnAprilShowAction() {
-        showButtonsMonth(btnAprilShow,btnApril);
+        showButtonsMonth(btnApril,sortText,btnSortUp,btnSortDown);
         outputOther.setText(budgetOther + "");
         outputIncome.setText(incomeFix + " € ");
     }
@@ -511,9 +511,7 @@ public class MainController {
 
     @FXML
     public void btnMayShowAction() {
-
-        showButtonsMonth(btnMayShow,btnMay);
-
+        showButtonsMonth(btnMay,sortText,btnSortUp,btnSortDown);
         outputOther.setText(budgetOther + "");
         outputIncome.setText(incomeFix + " € ");
     }
@@ -531,8 +529,7 @@ public class MainController {
 
     @FXML
     public void btnJuneShowAction() {
-
-        showButtonsMonth(btnJuneShow,btnJune);
+        showButtonsMonth(btnJune,sortText,btnSortUp,btnSortDown);
         outputOther.setText(budgetOther + "");
         outputIncome.setText(incomeFix + " € ");
     }
@@ -551,7 +548,7 @@ public class MainController {
     @FXML
     public void btnJulyShowAction() {
 
-        showButtonsMonth(btnJulyShow,btnJuly);
+        showButtonsMonth(btnJuly,sortText,btnSortUp,btnSortDown);
         outputOther.setText(budgetOther + "");
         outputIncome.setText(incomeFix + " € ");
     }
@@ -569,7 +566,7 @@ public class MainController {
 
     @FXML
     public void btnAugustShowAction() {
-        showButtonsMonth(btnAugustShow,btnAugust);
+        showButtonsMonth(btnAugust,sortText,btnSortUp,btnSortDown);
         outputOther.setText(budgetOther + "");
         outputIncome.setText(incomeFix + " € ");
     }
@@ -587,7 +584,7 @@ public class MainController {
 
     @FXML
     public void btnSeptemberShowAction() {
-        showButtonsMonth(btnSeptemberShow,btnSeptember);
+        showButtonsMonth(btnSeptember,sortText,btnSortUp,btnSortDown);
         outputOther.setText(budgetOther + "");
         outputIncome.setText(incomeFix + " € ");
     }
@@ -605,7 +602,7 @@ public class MainController {
 
     @FXML
     public void btnOctoberShowAction() {
-        showButtonsMonth(btnOctoberShow,btnOctober);
+        showButtonsMonth(btnOctober,sortText,btnSortUp,btnSortDown);
         outputOther.setText(budgetOther + "");
         outputIncome.setText(incomeFix + " € ");
     }
@@ -623,7 +620,7 @@ public class MainController {
 
     @FXML
     public void btnNovemberShowAction() {
-        showButtonsMonth(btnNovemberShow,btnNovember);
+        showButtonsMonth(btnNovember,sortText,btnSortUp,btnSortDown);
         outputOther.setText(budgetOther + "");
         outputIncome.setText(incomeFix + " € ");
     }
@@ -697,19 +694,12 @@ public class MainController {
         outputEntertainment.setText("");
         outputOther.setText("");
         outputIncome.setText("");
+
         fixAmount.setDisable(true);
-//        btnDecember.setStyle("");
-//        btnJanuary.setStyle("");
-//        btnFebruary.setStyle("");
-//        btnMarch.setStyle("");
-//        btnApril.setStyle("");
-//        btnMay.setStyle("");
-//        btnJune.setStyle("");
-//        btnJuly.setStyle("");
-//        btnAugust.setStyle("");
-//        btnSeptember.setStyle("");
-//        btnOctober.setStyle("");
-//        btnNovember.setStyle("");
+        sortText.setVisible(false);
+        btnSortUp.setVisible(false);
+        btnSortDown.setVisible(false);
+
         inputMonth.setText("");
     }
 
@@ -729,6 +719,20 @@ public class MainController {
             case "december" -> btnDecemberAction();
             default -> throw new CustomException("Месяц введен не корректно");
         }
+    }
+
+    @FXML
+    public Text sortText;
+    @FXML
+    public Button btnSortUp;
+    @FXML
+    public Button btnSortDown;
+    @FXML
+
+    public void btnSortUpAction() {
+    } @FXML
+
+    public void btnSortDownAction() {
     }
 
 }
