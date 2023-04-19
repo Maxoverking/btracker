@@ -27,7 +27,8 @@ import javafx.scene.text.Text;
 
 public class MainController {
     // Сохранение всех данных по месяцам в Map budgetByMonth
-    public static Map<String, List<Integer>> budgetByMonth = new HashMap<>();
+    public static Map<String, List<Map <String, Integer>>> budgetByMonth = new HashMap<>();
+
     public static final String errorIfMinus = " Отрицательный доход!";
     private static final String errorIfString = "Ошибка: Вы ввели не число";
     public static final String errorSpendMoreBudget = "Вы не можете внести сумму больше бюджета";
@@ -53,13 +54,13 @@ public class MainController {
         String month  = inputMonth.getText().toLowerCase();
         GetMonthAndIncome dataMonthAndIncome = new GetMonthAndIncome(month, freezeFixAmount);
 
-        List<Integer> valuesAllCategory = collectData(dataMonthAndIncome.getIncome(),
-            budgetFood, budgetHouse,
-            budgetShopping, budgetTransport,
-            budgetEntertainment,budgetOther);
+        List<Map <String, Integer>> valuesAllCategory = collectData(
+                dataMonthAndIncome.getIncome(), budgetFood, budgetHouse,
+                budgetShopping, budgetTransport, budgetEntertainment,budgetOther);
 
         incomeFix = dataMonthAndIncome.getIncome();
         budgetByMonth.put(dataMonthAndIncome.getMonth(),valuesAllCategory);
+
 
         moveData(month);
 
@@ -425,9 +426,9 @@ public class MainController {
     @FXML
     public void btnDecemberShowAction() {
         showButtonsMonth(btnDecember,sortText,btnSortUp,btnSortDown);
-        showButtonsMonthAction (outputIncome, outputFood, outputHouse, outputShopping, outputTransport,
-                outputEntertainment, outputOther, incomeFix, budgetByMonth,
-                "december" );
+//        showButtonsMonthAction (outputIncome, outputFood, outputHouse, outputShopping, outputTransport,
+//                outputEntertainment, outputOther, incomeFix, budgetByMonth,
+//                "december" );
     }
 
     @FXML
@@ -444,9 +445,9 @@ public class MainController {
     @FXML
     public void btnJanuaryShowAction() {
         showButtonsMonth(btnJanuary,sortText,btnSortUp,btnSortDown);
-        showButtonsMonthAction (outputIncome, outputFood, outputHouse, outputShopping, outputTransport,
-                outputEntertainment, outputOther, incomeFix, budgetByMonth,
-                "january" );
+//        showButtonsMonthAction (outputIncome, outputFood, outputHouse, outputShopping, outputTransport,
+//                outputEntertainment, outputOther, incomeFix, budgetByMonth,
+//                "january" );
     }
 
     @FXML
