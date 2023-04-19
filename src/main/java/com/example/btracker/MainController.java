@@ -8,6 +8,7 @@ import static com.example.btracker.collectData.CollectData.collectData;
 
 import static com.example.btracker.correctMonth.CorrectMonth.correctMonth;
 import static com.example.btracker.sameOperation.OperationBtnAction.showButtonsAction;
+import static com.example.btracker.sameOperation.OperationBtnAction.showButtonsMonthAction;
 import static com.example.btracker.sameOperation.OperationBtnsMonths.showButtonsMonth;
 import static com.example.btracker.sameOperation.OutputEarnCalcSpend.calcEarnAndSpendForMonth;
 import static com.example.btracker.sameOperation.OperationBtnsMonths.operationWithButtonsMonth;
@@ -424,9 +425,9 @@ public class MainController {
     @FXML
     public void btnDecemberShowAction() {
         showButtonsMonth(btnDecember,sortText,btnSortUp,btnSortDown);
-        outputOther.setText(budgetOther + "");
-        outputIncome.setText(incomeFix + " € ");
-
+        showButtonsMonthAction (outputIncome, outputFood, outputHouse, outputShopping, outputTransport,
+                outputEntertainment, outputOther, incomeFix, budgetByMonth,
+                "december" );
     }
 
     @FXML
@@ -443,8 +444,9 @@ public class MainController {
     @FXML
     public void btnJanuaryShowAction() {
         showButtonsMonth(btnJanuary,sortText,btnSortUp,btnSortDown);
-        outputOther.setText(budgetOther + "");
-        outputIncome.setText(incomeFix + " € ");
+        showButtonsMonthAction (outputIncome, outputFood, outputHouse, outputShopping, outputTransport,
+                outputEntertainment, outputOther, incomeFix, budgetByMonth,
+                "january" );
     }
 
     @FXML
