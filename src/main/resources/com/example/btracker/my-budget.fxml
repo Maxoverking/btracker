@@ -279,7 +279,7 @@
     <!--    БЛОК КНОПКИ ВОЗВРАТА И ОЧИСТКИ ПОЛЕЙ-->
     <VBox prefHeight="416.0" prefWidth="193.0">
         <VBox.margin>
-            <Insets left="526.0" right="16.0" top="-310.0"/>
+            <Insets left="600.0" right="16.0" top="-310.0"/>
         </VBox.margin>
         <HBox prefHeight="26.0" prefWidth="200.0">
             <Button fx:id="minusBudgetField" mnemonicParsing="false"
