@@ -480,8 +480,8 @@ public class MainController {
     @FXML
     public void btnMarchShowAction() {
         showButtonsMonth(btnMarch,sortText,btnSortUp,btnSortDown);
-        outputOther.setText(budgetOther + "");
-        outputIncome.setText(incomeFix + " € ");
+        showButtonsMonthAction (outputIncome, outputFood, outputHouse, outputShopping, outputTransport,
+                outputEntertainment, outputOther, btnMarch.getText(), budgetByMonth);
     }
 
     @FXML
@@ -498,8 +498,8 @@ public class MainController {
     @FXML
     public void btnAprilShowAction() {
         showButtonsMonth(btnApril,sortText,btnSortUp,btnSortDown);
-        outputOther.setText(budgetOther + "");
-        outputIncome.setText(incomeFix + " € ");
+        showButtonsMonthAction (outputIncome, outputFood, outputHouse, outputShopping, outputTransport,
+                outputEntertainment, outputOther, btnApril.getText(), budgetByMonth);
     }
 
     @FXML
@@ -516,8 +516,8 @@ public class MainController {
     @FXML
     public void btnMayShowAction() {
         showButtonsMonth(btnMay,sortText,btnSortUp,btnSortDown);
-        outputOther.setText(budgetOther + "");
-        outputIncome.setText(incomeFix + " € ");
+        showButtonsMonthAction (outputIncome, outputFood, outputHouse, outputShopping, outputTransport,
+                outputEntertainment, outputOther, btnMay.getText(), budgetByMonth);
     }
 
     @FXML
@@ -534,8 +534,8 @@ public class MainController {
     @FXML
     public void btnJuneShowAction() {
         showButtonsMonth(btnJune,sortText,btnSortUp,btnSortDown);
-        outputOther.setText(budgetOther + "");
-        outputIncome.setText(incomeFix + " € ");
+        showButtonsMonthAction (outputIncome, outputFood, outputHouse, outputShopping, outputTransport,
+                outputEntertainment, outputOther, btnJune.getText(), budgetByMonth);
     }
 
     @FXML
@@ -553,8 +553,8 @@ public class MainController {
     public void btnJulyShowAction() {
 
         showButtonsMonth(btnJuly,sortText,btnSortUp,btnSortDown);
-        outputOther.setText(budgetOther + "");
-        outputIncome.setText(incomeFix + " € ");
+        showButtonsMonthAction (outputIncome, outputFood, outputHouse, outputShopping, outputTransport,
+                outputEntertainment, outputOther, btnJuly.getText(), budgetByMonth);
     }
 
     @FXML
@@ -571,8 +571,8 @@ public class MainController {
     @FXML
     public void btnAugustShowAction() {
         showButtonsMonth(btnAugust,sortText,btnSortUp,btnSortDown);
-        outputOther.setText(budgetOther + "");
-        outputIncome.setText(incomeFix + " € ");
+        showButtonsMonthAction (outputIncome, outputFood, outputHouse, outputShopping, outputTransport,
+                outputEntertainment, outputOther, btnAugust.getText(), budgetByMonth);
     }
 
     @FXML
@@ -589,8 +589,8 @@ public class MainController {
     @FXML
     public void btnSeptemberShowAction() {
         showButtonsMonth(btnSeptember,sortText,btnSortUp,btnSortDown);
-        outputOther.setText(budgetOther + "");
-        outputIncome.setText(incomeFix + " € ");
+        showButtonsMonthAction (outputIncome, outputFood, outputHouse, outputShopping, outputTransport,
+                outputEntertainment, outputOther, btnSeptember.getText(), budgetByMonth);
     }
 
     @FXML
@@ -607,8 +607,8 @@ public class MainController {
     @FXML
     public void btnOctoberShowAction() {
         showButtonsMonth(btnOctober,sortText,btnSortUp,btnSortDown);
-        outputOther.setText(budgetOther + "");
-        outputIncome.setText(incomeFix + " € ");
+        showButtonsMonthAction (outputIncome, outputFood, outputHouse, outputShopping, outputTransport,
+                outputEntertainment, outputOther, btnOctober.getText(), budgetByMonth);
     }
 
     @FXML
@@ -625,8 +625,8 @@ public class MainController {
     @FXML
     public void btnNovemberShowAction() {
         showButtonsMonth(btnNovember,sortText,btnSortUp,btnSortDown);
-        outputOther.setText(budgetOther + "");
-        outputIncome.setText(incomeFix + " € ");
+        showButtonsMonthAction (outputIncome, outputFood, outputHouse, outputShopping, outputTransport,
+                outputEntertainment, outputOther, btnNovember.getText(), budgetByMonth);
     }
 
 
