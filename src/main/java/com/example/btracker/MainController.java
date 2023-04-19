@@ -426,9 +426,8 @@ public class MainController {
     @FXML
     public void btnDecemberShowAction() {
         showButtonsMonth(btnDecember,sortText,btnSortUp,btnSortDown);
-//        showButtonsMonthAction (outputIncome, outputFood, outputHouse, outputShopping, outputTransport,
-//                outputEntertainment, outputOther, incomeFix, budgetByMonth,
-//                "december" );
+        showButtonsMonthAction (outputIncome, outputFood, outputHouse, outputShopping, outputTransport,
+                outputEntertainment, outputOther, btnDecember.getText(), budgetByMonth);
     }
 
     @FXML
@@ -445,9 +444,8 @@ public class MainController {
     @FXML
     public void btnJanuaryShowAction() {
         showButtonsMonth(btnJanuary,sortText,btnSortUp,btnSortDown);
-//        showButtonsMonthAction (outputIncome, outputFood, outputHouse, outputShopping, outputTransport,
-//                outputEntertainment, outputOther, incomeFix, budgetByMonth,
-//                "january" );
+        showButtonsMonthAction (outputIncome, outputFood, outputHouse, outputShopping, outputTransport,
+                outputEntertainment, outputOther, btnJanuary.getText(), budgetByMonth);
     }
 
     @FXML
@@ -464,8 +462,8 @@ public class MainController {
     @FXML
     public void btnFebruaryShowAction() {
         showButtonsMonth(btnFebruary,sortText,btnSortUp,btnSortDown);
-        outputOther.setText(budgetOther + "");
-        outputIncome.setText(incomeFix + " € ");
+        showButtonsMonthAction (outputIncome, outputFood, outputHouse, outputShopping, outputTransport,
+                outputEntertainment, outputOther, btnFebruary.getText(), budgetByMonth);
     }
 
     @FXML
