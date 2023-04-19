@@ -375,7 +375,7 @@
         <!--           ЗИМА-->
         <VBox alignment="CENTER" prefHeight="234.0" prefWidth="150.0">
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                <Button fx:id="btnDecember" mnemonicParsing="false" onAction="#btnDecemberAction" text="DECEMBER"/>
+                <Button fx:id="btnDecember"  disable="true" mnemonicParsing="false" onAction="#btnDecemberAction" text="DECEMBER"/>
                 <Button fx:id="btnDecemberShow" mnemonicParsing="false" onAction="#btnDecemberShowAction"
                         visible="false">
                     <HBox.margin>
@@ -396,18 +396,18 @@
                         <Insets left="20.0" right="30.0"/>
                     </HBox.margin>
                 </Text>
-                <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="12000"/>
+                <Text fx:id="earnDecember"  smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
             </HBox>
             <HBox prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #6C699C;">
                 <VBox.margin>
                     <Insets top="4.0"/>
                 </VBox.margin>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SPEND">
+                <Text  strokeType="OUTSIDE" strokeWidth="0.0" text="SPEND">
                     <HBox.margin>
                         <Insets left="20.0" right="22.0"/>
                     </HBox.margin>
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10000">
+                <Text fx:id="spendDecember" strokeType="OUTSIDE" strokeWidth="0.0" >
                     <fill>
                         <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575"
                                         startY="0.5558194774346793">
@@ -433,7 +433,7 @@
                     <Insets top="10.0"/>
                 </VBox.margin>
 
-                <Button fx:id="btnJanuary" mnemonicParsing="false" onAction="#btnJanuaryAction" text="JANUARY"/>
+                <Button fx:id="btnJanuary" disable="true" mnemonicParsing="false" onAction="#btnJanuaryAction" text="JANUARY"/>
                 <Button fx:id="btnJanuaryShow" mnemonicParsing="false" onAction="#btnJanuaryShowAction" visible="false">
                     <HBox.margin>
                         <Insets left="21.0"/>
@@ -447,12 +447,12 @@
                 <VBox.margin>
                     <Insets top="6.0"/>
                 </VBox.margin>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="EARN">
+                <Text  strokeType="OUTSIDE" strokeWidth="0.0" text="EARN">
                     <HBox.margin>
                         <Insets left="20.0" right="30.0"/>
                     </HBox.margin>
                 </Text>
-                <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="12000"/>
+                <Text fx:id="earnJanuary"  smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
             </HBox>
             <HBox prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #6C699C;">
                 <VBox.margin>
@@ -463,7 +463,7 @@
                         <Insets left="20.0" right="22.0"/>
                     </HBox.margin>
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10000">
+                <Text fx:id="spendJanuary"  strokeType="OUTSIDE" strokeWidth="0.0" >
                     <fill>
                         <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575"
                                         startY="0.5558194774346793">
@@ -489,7 +489,7 @@
                     <Insets top="10.0"/>
                 </VBox.margin>
 
-                <Button fx:id="btnFebruary" mnemonicParsing="false" onAction="#btnFebruaryAction" text="FEBRUARY"/>
+                <Button fx:id="btnFebruary" disable="true" mnemonicParsing="false" onAction="#btnFebruaryAction" text="FEBRUARY"/>
                 <Button fx:id="btnFebruaryShow" mnemonicParsing="false" onAction="#btnFebruaryShowAction"
                         visible="false">
                     <HBox.margin>
@@ -509,7 +509,7 @@
                         <Insets left="20.0" right="30.0"/>
                     </HBox.margin>
                 </Text>
-                <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="12000"/>
+                <Text fx:id="earnFebruary"  smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
             </HBox>
             <HBox prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #6C699C;">
                 <VBox.margin>
@@ -520,7 +520,7 @@
                         <Insets left="20.0" right="22.0"/>
                     </HBox.margin>
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10000">
+                <Text  fx:id="spendFebruary" strokeType="OUTSIDE" strokeWidth="0.0" >
                     <fill>
                         <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575"
                                         startY="0.5558194774346793">
@@ -545,7 +545,7 @@
         <!--           ВЕСНА-->
         <VBox alignment="CENTER" prefHeight="234.0" prefWidth="150.0">
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                <Button fx:id="btnMarch" mnemonicParsing="false" onAction="#btnMarchAction" text="MARCH"/>
+                <Button fx:id="btnMarch" disable="true" mnemonicParsing="false" onAction="#btnMarchAction" text="MARCH"/>
                 <Button fx:id="btnMarchShow" mnemonicParsing="false" onAction="#btnMarchShowAction" visible="false">
                     <HBox.margin>
                         <Insets left="33.0"/>
@@ -565,7 +565,7 @@
                         <Insets left="20.0" right="30.0"/>
                     </HBox.margin>
                 </Text>
-                <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="12000"/>
+                <Text fx:id="earnMarch" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
             </HBox>
             <HBox prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #6C699C;">
                 <VBox.margin>
@@ -576,7 +576,7 @@
                         <Insets left="20.0" right="22.0"/>
                     </HBox.margin>
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10000">
+                <Text fx:id="spendMarch" strokeType="OUTSIDE" strokeWidth="0.0" >
                     <fill>
                         <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575"
                                         startY="0.5558194774346793">
@@ -598,20 +598,20 @@
                 </Text>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                <children>
-                    <Button fx:id="btnApril" mnemonicParsing="false" onAction="#btnAprilAction" text="APRIL"/>
-                    <Button fx:id="btnAprilShow" mnemonicParsing="false" onAction="#btnAprilShowAction" visible="false">
-                        <HBox.margin>
-                            <Insets left="45.0"/>
-                        </HBox.margin>
-                        <cursor>
-                            <Cursor fx:constant="OPEN_HAND"/>
-                        </cursor>
-                    </Button>
-                </children>
                 <VBox.margin>
                     <Insets top="10.0"/>
                 </VBox.margin>
+                <Button fx:id="btnApril" disable="true" mnemonicParsing="false" onAction="#btnAprilAction"
+                  text="APRIL"/>
+                <Button fx:id="btnAprilShow" mnemonicParsing="false" onAction="#btnAprilShowAction"
+                  visible="false">
+                    <HBox.margin>
+                        <Insets left="45.0"/>
+                    </HBox.margin>
+                    <cursor>
+                        <Cursor fx:constant="OPEN_HAND"/>
+                    </cursor>
+                </Button>
             </HBox>
             <HBox opacity="0.83" prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #92A050;">
                 <VBox.margin>
@@ -622,7 +622,7 @@
                         <Insets left="20.0" right="30.0"/>
                     </HBox.margin>
                 </Text>
-                <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="12000"/>
+                <Text fx:id="earnApril" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
             </HBox>
             <HBox prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #6C699C;">
                 <VBox.margin>
@@ -633,7 +633,7 @@
                         <Insets left="20.0" right="22.0"/>
                     </HBox.margin>
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10000">
+                <Text fx:id="spendApril" strokeType="OUTSIDE" strokeWidth="0.0" >
                     <fill>
                         <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575"
                                         startY="0.5558194774346793">
@@ -655,20 +655,19 @@
                 </Text>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                <children>
-                    <Button fx:id="btnMay" mnemonicParsing="false" onAction="#btnMayAction" text="MAY"/>
-                    <Button fx:id="btnMayShow" mnemonicParsing="false" onAction="#btnMayShowAction" visible="false">
-                        <HBox.margin>
-                            <Insets left="51.0"/>
-                        </HBox.margin>
-                        <cursor>
-                            <Cursor fx:constant="OPEN_HAND"/>
-                        </cursor>
-                    </Button>
-                </children>
                 <VBox.margin>
                     <Insets top="10.0"/>
                 </VBox.margin>
+                <Button fx:id="btnMay" disable="true" mnemonicParsing="false" onAction="#btnMayAction" text="MAY"/>
+                <Button fx:id="btnMayShow" mnemonicParsing="false" onAction="#btnMayShowAction"
+                  visible="false">
+                    <HBox.margin>
+                        <Insets left="51.0"/>
+                    </HBox.margin>
+                    <cursor>
+                        <Cursor fx:constant="OPEN_HAND"/>
+                    </cursor>
+                </Button>
             </HBox>
             <HBox opacity="0.83" prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #92A050;">
                 <VBox.margin>
@@ -679,7 +678,7 @@
                         <Insets left="20.0" right="30.0"/>
                     </HBox.margin>
                 </Text>
-                <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="12000"/>
+                <Text fx:id="earnMay"  smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
             </HBox>
             <HBox prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #6C699C;">
                 <VBox.margin>
@@ -690,7 +689,7 @@
                         <Insets left="20.0" right="22.0"/>
                     </HBox.margin>
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10000">
+                <Text fx:id="spendMay"  strokeType="OUTSIDE" strokeWidth="0.0" >
                     <fill>
                         <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575"
                                         startY="0.5558194774346793">
@@ -715,7 +714,7 @@
         <!--           ЛЕТО-->
         <VBox alignment="CENTER" prefHeight="234.0" prefWidth="150.0">
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                <Button fx:id="btnJune" mnemonicParsing="false" onAction="#btnJuneAction" text="JUNE"/>
+                <Button fx:id="btnJune" disable="true" mnemonicParsing="false" onAction="#btnJuneAction" text="JUNE"/>
                 <Button fx:id="btnJuneShow" mnemonicParsing="false" onAction="#btnJuneShowAction" visible="false">
                     <HBox.margin>
                         <Insets left="46.0"/>
@@ -730,12 +729,12 @@
                 <VBox.margin>
                     <Insets top="6.0"/>
                 </VBox.margin>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="EARN">
+                <Text  strokeType="OUTSIDE" strokeWidth="0.0" text="EARN">
                     <HBox.margin>
                         <Insets left="20.0" right="30.0"/>
                     </HBox.margin>
                 </Text>
-                <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="12000"/>
+                <Text fx:id="earnJune"  smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
             </HBox>
             <HBox prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #6C699C;">
                 <VBox.margin>
@@ -746,7 +745,7 @@
                         <Insets left="20.0" right="22.0"/>
                     </HBox.margin>
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10000">
+                <Text fx:id="spendJune"  strokeType="OUTSIDE" strokeWidth="0.0" >
                     <fill>
                         <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575"
                                         startY="0.5558194774346793">
@@ -768,20 +767,20 @@
                 </Text>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                <children>
-                    <Button fx:id="btnJuly" mnemonicParsing="false" onAction="#btnJulyAction" text="JULY"/>
-                    <Button fx:id="btnJulyShow" mnemonicParsing="false" onAction="#btnJulyShowAction" visible="false">
-                        <HBox.margin>
-                            <Insets left="48.0"/>
-                        </HBox.margin>
-                        <cursor>
-                            <Cursor fx:constant="OPEN_HAND"/>
-                        </cursor>
-                    </Button>
-                </children>
                 <VBox.margin>
                     <Insets top="10.0"/>
                 </VBox.margin>
+                <Button fx:id="btnJuly"  disable="true" mnemonicParsing="false" onAction="#btnJulyAction"
+                  text="JULY"/>
+                <Button fx:id="btnJulyShow" mnemonicParsing="false" onAction="#btnJulyShowAction"
+                  visible="false">
+                    <HBox.margin>
+                        <Insets left="48.0"/>
+                    </HBox.margin>
+                    <cursor>
+                        <Cursor fx:constant="OPEN_HAND"/>
+                    </cursor>
+                </Button>
             </HBox>
             <HBox opacity="0.83" prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #92A050;">
                 <VBox.margin>
@@ -792,7 +791,7 @@
                         <Insets left="20.0" right="30.0"/>
                     </HBox.margin>
                 </Text>
-                <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="12000"/>
+                <Text fx:id="earnJuly"  smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
             </HBox>
             <HBox prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #6C699C;">
                 <VBox.margin>
@@ -803,7 +802,7 @@
                         <Insets left="20.0" right="22.0"/>
                     </HBox.margin>
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10000">
+                <Text fx:id="spendJuly"  strokeType="OUTSIDE" strokeWidth="0.0">
                     <fill>
                         <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575"
                                         startY="0.5558194774346793">
@@ -825,21 +824,21 @@
                 </Text>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                <children>
-                    <Button fx:id="btnAugust" mnemonicParsing="false" onAction="#btnAugustAction" text="AUGUST"/>
-                    <Button fx:id="btnAugustShow" mnemonicParsing="false" onAction="#btnAugustShowAction"
-                            visible="false">
-                        <HBox.margin>
-                            <Insets left="27.0"/>
-                        </HBox.margin>
-                        <cursor>
-                            <Cursor fx:constant="OPEN_HAND"/>
-                        </cursor>
-                    </Button>
-                </children>
                 <VBox.margin>
                     <Insets top="10.0"/>
                 </VBox.margin>
+                <Button fx:id="btnAugust" disable="true" mnemonicParsing="false" onAction="#btnAugustAction"
+                  text="AUGUST"/>
+                <Button fx:id="btnAugustShow" mnemonicParsing="false"
+                  onAction="#btnAugustShowAction"
+                  visible="false">
+                    <HBox.margin>
+                        <Insets left="27.0"/>
+                    </HBox.margin>
+                    <cursor>
+                        <Cursor fx:constant="OPEN_HAND"/>
+                    </cursor>
+                </Button>
             </HBox>
             <HBox opacity="0.83" prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #92A050;">
                 <VBox.margin>
@@ -850,7 +849,7 @@
                         <Insets left="20.0" right="30.0"/>
                     </HBox.margin>
                 </Text>
-                <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="12000"/>
+                <Text fx:id="earnAugust"  smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
             </HBox>
             <HBox prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #6C699C;">
                 <VBox.margin>
@@ -861,7 +860,7 @@
                         <Insets left="20.0" right="22.0"/>
                     </HBox.margin>
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10000">
+                <Text fx:id="spendAugust"  strokeType="OUTSIDE" strokeWidth="0.0" >
                     <fill>
                         <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575"
                                         startY="0.5558194774346793">
@@ -886,7 +885,7 @@
         <!--           ОСЕНЬ-->
         <VBox alignment="CENTER" prefHeight="234.0" prefWidth="150.0">
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                <Button fx:id="btnSeptember" mnemonicParsing="false" onAction="#btnSeptemberAction" text="SEPTEMBER"/>
+                <Button fx:id="btnSeptember" disable="true" mnemonicParsing="false" onAction="#btnSeptemberAction" text="SEPTEMBER"/>
                 <Button fx:id="btnSeptemberShow" mnemonicParsing="false" onAction="#btnSeptemberShowAction"
                         visible="false">
                     <HBox.margin>
@@ -907,7 +906,7 @@
                         <Insets left="20.0" right="30.0"/>
                     </HBox.margin>
                 </Text>
-                <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="12000"/>
+                <Text fx:id="earnSeptember" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
             </HBox>
             <HBox prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #6C699C;">
                 <VBox.margin>
@@ -918,7 +917,7 @@
                         <Insets left="20.0" right="22.0"/>
                     </HBox.margin>
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10000">
+                <Text fx:id="spendSeptember" strokeType="OUTSIDE" strokeWidth="0.0" >
                     <fill>
                         <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575"
                                         startY="0.5558194774346793">
@@ -940,21 +939,21 @@
                 </Text>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                <children>
-                    <Button fx:id="btnOctober" mnemonicParsing="false" onAction="#btnOctoberAction" text="OCTOBER"/>
-                    <Button fx:id="btnOctoberShow" mnemonicParsing="false" onAction="#btnOctoberShowAction"
-                            visible="false">
-                        <HBox.margin>
-                            <Insets left="20.0"/>
-                        </HBox.margin>
-                        <cursor>
-                            <Cursor fx:constant="OPEN_HAND"/>
-                        </cursor>
-                    </Button>
-                </children>
                 <VBox.margin>
                     <Insets top="10.0"/>
                 </VBox.margin>
+                <Button fx:id="btnOctober" disable="true" mnemonicParsing="false" onAction="#btnOctoberAction"
+                  text="OCTOBER"/>
+                <Button fx:id="btnOctoberShow" mnemonicParsing="false"
+                  onAction="#btnOctoberShowAction"
+                  visible="false">
+                    <HBox.margin>
+                        <Insets left="20.0"/>
+                    </HBox.margin>
+                    <cursor>
+                        <Cursor fx:constant="OPEN_HAND"/>
+                    </cursor>
+                </Button>
             </HBox>
             <HBox opacity="0.83" prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #92A050;">
                 <VBox.margin>
@@ -965,7 +964,7 @@
                         <Insets left="20.0" right="30.0"/>
                     </HBox.margin>
                 </Text>
-                <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="12000"/>
+                <Text fx:id="earnOctober" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="12000"/>
             </HBox>
             <HBox prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #6C699C;">
                 <VBox.margin>
@@ -976,7 +975,7 @@
                         <Insets left="20.0" right="22.0"/>
                     </HBox.margin>
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10000">
+                <Text  fx:id="spendOctober" strokeType="OUTSIDE" strokeWidth="0.0" text="10000">
                     <fill>
                         <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575"
                                         startY="0.5558194774346793">
@@ -998,21 +997,21 @@
                 </Text>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                <children>
-                    <Button fx:id="btnNovember" mnemonicParsing="false" onAction="#btnNovemberAction" text="NOVEMBER"/>
-                    <Button fx:id="btnNovemberShow" mnemonicParsing="false" onAction="#btnNovemberShowAction"
-                            visible="false">
-                        <HBox.margin>
-                            <Insets left="20.0"/>
-                        </HBox.margin>
-                        <cursor>
-                            <Cursor fx:constant="OPEN_HAND"/>
-                        </cursor>
-                    </Button>
-                </children>
                 <VBox.margin>
                     <Insets top="10.0"/>
                 </VBox.margin>
+                <Button fx:id="btnNovember" disable="true" mnemonicParsing="false" onAction="#btnNovemberAction"
+                  text="NOVEMBER"/>
+                <Button fx:id="btnNovemberShow" mnemonicParsing="false"
+                  onAction="#btnNovemberShowAction"
+                  visible="false">
+                    <HBox.margin>
+                        <Insets left="20.0"/>
+                    </HBox.margin>
+                    <cursor>
+                        <Cursor fx:constant="OPEN_HAND"/>
+                    </cursor>
+                </Button>
             </HBox>
             <HBox opacity="0.83" prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #92A050;">
                 <VBox.margin>
@@ -1023,7 +1022,7 @@
                         <Insets left="20.0" right="30.0"/>
                     </HBox.margin>
                 </Text>
-                <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="12000"/>
+                <Text fx:id="earnNovember" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" />
             </HBox>
             <HBox prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #6C699C;">
                 <VBox.margin>
@@ -1034,7 +1033,7 @@
                         <Insets left="20.0" right="22.0"/>
                     </HBox.margin>
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10000">
+                <Text fx:id="spendNovember" strokeType="OUTSIDE" strokeWidth="0.0" >
                     <fill>
                         <LinearGradient endX="0.30641330166270786" startX="0.2470308788598575"
                                         startY="0.5558194774346793">

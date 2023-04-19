@@ -5,7 +5,6 @@ import com.example.btracker.exception.CustomException;
 public class ReturnMoney {
 
     static final String errorReturnMoney = "Вы не можете вернуть такую сумму";
-
     /**
      * Метод, возвращающий разницу между текущим значением поля и вводимым значением
      * @param amount - расходы по текущей категории
@@ -13,10 +12,9 @@ public class ReturnMoney {
      * @return - разница между расходами по текущей категории и вводимым значением
      */
     public static int returnMoney(int amount, int priceReturn) {
-        if (amount > 0 && priceReturn <= amount) {
+        if (amount > 0 && priceReturn <= amount)  {
             return amount - priceReturn;
-        } else {
-            throw new CustomException(errorReturnMoney);
         }
+            throw new CustomException(errorReturnMoney);
     }
 }

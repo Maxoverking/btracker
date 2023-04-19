@@ -2,20 +2,30 @@ package com.example.btracker;
 
 import static com.example.btracker.AddMoney.addMoney;
 import static com.example.btracker.ReturnMoney.returnMoney;
-import static com.example.btracker.allClasses.CollectData.expenses;
+import static com.example.btracker.collectData.CollectData.collectData;
+
+import static com.example.btracker.correctMonth.CorrectMonth.correctMonth;
+import static com.example.btracker.sameOperation.OperationBtnsMonths.showButtonsMonth;
+import static com.example.btracker.sameOperation.OutputEarnCalcSpend.calcEarnAndSpendForMonth;
+import static com.example.btracker.sameOperation.OperationBtnsMonths.operationWithButtonsMonth;
 
 import com.example.btracker.allClasses.GetMonthAndIncome;
 import com.example.btracker.allClasses.NewAmountIncome;
 import com.example.btracker.exception.CustomException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
 public class MainController {
+    // Сохранение всех данных по месяцам в Map budgetByMonth
+    public static Map<String, List<Integer>> budgetByMonth = new HashMap<>();
     private static final String errorIfMinus = " Отрицательный доход!";
     private static final String errorIfString = "Ошибка: Вы ввели не число";
-//  static final String errorReturnMoney = "Вы не можете вернуть такую сумму";
+
 
     //  ERROR
     @FXML
@@ -32,22 +42,21 @@ public class MainController {
 
     @FXML
     private void fixAmountAction() {
-        String month = inputMonth.getText();
-        if (month.isEmpty()) {
-            outputError.setText("Month is required");
-            return;
-        }
+        String month  = inputMonth.getText();
         GetMonthAndIncome dataMonthAndIncome = new GetMonthAndIncome(month, freezeFixAmount);
-        expenses.put(month, freezeFixAmount);
 
-        System.out.println("Сбор данных из поля в методе fixAmountAction :"
-                + dataMonthAndIncome.getMonth() + " =  " + dataMonthAndIncome.getIncome());
+        List<Integer> valuesAllCategory = collectData(dataMonthAndIncome.getIncome(),
+            budgetFood, budgetHouse,
+            budgetShopping, budgetTransport,
+            budgetEntertainment,budgetOther);
+
         incomeFix = dataMonthAndIncome.getIncome();
-        outputError.setText("");
-        freezeFixAmount = 0;
-        outputIncome.setText("");
-        outputFix.setText("");
-        inputMonth.clear();
+        budgetByMonth.put(dataMonthAndIncome.getMonth(),valuesAllCategory);
+
+        moveData(month);
+
+        clearAllNotesAction();
+
     }
 
     //  ПОЛЕ INCOME
@@ -63,6 +72,9 @@ public class MainController {
     @FXML
     private void btnIncomeAction() {
         try {
+            correctMonth(inputMonth.getText().toLowerCase());
+
+
             //  преобразовать введенную строку в число
             int newAmountIncome = Integer.parseInt(inputIncomeField.getText());
 
@@ -75,6 +87,7 @@ public class MainController {
                 outputError.setText("");
                 outputIncome.setText(freezeFixAmount + " € ");
                 fixAmount.setDisable(false);
+                inputIncomeField.clear();
             }
         } catch (NumberFormatException e) {
             // вывод сообщения об ошибке, если введенная строка не является числом
@@ -82,7 +95,7 @@ public class MainController {
         } catch (CustomException e) {
             outputError.setText(e.getMessage());
         }
-        inputIncomeField.clear();
+
     }
 
     @FXML
@@ -273,40 +286,6 @@ public class MainController {
     }
 
     @FXML
-    private void clearAllNotesAction() {
-        income = 0;
-        freezeFixAmount = 0;
-        budgetFood = 0;
-        budgetHouse = 0;
-        budgetShopping = 0;
-        budgetTransport = 0;
-        budgetEntertainment = 0;
-        budgetOther = 0;
-        outputError.setText("");
-        outputFix.setText("");
-        outputFood.setText("");
-        outputHouse.setText("");
-        outputShopping.setText("");
-        outputTransport.setText("");
-        outputEntertainment.setText("");
-        outputOther.setText("");
-        outputIncome.setText("");
-        fixAmount.setDisable(true);
-        btnDecember.setStyle("");
-        btnJanuary.setStyle("");
-        btnFebruary.setStyle("");
-        btnMarch.setStyle("");
-        btnApril.setStyle("");
-        btnMay.setStyle("");
-        btnJune.setStyle("");
-        btnJuly.setStyle("");
-        btnAugust.setStyle("");
-        btnSeptember.setStyle("");
-        btnOctober.setStyle("");
-        btnNovember.setStyle("");
-    }
-
-    @FXML
     private void returnFoodMoneyAction() {
         try {
             int priceForFoodReturn = Integer.parseInt(inputFood.getText());
@@ -415,21 +394,17 @@ public class MainController {
     public Button btnDecemberShow;
 
     @FXML
-    public void btnDecemberAction() {
-        btnDecemberShow.setText("Show");
-        btnDecemberShow.setVisible(true);
-        btnDecember.setStyle("-fx-background-color: #FF8034;");
-        outputError.setText("");
+    public  void btnDecemberAction() {
+        operationWithButtonsMonth(btnDecemberShow, btnDecember, outputError,inputMonth);
+        calcEarnAndSpendForMonth(budgetByMonth,btnDecember.getText(),earnDecember,spendDecember);
     }
 
     @FXML
     public void btnDecemberShowAction() {
-//    btnDecemberShow.setStyle("-fx-background-color: #4CAF50;");
-        btnDecemberShow.setVisible(false);
-
-//    btnDecember.setDisable(true);
+        showButtonsMonth(btnDecemberShow,btnDecember);
         outputOther.setText(budgetOther + "");
         outputIncome.setText(incomeFix + " € ");
+
     }
 
     @FXML
@@ -438,16 +413,14 @@ public class MainController {
     public Button btnJanuaryShow;
 
     @FXML
-    public void btnJanuaryAction() {
-        btnJanuaryShow.setText("Show");
-        btnJanuaryShow.setVisible(true);
-        btnJanuary.setStyle("-fx-background-color: #FF8034;");
-        outputError.setText("");
+    public  void btnJanuaryAction() {
+        operationWithButtonsMonth(btnJanuaryShow,btnJanuary,outputError,inputMonth);
+        calcEarnAndSpendForMonth(budgetByMonth,btnJanuary.getText(),earnJanuary,spendJanuary);
     }
 
     @FXML
     public void btnJanuaryShowAction() {
-        btnJanuaryShow.setVisible(false);
+        showButtonsMonth(btnJanuaryShow,btnJanuary);
         outputOther.setText(budgetOther + "");
         outputIncome.setText(incomeFix + " € ");
     }
@@ -459,15 +432,13 @@ public class MainController {
 
     @FXML
     public void btnFebruaryAction() {
-        btnFebruaryShow.setText("Show");
-        btnFebruaryShow.setVisible(true);
-        btnFebruary.setStyle("-fx-background-color: #FF8034;");
-        outputError.setText("");
+        operationWithButtonsMonth(btnFebruaryShow,btnFebruary,outputError,inputMonth);
+        calcEarnAndSpendForMonth(budgetByMonth,btnFebruary.getText(), earnFebruary,spendFebruary);
     }
 
     @FXML
     public void btnFebruaryShowAction() {
-        btnFebruaryShow.setVisible(false);
+        showButtonsMonth(btnFebruaryShow,btnFebruary);
         outputOther.setText(budgetOther + "");
         outputIncome.setText(incomeFix + " € ");
     }
@@ -478,16 +449,16 @@ public class MainController {
     public Button btnMarchShow;
 
     @FXML
-    public void btnMarchAction() {
-        btnMarchShow.setText("Show");
-        btnMarchShow.setVisible(true);
-        btnMarch.setStyle("-fx-background-color: #FF8034;");
-        outputError.setText("");
+    public  void btnMarchAction() {
+        operationWithButtonsMonth(btnMarchShow,btnMarch,outputError,inputMonth);
+        calcEarnAndSpendForMonth(budgetByMonth,btnMarch.getText(), earnMarch,spendMarch);
     }
 
     @FXML
     public void btnMarchShowAction() {
-        btnMarchShow.setVisible(false);
+
+        showButtonsMonth(btnMarchShow,btnMarch);
+
         outputOther.setText(budgetOther + "");
         outputIncome.setText(incomeFix + " € ");
     }
@@ -498,16 +469,14 @@ public class MainController {
     public Button btnAprilShow;
 
     @FXML
-    public void btnAprilAction() {
-        btnAprilShow.setText("Show");
-        btnAprilShow.setVisible(true);
-        btnApril.setStyle("-fx-background-color: #FF8034;");
-        outputError.setText("");
+    public  void btnAprilAction() {
+        operationWithButtonsMonth(btnAprilShow,btnApril,outputError,inputMonth);
+        calcEarnAndSpendForMonth(budgetByMonth,btnApril.getText(), earnApril,spendApril);
     }
 
     @FXML
     public void btnAprilShowAction() {
-        btnAprilShow.setVisible(false);
+        showButtonsMonth(btnAprilShow,btnApril);
         outputOther.setText(budgetOther + "");
         outputIncome.setText(incomeFix + " € ");
     }
@@ -518,16 +487,16 @@ public class MainController {
     public Button btnMayShow;
 
     @FXML
-    public void btnMayAction() {
-        btnMayShow.setText("Show");
-        btnMayShow.setVisible(true);
-        btnMay.setStyle("-fx-background-color: #FF8034;");
-        outputError.setText("");
+    public  void btnMayAction() {
+        operationWithButtonsMonth(btnMayShow,btnMay,outputError,inputMonth);
+        calcEarnAndSpendForMonth(budgetByMonth,btnMay.getText(),earnMay,spendMay);
     }
 
     @FXML
     public void btnMayShowAction() {
-        btnMayShow.setVisible(false);
+
+        showButtonsMonth(btnMayShow,btnMay);
+
         outputOther.setText(budgetOther + "");
         outputIncome.setText(incomeFix + " € ");
     }
@@ -538,16 +507,15 @@ public class MainController {
     public Button btnJuneShow;
 
     @FXML
-    public void btnJuneAction() {
-        btnJuneShow.setText("Show");
-        btnJuneShow.setVisible(true);
-        btnJune.setStyle("-fx-background-color: #FF8034;");
-        outputError.setText("");
+    public  void btnJuneAction() {
+        operationWithButtonsMonth(btnJuneShow,btnJune,outputError,inputMonth);
+        calcEarnAndSpendForMonth(budgetByMonth,btnJune.getText(), earnJune,spendJune);
     }
 
     @FXML
     public void btnJuneShowAction() {
-        btnJuneShow.setVisible(false);
+
+        showButtonsMonth(btnJuneShow,btnJune);
         outputOther.setText(budgetOther + "");
         outputIncome.setText(incomeFix + " € ");
     }
@@ -559,15 +527,14 @@ public class MainController {
 
     @FXML
     public void btnJulyAction() {
-        btnJulyShow.setText("Show");
-        btnJulyShow.setVisible(true);
-        btnJuly.setStyle("-fx-background-color: #FF8034;");
-        outputError.setText("");
+        operationWithButtonsMonth(btnJulyShow,btnJuly,outputError,inputMonth);
+        calcEarnAndSpendForMonth(budgetByMonth,btnJuly.getText() ,earnJuly,spendJuly);
     }
 
     @FXML
     public void btnJulyShowAction() {
-        btnJulyShow.setVisible(false);
+
+        showButtonsMonth(btnJulyShow,btnJuly);
         outputOther.setText(budgetOther + "");
         outputIncome.setText(incomeFix + " € ");
     }
@@ -578,16 +545,14 @@ public class MainController {
     public Button btnAugustShow;
 
     @FXML
-    public void btnAugustAction() {
-        btnAugustShow.setText("Show");
-        btnAugustShow.setVisible(true);
-        btnAugust.setStyle("-fx-background-color: #FF8034;");
-        outputError.setText("");
+    public  void btnAugustAction() {
+        operationWithButtonsMonth(btnAugustShow,btnAugust,outputError,inputMonth);
+        calcEarnAndSpendForMonth(budgetByMonth,btnAugust.getText(), earnAugust,spendAugust);
     }
 
     @FXML
     public void btnAugustShowAction() {
-        btnAugustShow.setVisible(false);
+        showButtonsMonth(btnAugustShow,btnAugust);
         outputOther.setText(budgetOther + "");
         outputIncome.setText(incomeFix + " € ");
     }
@@ -599,15 +564,13 @@ public class MainController {
 
     @FXML
     public void btnSeptemberAction() {
-        btnSeptemberShow.setText("Show");
-        btnSeptemberShow.setVisible(true);
-        btnSeptember.setStyle("-fx-background-color: #FF8034;");
-        outputError.setText("");
+        operationWithButtonsMonth(btnSeptemberShow,btnSeptember,outputError,inputMonth);
+        calcEarnAndSpendForMonth(budgetByMonth, btnSeptember.getText(), earnSeptember,spendSeptember);
     }
 
     @FXML
     public void btnSeptemberShowAction() {
-        btnSeptemberShow.setVisible(false);
+        showButtonsMonth(btnSeptemberShow,btnSeptember);
         outputOther.setText(budgetOther + "");
         outputIncome.setText(incomeFix + " € ");
     }
@@ -619,15 +582,13 @@ public class MainController {
 
     @FXML
     public void btnOctoberAction() {
-        btnOctoberShow.setText("Show");
-        btnOctoberShow.setVisible(true);
-        btnOctober.setStyle("-fx-background-color: #FF8034;");
-        outputError.setText("");
+        operationWithButtonsMonth(btnOctoberShow,btnOctober,outputError,inputMonth);
+        calcEarnAndSpendForMonth(budgetByMonth,btnOctober.getText(), earnOctober,spendOctober);
     }
 
     @FXML
     public void btnOctoberShowAction() {
-        btnOctoberShow.setVisible(false);
+        showButtonsMonth(btnOctoberShow,btnOctober);
         outputOther.setText(budgetOther + "");
         outputIncome.setText(incomeFix + " € ");
     }
@@ -639,18 +600,119 @@ public class MainController {
 
     @FXML
     public void btnNovemberAction() {
-        btnNovemberShow.setText("Show");
-        btnNovemberShow.setVisible(true);
-        btnNovember.setStyle("-fx-background-color: #FF8034;");
-        outputError.setText("");
+        operationWithButtonsMonth(btnNovemberShow,btnNovember,outputError,inputMonth);
+        calcEarnAndSpendForMonth(budgetByMonth,btnNovember.getText(), earnNovember,spendNovember);
     }
 
     @FXML
     public void btnNovemberShowAction() {
-        btnNovemberShow.setVisible(false);
+        showButtonsMonth(btnNovemberShow,btnNovember);
         outputOther.setText(budgetOther + "");
         outputIncome.setText(incomeFix + " € ");
     }
-}
 
+
+    @FXML
+    public Text earnDecember;
+    @FXML
+    public Text spendDecember;
+    @FXML
+    public Text earnJanuary;
+    @FXML
+    public Text spendJanuary;
+    @FXML
+    public Text earnFebruary;
+    @FXML
+    public Text spendFebruary;
+    @FXML
+    public Text earnMarch;
+    @FXML
+    public Text spendMarch;
+    @FXML
+    public Text earnApril;
+    @FXML
+    public Text spendApril;
+    @FXML
+    public Text earnMay;
+    @FXML
+    public Text spendMay;
+    @FXML
+    public Text earnJune;
+    @FXML
+    public Text spendJune;
+    @FXML
+    public Text earnJuly;
+    @FXML
+    public Text spendJuly;
+    @FXML
+    public Text earnAugust;
+    @FXML
+    public Text spendAugust;
+    @FXML
+    public Text earnSeptember;
+    @FXML
+    public Text spendSeptember;
+    @FXML
+    public Text earnOctober;
+    @FXML
+    public Text spendOctober;
+    @FXML
+    public Text earnNovember;
+    @FXML
+    public Text spendNovember;
+
+    @FXML
+    private void clearAllNotesAction() {
+        income = 0;
+        freezeFixAmount = 0;
+        budgetFood = 0;
+        budgetHouse = 0;
+        budgetShopping = 0;
+        budgetTransport = 0;
+        budgetEntertainment = 0;
+        budgetOther = 0;
+        outputError.setText("");
+        outputFix.setText("");
+        outputFood.setText("");
+        outputHouse.setText("");
+        outputShopping.setText("");
+        outputTransport.setText("");
+        outputEntertainment.setText("");
+        outputOther.setText("");
+        outputIncome.setText("");
+        fixAmount.setDisable(true);
+//        btnDecember.setStyle("");
+//        btnJanuary.setStyle("");
+//        btnFebruary.setStyle("");
+//        btnMarch.setStyle("");
+//        btnApril.setStyle("");
+//        btnMay.setStyle("");
+//        btnJune.setStyle("");
+//        btnJuly.setStyle("");
+//        btnAugust.setStyle("");
+//        btnSeptember.setStyle("");
+//        btnOctober.setStyle("");
+//        btnNovember.setStyle("");
+        inputMonth.setText("");
+    }
+
+    private void moveData(String month) {
+        switch (month) {
+            case "january" -> btnJanuaryAction();
+            case "february" -> btnFebruaryAction();
+            case "march" -> btnMarchAction();
+            case "april" -> btnAprilAction();
+            case "may" -> btnMayAction();
+            case "june" -> btnJuneAction();
+            case "july" -> btnJulyAction();
+            case "august" -> btnAugustAction();
+            case "september" -> btnSeptemberAction();
+            case "october" -> btnOctoberAction();
+            case "november" -> btnNovemberAction();
+            case "december" -> btnDecemberAction();
+            default -> throw new CustomException("Месяц введен не корректно");
+        }
+    }
+
+}
 
