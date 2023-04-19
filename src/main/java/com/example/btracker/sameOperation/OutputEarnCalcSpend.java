@@ -1,29 +1,30 @@
 package com.example.btracker.sameOperation;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import javafx.scene.text.Text;
 
 public class OutputEarnCalcSpend {
 
-  public static void calcEarnAndSpendForMonth(Map<String, List<Integer>> budgetByMonth,
+  public static void calcEarnAndSpendForMonth(Map<String, List<Map<String, Integer>>> budgetByMonth,
       String buttonText, Text earn, Text spend) {
 
     int totalSpend = 0;
     for (String month : budgetByMonth.keySet()) {
       if(month.equalsIgnoreCase(buttonText)){
-        earn.setText(budgetByMonth.get(month).get(0)+"");
+        List<Map<String, Integer>> list = budgetByMonth.get(month);
 
-//      System.out.println( "Результат "+ month +" = "+budgetByMonth.get(month));
-
-        for (int j = 1; j <budgetByMonth.get(month).size() ; j++) {
-          totalSpend+= budgetByMonth.get(month).get(j);
+        for(String i : list.get(0).keySet()) {
+          if (i.equalsIgnoreCase("INCOME")) {
+            earn.setText(list.get(0).get(i) + "");
+          } else {
+            totalSpend += list.get(0).get(i);
+          }
+        }
       }
-      }
+      spend.setText(totalSpend + "");
     }
-    spend.setText(totalSpend+"");
-
   }
-
 }
+
+
