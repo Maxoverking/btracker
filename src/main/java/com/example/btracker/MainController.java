@@ -45,7 +45,7 @@ public class MainController {
 
     @FXML
     private void fixAmountAction() {
-        String month  = inputMonth.getText();
+        String month  = inputMonth.getText().toLowerCase();
         GetMonthAndIncome dataMonthAndIncome = new GetMonthAndIncome(month, freezeFixAmount);
 
         List<Integer> valuesAllCategory = collectData(dataMonthAndIncome.getIncome(),
