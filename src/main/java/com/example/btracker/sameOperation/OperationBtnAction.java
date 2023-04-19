@@ -30,22 +30,35 @@ public class OperationBtnAction {
      * @param outputTransport - поле вывода для категории расходов Transport
      * @param outputEntertainment - поле вывода для категории расходов Entertainment
      * @param outputOther - поле вывода для категории расходов Other
-     * @param incomeFix - переменная, в которой хранится доход за выбранный месяц
      * @param budgetByMonth - Map, в которой записаны доходы и расходы по месяцам
-     * @param month - выбранный месяц
      */
+
     public static void showButtonsMonthAction (Text outputIncome, Text outputFood, Text outputHouse,
                                                Text outputShopping, Text outputTransport, Text outputEntertainment,
                                                Text outputOther,
-                                               int incomeFix,
-                                               Map<String, List<Integer>> budgetByMonth, String month) {
-        outputIncome.setText(incomeFix + " € ");
-        outputFood.setText(budgetByMonth.get(month).get(1) + " € ");
-        outputHouse.setText(budgetByMonth.get(month).get(2) + " € ");
-        outputShopping.setText(budgetByMonth.get(month).get(3) + " € ");
-        outputTransport.setText(budgetByMonth.get(month).get(4) + " € ");
-        outputEntertainment.setText(budgetByMonth.get(month).get(5) + " € ");
-        outputOther.setText(budgetByMonth.get(month).get(6) + " € ");
+                                               String buttonText,
+                                               Map<String, List<Map<String,Integer>>> budgetByMonth) {
+
+        for (String month : budgetByMonth.keySet()) {
+            if(month.equalsIgnoreCase(buttonText)){
+                List<Map<String, Integer>> list = budgetByMonth.get(month);
+
+                for(String key : list.get(0).keySet()) {
+                    switch (key) {
+                        case "INCOME" -> outputIncome.setText(list.get(0).get(key) + " € ");
+                        case "FOOD" -> outputFood.setText(list.get(0).get(key) + " € ");
+                        case "HOUSE" -> outputHouse.setText(list.get(0).get(key) + " € ");
+                        case "SHOPPING" -> outputShopping.setText(list.get(0).get(key) + " € ");
+                        case "TRANSPORT" -> outputTransport.setText(list.get(0).get(key) + " € ");
+                        case "ENTERTAINMENT" -> outputEntertainment.setText(list.get(0).get(key) + " € ");
+                        case "OTHER" -> outputOther.setText(list.get(0).get(key) + " € ");
+                        default -> {
+                            return;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
