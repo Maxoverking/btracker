@@ -26,7 +26,7 @@ import javafx.scene.text.Text;
 public class MainController {
     // Сохранение всех данных по месяцам в Map budgetByMonth
     public static Map<String, List<Integer>> budgetByMonth = new HashMap<>();
-    private static final String errorIfMinus = " Отрицательный доход!";
+    public static final String errorIfMinus = " Отрицательный доход!";
     private static final String errorIfString = "Ошибка: Вы ввели не число";
 
 
@@ -122,20 +122,19 @@ public class MainController {
             // попытка преобразовать введенную строку в число
             int priceForFood = Integer.parseInt(inputFood.getText());
             budgetFood = addMoney(priceForFood, budgetFood);
-
 //            if (priceForFood < 0) {
 //                throw new NumberFormatException();
 //            }
 //            budgetFood += priceForFood;
-            income = calculateIncome(income, priceForFood);
-            //income = income - priceForFood;
+           income = calculateIncome(income, priceForFood);
+//            income = income - priceForFood;
             showButtonsAction(outputFix, outputFood, outputError, income, budgetFood);
 //            outputFix.setText(income + " € ");
 //            outputFood.setText(budgetFood + " € ");
 //            outputError.setText("");
-            if (income < 0) {
-                throw new CustomException(errorIfMinus);
-            }
+//            if (income < 0) {
+//                throw new CustomException(errorIfMinus);
+//            }
         } catch (NumberFormatException e) {
             // вывод сообщения об ошибке, если введенная строка не является числом
             outputError.setText(errorIfString);
@@ -162,9 +161,9 @@ public class MainController {
 //            outputFix.setText(income + " € ");
 //            outputHouse.setText(budgetHouse + " € ");
 //            outputError.setText("");
-            if (income < 0) {
-                throw new CustomException(errorIfMinus);
-            }
+//            if (income < 0) {
+//                throw new CustomException(errorIfMinus);
+//            }
         } catch (NumberFormatException e) {
             // вывод сообщения об ошибке, если введенная строка не является числом
             outputError.setText(errorIfString);
@@ -191,9 +190,9 @@ public class MainController {
 //            outputFix.setText(income + " € ");
 //            outputShopping.setText(budgetShopping + " € ");
 //            outputError.setText("");
-            if (income < 0) {
-                throw new CustomException(errorIfMinus);
-            }
+//            if (income < 0) {
+//                throw new CustomException(errorIfMinus);
+//            }
         } catch (NumberFormatException e) {
             // вывод сообщения об ошибке, если введенная строка не является числом
             outputError.setText(errorIfString);
@@ -220,9 +219,9 @@ public class MainController {
 //            outputFix.setText(income + " € ");
 //            outputTransport.setText(budgetTransport + " € ");
 //            outputError.setText("");
-            if (income < 0) {
-                throw new CustomException(errorIfMinus);
-            }
+//            if (income < 0) {
+//                throw new CustomException(errorIfMinus);
+//            }
         } catch (NumberFormatException e) {
             // вывод сообщения об ошибке, если введенная строка не является числом
             outputError.setText(errorIfString);
@@ -249,9 +248,9 @@ public class MainController {
 //            outputFix.setText(income + " € ");
 //            outputEntertainment.setText(budgetEntertainment + " € ");
 //            outputError.setText("");
-            if (income < 0) {
-                throw new CustomException(errorIfMinus);
-            }
+//            if (income < 0) {
+//                throw new CustomException(errorIfMinus);
+//            }
         } catch (NumberFormatException e) {
             // вывод сообщения об ошибке, если введенная строка не является числом
             outputError.setText(errorIfString);
@@ -278,9 +277,9 @@ public class MainController {
 //            outputFix.setText(income + " € ");
 //            outputOther.setText(budgetOther + " € ");
 //            outputError.setText("");
-            if (income < 0) {
-                throw new CustomException(errorIfMinus);
-            }
+//            if (income < 0) {
+//                throw new CustomException(errorIfMinus);
+//            }
         } catch (NumberFormatException e) {
             // вывод сообщения об ошибке, если введенная строка не является числом
             outputError.setText(errorIfString);
