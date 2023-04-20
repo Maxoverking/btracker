@@ -1,27 +1,20 @@
 package com.example.btracker;
 
-import static com.example.btracker.AddMoney.addMoney;
-import static com.example.btracker.ReturnMoney.returnMoney;
-import static com.example.btracker.allClasses.Income.calculateIncome;
-import static com.example.btracker.allClasses.Income.calculateIncomeReturn;
+import static com.example.btracker.allClasses.Calculation.*;
 import static com.example.btracker.collectData.CollectData.collectData;
 import static com.example.btracker.correctMonth.CorrectMonth.correctMonth;
 import static com.example.btracker.sameOperation.OperationBtnAction.showButtonsAction;
 import static com.example.btracker.sameOperation.OperationBtnAction.showButtonsMonthAction;
 import static com.example.btracker.sameOperation.OperationBtnsMonths.showButtonsMonth;
-import static com.example.btracker.sameOperation.OutputEarnCalcSpend.calcEarnAndSpendForMonth;
 import static com.example.btracker.sameOperation.OperationBtnsMonths.operationWithButtonsMonth;
 import static com.example.btracker.sortingData.AddToField.addToField;
 import static com.example.btracker.sortingData.SortingData.convertMap;
-
 import com.example.btracker.allClasses.GetMonthAndIncome;
 import com.example.btracker.allClasses.NewAmountIncome;
 import com.example.btracker.exception.CustomException;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -32,8 +25,8 @@ public class MainController {
     // Сохранение всех данных по месяцам в Map budgetByMonth
     private String currentMonth = "";
     public static Map<String, List<String>> budgetByMonth = new HashMap<>();
-    public static final String errorIfMinus = " Отрицательный доход!";
-    private static final String errorIfString = "Ошибка: Вы ввели не число";
+    public static final String errorIfMinus = "Negative income!";
+    private static final String errorIfString = "Error: You didn't enter a number";
 
     // Error
     @FXML
@@ -53,16 +46,16 @@ public class MainController {
     public int incomeFix;
 
     @FXML
-    private void fixAmountAction() {
+    private void saveChangesAction() {
         String month = inputMonth.getText().toLowerCase();
         GetMonthAndIncome dataMonthAndIncome = new GetMonthAndIncome(month, freezeFixAmount);
 
         List<String> valuesAllCategory = collectData(
-                dataMonthAndIncome.getIncome(), budgetFood, budgetHouse,
+                dataMonthAndIncome.income(), budgetFood, budgetHouse,
                 budgetShopping, budgetTransport, budgetEntertainment, budgetOther);
 
-        incomeFix = dataMonthAndIncome.getIncome();
-        budgetByMonth.put(dataMonthAndIncome.getMonth(), valuesAllCategory);
+        incomeFix = dataMonthAndIncome.income();
+        budgetByMonth.put(dataMonthAndIncome.month(), valuesAllCategory);
 
         moveData(month);
         clearAllNotesAction();
@@ -89,7 +82,7 @@ public class MainController {
                 throw new CustomException(errorIfMinus);
             } else {
                 freezeFixAmount += newAmountIncome;
-                income += new NewAmountIncome(newAmountIncome).getIncome();
+                income += new NewAmountIncome(newAmountIncome).income();
                 outputFix.setText(income + " € ");
                 outputError.setText("");
                 outputIncome.setText(freezeFixAmount + " € ");
@@ -350,7 +343,6 @@ public class MainController {
     public void btnDecemberAction() {
         operationWithButtonsMonth(btnDecemberShow, btnDecember, outputError, inputMonth);
         calcEarnAndSpendForMonth(budgetByMonth, btnDecember.getText(), earnDecember, spendDecember);
-//        operationBtnShow(true,buttonsList);
     }
 
     @FXML
@@ -372,7 +364,6 @@ public class MainController {
     public void btnJanuaryAction() {
         operationWithButtonsMonth(btnJanuaryShow, btnJanuary, outputError, inputMonth);
         calcEarnAndSpendForMonth(budgetByMonth, btnJanuary.getText(), earnJanuary, spendJanuary);
-//        operationBtnShow(true,buttonsList);
     }
 
     @FXML
@@ -732,7 +723,6 @@ public class MainController {
     public void btnSortDownAction() {
 
         List<String> sortedDownList = convertMap(budgetByMonth, currentMonth, true);
-        System.out.println(" btnSortDownAction " + sortedDownList);
         int idx = 0;
         assert sortedDownList != null;
         for (String category : sortedDownList) {
