@@ -715,9 +715,8 @@ public class MainController {
 
     @FXML
     public void btnSortUpAction() {
-        List<String> sortedUpList = convertMap(budgetByMonth, currentMonth, true);
 
-        System.out.println(" btnSortUpAction " + sortedUpList);
+        List<String> sortedUpList = convertMap(budgetByMonth, currentMonth, false);
         int idx = 0;
         assert sortedUpList != null;
         for (String category : sortedUpList) {
@@ -731,8 +730,9 @@ public class MainController {
 
     @FXML
     public void btnSortDownAction() {
-        List<String> sortedDownList = convertMap(budgetByMonth, currentMonth, false);
 
+        List<String> sortedDownList = convertMap(budgetByMonth, currentMonth, true);
+        System.out.println(" btnSortDownAction " + sortedDownList);
         int idx = 0;
         assert sortedDownList != null;
         for (String category : sortedDownList) {
