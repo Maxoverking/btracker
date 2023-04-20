@@ -6,19 +6,25 @@ import javafx.scene.text.Text;
 
 public class OutputEarnCalcSpend {
 
-  public static void calcEarnAndSpendForMonth(Map<String, List<Map<String, Integer>>> budgetByMonth,
+  public static void calcEarnAndSpendForMonth(Map<String, List<String>> budgetByMonth,
       String buttonText, Text earn, Text spend) {
 
     int totalSpend = 0;
     for (String month : budgetByMonth.keySet()) {
       if(month.equalsIgnoreCase(buttonText)){
-        List<Map<String, Integer>> list = budgetByMonth.get(month);
+        List<String> list = budgetByMonth.get(month);
 
-        for(String i : list.get(0).keySet()) {
-          if (i.equalsIgnoreCase("INCOME")) {
-            earn.setText(list.get(0).get(i) + "");
+        for(String getPrice : list) {
+          String[] parts = getPrice.split("=");
+
+// Получаем название переменной
+          String category = parts[0];
+// Получаем значение переменной
+          String expencies = parts[1];
+          if (category.equalsIgnoreCase("INCOME")) {
+            earn.setText(expencies + "");
           } else {
-            totalSpend += list.get(0).get(i);
+            totalSpend += Integer.parseInt(expencies);
           }
         }
       }
