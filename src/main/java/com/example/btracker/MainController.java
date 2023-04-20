@@ -1,24 +1,26 @@
 package com.example.btracker;
 
+import com.example.btracker.allClasses.GetMonthAndIncome;
+import com.example.btracker.allClasses.NewAmountIncome;
+import com.example.btracker.exception.CustomException;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import static com.example.btracker.allClasses.Calculation.*;
 import static com.example.btracker.collectData.CollectData.collectData;
 import static com.example.btracker.correctMonth.CorrectMonth.correctMonth;
 import static com.example.btracker.sameOperation.OperationBtnAction.showButtonsAction;
 import static com.example.btracker.sameOperation.OperationBtnAction.showButtonsMonthAction;
-import static com.example.btracker.sameOperation.OperationBtnsMonths.showButtonsMonth;
-import static com.example.btracker.sameOperation.OperationBtnsMonths.operationWithButtonsMonth;
+import static com.example.btracker.sameOperation.StyleBtns.styleButtonsMonthAndShow;
+import static com.example.btracker.sameOperation.StyleBtns.styleButtonsMonthAndSort;
 import static com.example.btracker.sortingData.AddToField.addToField;
 import static com.example.btracker.sortingData.SortingData.convertMap;
-import com.example.btracker.allClasses.GetMonthAndIncome;
-import com.example.btracker.allClasses.NewAmountIncome;
-import com.example.btracker.exception.CustomException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 
 public class MainController {
 
@@ -341,14 +343,14 @@ public class MainController {
 
     @FXML
     public void btnDecemberAction() {
-        operationWithButtonsMonth(btnDecemberShow, btnDecember, outputError, inputMonth);
+        styleButtonsMonthAndShow(btnDecemberShow, btnDecember, outputError, inputMonth);
         calcEarnAndSpendForMonth(budgetByMonth, btnDecember.getText(), earnDecember, spendDecember);
     }
 
     @FXML
     public void btnDecemberShowAction() {
         currentMonth = btnDecember.getText();
-        showButtonsMonth(btnDecember, sortText, btnSortUp, btnSortDown);
+        styleButtonsMonthAndSort(btnDecember, sortText, btnSortUp, btnSortDown);
         showButtonsMonthAction(titleIncome, titleFood, titleHouse, titleShopping,
                 titleTransport, titleEntertainment, titleOther, outputIncome,
                 outputFood, outputHouse, outputShopping,
@@ -362,14 +364,14 @@ public class MainController {
 
     @FXML
     public void btnJanuaryAction() {
-        operationWithButtonsMonth(btnJanuaryShow, btnJanuary, outputError, inputMonth);
+        styleButtonsMonthAndShow(btnJanuaryShow, btnJanuary, outputError, inputMonth);
         calcEarnAndSpendForMonth(budgetByMonth, btnJanuary.getText(), earnJanuary, spendJanuary);
     }
 
     @FXML
     public void btnJanuaryShowAction() {
         currentMonth = btnJanuary.getText();
-        showButtonsMonth(btnJanuary, sortText, btnSortUp, btnSortDown);
+        styleButtonsMonthAndSort(btnJanuary, sortText, btnSortUp, btnSortDown);
         showButtonsMonthAction(titleIncome, titleFood, titleHouse, titleShopping,
                 titleTransport, titleEntertainment, titleOther, outputIncome,
                 outputFood, outputHouse, outputShopping,
@@ -383,14 +385,14 @@ public class MainController {
 
     @FXML
     public void btnFebruaryAction() {
-        operationWithButtonsMonth(btnFebruaryShow, btnFebruary, outputError, inputMonth);
+        styleButtonsMonthAndShow(btnFebruaryShow, btnFebruary, outputError, inputMonth);
         calcEarnAndSpendForMonth(budgetByMonth, btnFebruary.getText(), earnFebruary, spendFebruary);
     }
 
     @FXML
     public void btnFebruaryShowAction() {
         currentMonth = btnFebruary.getText();
-        showButtonsMonth(btnFebruary, sortText, btnSortUp, btnSortDown);
+        styleButtonsMonthAndSort(btnFebruary, sortText, btnSortUp, btnSortDown);
         showButtonsMonthAction(titleIncome, titleFood, titleHouse, titleShopping,
                 titleTransport, titleEntertainment, titleOther, outputIncome,
                 outputFood, outputHouse, outputShopping,
@@ -404,14 +406,14 @@ public class MainController {
 
     @FXML
     public void btnMarchAction() {
-        operationWithButtonsMonth(btnMarchShow, btnMarch, outputError, inputMonth);
+        styleButtonsMonthAndShow(btnMarchShow, btnMarch, outputError, inputMonth);
         calcEarnAndSpendForMonth(budgetByMonth, btnMarch.getText(), earnMarch, spendMarch);
     }
 
     @FXML
     public void btnMarchShowAction() {
         currentMonth = btnMarch.getText();
-        showButtonsMonth(btnMarch, sortText, btnSortUp, btnSortDown);
+        styleButtonsMonthAndSort(btnMarch, sortText, btnSortUp, btnSortDown);
         showButtonsMonthAction(titleIncome, titleFood, titleHouse, titleShopping,
                 titleTransport, titleEntertainment, titleOther, outputIncome,
                 outputFood, outputHouse, outputShopping,
@@ -425,14 +427,14 @@ public class MainController {
 
     @FXML
     public void btnAprilAction() {
-        operationWithButtonsMonth(btnAprilShow, btnApril, outputError, inputMonth);
+        styleButtonsMonthAndShow(btnAprilShow, btnApril, outputError, inputMonth);
         calcEarnAndSpendForMonth(budgetByMonth, btnApril.getText(), earnApril, spendApril);
     }
 
     @FXML
     public void btnAprilShowAction() {
         currentMonth = btnApril.getText();
-        showButtonsMonth(btnApril, sortText, btnSortUp, btnSortDown);
+        styleButtonsMonthAndSort(btnApril, sortText, btnSortUp, btnSortDown);
         showButtonsMonthAction(titleIncome, titleFood, titleHouse, titleShopping,
                 titleTransport, titleEntertainment, titleOther, outputIncome,
                 outputFood, outputHouse, outputShopping,
@@ -446,14 +448,14 @@ public class MainController {
 
     @FXML
     public void btnMayAction() {
-        operationWithButtonsMonth(btnMayShow, btnMay, outputError, inputMonth);
+        styleButtonsMonthAndShow(btnMayShow, btnMay, outputError, inputMonth);
         calcEarnAndSpendForMonth(budgetByMonth, btnMay.getText(), earnMay, spendMay);
     }
 
     @FXML
     public void btnMayShowAction() {
         currentMonth = btnMay.getText();
-        showButtonsMonth(btnMay, sortText, btnSortUp, btnSortDown);
+        styleButtonsMonthAndSort(btnMay, sortText, btnSortUp, btnSortDown);
         showButtonsMonthAction(titleIncome, titleFood, titleHouse, titleShopping,
                 titleTransport, titleEntertainment, titleOther, outputIncome,
                 outputFood, outputHouse, outputShopping,
@@ -467,14 +469,14 @@ public class MainController {
 
     @FXML
     public void btnJuneAction() {
-        operationWithButtonsMonth(btnJuneShow, btnJune, outputError, inputMonth);
+        styleButtonsMonthAndShow(btnJuneShow, btnJune, outputError, inputMonth);
         calcEarnAndSpendForMonth(budgetByMonth, btnJune.getText(), earnJune, spendJune);
     }
 
     @FXML
     public void btnJuneShowAction() {
         currentMonth = btnJune.getText();
-        showButtonsMonth(btnJune, sortText, btnSortUp, btnSortDown);
+        styleButtonsMonthAndSort(btnJune, sortText, btnSortUp, btnSortDown);
         showButtonsMonthAction(titleIncome, titleFood, titleHouse, titleShopping,
                 titleTransport, titleEntertainment, titleOther, outputIncome,
                 outputFood, outputHouse, outputShopping,
@@ -488,14 +490,14 @@ public class MainController {
 
     @FXML
     public void btnJulyAction() {
-        operationWithButtonsMonth(btnJulyShow, btnJuly, outputError, inputMonth);
+        styleButtonsMonthAndShow(btnJulyShow, btnJuly, outputError, inputMonth);
         calcEarnAndSpendForMonth(budgetByMonth, btnJuly.getText(), earnJuly, spendJuly);
     }
 
     @FXML
     public void btnJulyShowAction() {
         currentMonth = btnJuly.getText();
-        showButtonsMonth(btnJuly, sortText, btnSortUp, btnSortDown);
+        styleButtonsMonthAndSort(btnJuly, sortText, btnSortUp, btnSortDown);
         showButtonsMonthAction(titleIncome, titleFood, titleHouse, titleShopping,
                 titleTransport, titleEntertainment, titleOther, outputIncome,
                 outputFood, outputHouse, outputShopping,
@@ -509,14 +511,14 @@ public class MainController {
 
     @FXML
     public void btnAugustAction() {
-        operationWithButtonsMonth(btnAugustShow, btnAugust, outputError, inputMonth);
+        styleButtonsMonthAndShow(btnAugustShow, btnAugust, outputError, inputMonth);
         calcEarnAndSpendForMonth(budgetByMonth, btnAugust.getText(), earnAugust, spendAugust);
     }
 
     @FXML
     public void btnAugustShowAction() {
         currentMonth = btnAugust.getText();
-        showButtonsMonth(btnAugust, sortText, btnSortUp, btnSortDown);
+        styleButtonsMonthAndSort(btnAugust, sortText, btnSortUp, btnSortDown);
         showButtonsMonthAction(titleIncome, titleFood, titleHouse, titleShopping,
                 titleTransport, titleEntertainment, titleOther, outputIncome,
                 outputFood, outputHouse, outputShopping,
@@ -530,14 +532,14 @@ public class MainController {
 
     @FXML
     public void btnSeptemberAction() {
-        operationWithButtonsMonth(btnSeptemberShow, btnSeptember, outputError, inputMonth);
+        styleButtonsMonthAndShow(btnSeptemberShow, btnSeptember, outputError, inputMonth);
         calcEarnAndSpendForMonth(budgetByMonth, btnSeptember.getText(), earnSeptember, spendSeptember);
     }
 
     @FXML
     public void btnSeptemberShowAction() {
         currentMonth = btnSeptember.getText();
-        showButtonsMonth(btnSeptember, sortText, btnSortUp, btnSortDown);
+        styleButtonsMonthAndSort(btnSeptember, sortText, btnSortUp, btnSortDown);
         showButtonsMonthAction(titleIncome, titleFood, titleHouse, titleShopping,
                 titleTransport, titleEntertainment, titleOther, outputIncome,
                 outputFood, outputHouse, outputShopping,
@@ -551,14 +553,14 @@ public class MainController {
 
     @FXML
     public void btnOctoberAction() {
-        operationWithButtonsMonth(btnOctoberShow, btnOctober, outputError, inputMonth);
+        styleButtonsMonthAndShow(btnOctoberShow, btnOctober, outputError, inputMonth);
         calcEarnAndSpendForMonth(budgetByMonth, btnOctober.getText(), earnOctober, spendOctober);
     }
 
     @FXML
     public void btnOctoberShowAction() {
         currentMonth = btnOctober.getText();
-        showButtonsMonth(btnOctober, sortText, btnSortUp, btnSortDown);
+        styleButtonsMonthAndSort(btnOctober, sortText, btnSortUp, btnSortDown);
         showButtonsMonthAction(titleIncome, titleFood, titleHouse, titleShopping,
                 titleTransport, titleEntertainment, titleOther, outputIncome,
                 outputFood, outputHouse, outputShopping,
@@ -572,14 +574,14 @@ public class MainController {
 
     @FXML
     public void btnNovemberAction() {
-        operationWithButtonsMonth(btnNovemberShow, btnNovember, outputError, inputMonth);
+        styleButtonsMonthAndShow(btnNovemberShow, btnNovember, outputError, inputMonth);
         calcEarnAndSpendForMonth(budgetByMonth, btnNovember.getText(), earnNovember, spendNovember);
     }
 
     @FXML
     public void btnNovemberShowAction() {
         currentMonth = btnNovember.getText();
-        showButtonsMonth(btnNovember, sortText, btnSortUp, btnSortDown);
+        styleButtonsMonthAndSort(btnNovember, sortText, btnSortUp, btnSortDown);
         showButtonsMonthAction(titleIncome, titleFood, titleHouse, titleShopping,
                 titleTransport, titleEntertainment, titleOther, outputIncome,
                 outputFood, outputHouse, outputShopping,
