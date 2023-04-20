@@ -30,7 +30,7 @@ public class Calculation {
     /**
      * Метод возвращает сумму расходов по одной категории
      *
-     * @param budget  - общий бюджет по всем категориям
+     * @param budget            - общий бюджет по всем категориям
      * @param priceForCategory  - новая трата по категории
      * @param budgetForCategory - текущая сумма расходов по этой категории
      * @return - общая сумма расходов по категории
@@ -65,7 +65,7 @@ public class Calculation {
      * @return - новый бюджет по одной из категорий
      */
     public static int returnMoney(int budgetForCategory, int priceForCategoryReturn) {
-        if (budgetForCategory > 0 && priceForCategoryReturn <= budgetForCategory) {
+        if (budgetForCategory > 0 && priceForCategoryReturn <= budgetForCategory && priceForCategoryReturn > 0) {
             return budgetForCategory - priceForCategoryReturn;
         }
         throw new CustomException(errorReturnMoney);
