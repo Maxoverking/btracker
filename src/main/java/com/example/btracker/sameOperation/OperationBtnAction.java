@@ -1,12 +1,13 @@
 package com.example.btracker.sameOperation;
 
 import javafx.scene.text.Text;
-
 import java.util.List;
 import java.util.Map;
 
 public class OperationBtnAction {
     /**
+     * Метод показывает траты по категориям
+     *
      * @param outputFix      текст income + " € "
      * @param outputCategory текст бюджет по категории
      * @param outputError    ошибка
@@ -50,51 +51,39 @@ public class OperationBtnAction {
 // Получаем название переменной
                     String category = parts[0];
 // Получаем значение переменной
-                    String expences = parts[1];
+                    String expenses = parts[1];
                     switch (category) {
                         case "INCOME" -> {
                             titleIncome.setText(category);
-                            outputIncome.setText(expences + " € ");
+                            outputIncome.setText(expenses + " € ");
                         }
                         case "FOOD" -> {
                             titleFood.setText(category);
-                            outputFood.setText(expences);
+                            outputFood.setText(expenses);
                         }
                         case "HOUSE" -> {
                             titleHouse.setText(category);
-                            outputHouse.setText(expences);
+                            outputHouse.setText(expenses);
                         }
                         case "SHOPPING" -> {
                             titleShopping.setText(category);
-                            outputShopping.setText(expences);
+                            outputShopping.setText(expenses);
                         }
                         case "TRANSPORT" -> {
                             titleTransport.setText(category);
-                            outputTransport.setText(expences);
+                            outputTransport.setText(expenses);
                         }
                         case "ENTERTAINMENT" -> {
                             titleEntertainment.setText(category);
-                            outputEntertainment.setText(expences);
-                        }
+                            outputEntertainment.setText(expenses);
+                                                    }
                         case "OTHER" -> {
                             titleOther.setText(category);
-                            outputOther.setText(expences);
+                            outputOther.setText(expenses);
                         }
                         default -> {
                         }
                     }
-//                    switch (category) {
-//                        case "INCOME" -> outputIncome.setText(expences+ " € ");
-//                        case "FOOD" -> outputFood.setText(expences+ " € ");
-//                        case "HOUSE" -> outputHouse.setText(expences+ " € ");
-//                        case "SHOPPING" -> outputShopping.setText(expences+ " € ");
-//                        case "TRANSPORT" -> outputTransport.setText(expences+" € ");
-//                        case "ENTERTAINMENT" -> outputEntertainment.setText(expences+ " € ");
-//                        case "OTHER" -> outputOther.setText(expences+ " € ");
-//                        default -> {
-//                            return;
-//                        }
-//                    }
                 }
             }
         }
