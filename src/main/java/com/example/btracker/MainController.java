@@ -24,9 +24,8 @@ import static com.example.btracker.sortingData.SortingData.convertMap;
 
 public class MainController {
 
-    // Сохранение всех данных по месяцам в Map budgetByMonth
     private String currentMonth = "";
-    public static Map<String, List<String>> budgetByMonth = new HashMap<>();
+    public static Map<String, List<String>> budgetByMonth = new HashMap<>();// Сохранение всех данных по месяцам
     public static final String errorIfMinus = "Negative income!";
     private static final String errorIfString = "Error: You didn't enter a number";
 
@@ -48,6 +47,7 @@ public class MainController {
     public int incomeFix;
 
     @FXML
+
     private void saveChangesAction() {
         String month = inputMonth.getText().toLowerCase();
         GetMonthAndIncome dataMonthAndIncome = new GetMonthAndIncome(month, freezeFixAmount);
@@ -76,8 +76,8 @@ public class MainController {
     @FXML
     private void btnIncomeAction() {
         try {
-            correctMonth(inputMonth.getText().toLowerCase());
-            //  преобразовать введенную строку в число
+            correctMonth(inputMonth.getText().toLowerCase()); //  преобразовать введенную строку в число
+
             int newAmountIncome = Integer.parseInt(inputIncomeField.getText());
 
             if (newAmountIncome < 0) {
@@ -92,8 +92,7 @@ public class MainController {
                 inputIncomeField.clear();
             }
         } catch (NumberFormatException e) {
-            // вывод сообщения об ошибке, если введенная строка не является числом
-            outputError.setText(errorIfString);
+            outputError.setText(errorIfString); // вывод сообщения об ошибке, если введенная строка не является числом
         } catch (CustomException e) {
             outputError.setText(e.getMessage());
         }
@@ -117,14 +116,12 @@ public class MainController {
     @FXML
     private void btnFoodAction() {
         try {
-            // попытка преобразовать введенную строку в число
-            int priceForFood = Integer.parseInt(inputFood.getText());
+            int priceForFood = Integer.parseInt(inputFood.getText()); // преобразование введенной строки в число
             budgetFood = addMoney(priceForFood, budgetFood, budget);
             budget = calculateBudget(budget, priceForFood);
             showButtonsAction(outputFix, outputFood, outputError, budget, budgetFood);
         } catch (NumberFormatException e) {
-            // вывод сообщения об ошибке, если введенная строка не является числом
-            outputError.setText(errorIfString);
+            outputError.setText(errorIfString); // вывод сообщения об ошибке, если введенная строка не является числом
         } catch (CustomException e) {
             outputError.setText(e.getMessage());
         }
@@ -140,13 +137,11 @@ public class MainController {
     @FXML
     void btnHouseAction() {
         try {
-            // преобразовать введенную строку в число
             int priceForHouse = Integer.parseInt(inputHouse.getText());
             budgetHouse = addMoney(priceForHouse, budgetHouse, budget);
             budget = calculateBudget(budget, priceForHouse);
             showButtonsAction(outputFix, outputHouse, outputError, budget, budgetHouse);
         } catch (NumberFormatException e) {
-            // вывод сообщения об ошибке, если введенная строка не является числом
             outputError.setText(errorIfString);
         } catch (CustomException e) {
             outputError.setText(e.getMessage());
@@ -163,13 +158,11 @@ public class MainController {
     @FXML
     void btnShoppingAction() {
         try {
-            // преобразовать введенную строку в число
             int priceForShopping = Integer.parseInt(inputShopping.getText());
             budgetShopping = addMoney(priceForShopping, budgetShopping, budget);
             budget = calculateBudget(budget, priceForShopping);
             showButtonsAction(outputFix, outputShopping, outputError, budget, budgetShopping);
         } catch (NumberFormatException e) {
-            // вывод сообщения об ошибке, если введенная строка не является числом
             outputError.setText(errorIfString);
         } catch (CustomException e) {
             outputError.setText(e.getMessage());
@@ -186,13 +179,11 @@ public class MainController {
     @FXML
     void btnTransportAction() {
         try {
-            // преобразовать введенную строку в число
             int priceForTransport = Integer.parseInt(inputTransport.getText());
             budgetTransport = addMoney(priceForTransport, budgetTransport, budget);
             budget = calculateBudget(budget, priceForTransport);
             showButtonsAction(outputFix, outputTransport, outputError, budget, budgetTransport);
         } catch (NumberFormatException e) {
-            // вывод сообщения об ошибке, если введенная строка не является числом
             outputError.setText(errorIfString);
         } catch (CustomException e) {
             outputError.setText(e.getMessage());
@@ -209,13 +200,11 @@ public class MainController {
     @FXML
     void btnEntertainmentAction() {
         try {
-            // преобразовать введенную строку в число
             int priceForEntertainment = Integer.parseInt(inputEntertainment.getText());
             budgetEntertainment = addMoney(priceForEntertainment, budgetEntertainment, budget);
             budget = calculateBudget(budget, priceForEntertainment);
             showButtonsAction(outputFix, outputEntertainment, outputError, budget, budgetEntertainment);
         } catch (NumberFormatException e) {
-            // вывод сообщения об ошибке, если введенная строка не является числом
             outputError.setText(errorIfString);
         } catch (CustomException e) {
             outputError.setText(e.getMessage());
@@ -232,13 +221,11 @@ public class MainController {
     @FXML
     void btnOtherAction() {
         try {
-            // преобразовать введенную строку в число
             int priceForOther = Integer.parseInt(inputOther.getText());
             budgetOther = addMoney(priceForOther, budgetOther, budget);
             budget = calculateBudget(budget, priceForOther);
             showButtonsAction(outputFix, outputOther, outputError, budget, budgetOther);
         } catch (NumberFormatException e) {
-            // вывод сообщения об ошибке, если введенная строка не является числом
             outputError.setText(errorIfString);
         } catch (CustomException e) {
             outputError.setText(e.getMessage());
