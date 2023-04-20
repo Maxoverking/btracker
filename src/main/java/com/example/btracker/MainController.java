@@ -68,7 +68,7 @@ public class MainController {
     public Button buttonIncome;
     @FXML
     private Text outputFix;
-    private int income = 0;
+    private int budget = 0;
     private int freezeFixAmount = 0;
 
     @FXML
@@ -82,8 +82,8 @@ public class MainController {
                 throw new CustomException(errorIfMinus);
             } else {
                 freezeFixAmount += newAmountIncome;
-                income += new NewAmountIncome(newAmountIncome).income();
-                outputFix.setText(income + " € ");
+                budget += new NewAmountIncome(newAmountIncome).income();
+                outputFix.setText(budget + " € ");
                 outputError.setText("");
                 outputIncome.setText(freezeFixAmount + " € ");
                 fixAmount.setDisable(false);
@@ -99,7 +99,7 @@ public class MainController {
 
     @FXML
     private void minusIncomeFieldAction() {
-        income = 0;
+        budget = 0;
         freezeFixAmount = 0;
         outputError.setText("");
         outputFix.setText("");
@@ -117,9 +117,9 @@ public class MainController {
         try {
             // попытка преобразовать введенную строку в число
             int priceForFood = Integer.parseInt(inputFood.getText());
-            budgetFood = addMoney(priceForFood, budgetFood, income);
-            income = calculateIncome(income, priceForFood);
-            showButtonsAction(outputFix, outputFood, outputError, income, budgetFood);
+            budgetFood = addMoney(priceForFood, budgetFood, budget);
+            budget = calculateBudget(budget, priceForFood);
+            showButtonsAction(outputFix, outputFood, outputError, budget, budgetFood);
         } catch (NumberFormatException e) {
             // вывод сообщения об ошибке, если введенная строка не является числом
             outputError.setText(errorIfString);
@@ -140,9 +140,9 @@ public class MainController {
         try {
             // преобразовать введенную строку в число
             int priceForHouse = Integer.parseInt(inputHouse.getText());
-            budgetHouse = addMoney(priceForHouse, budgetHouse, income);
-            income = calculateIncome(income, priceForHouse);
-            showButtonsAction(outputFix, outputHouse, outputError, income, budgetHouse);
+            budgetHouse = addMoney(priceForHouse, budgetHouse, budget);
+            budget = calculateBudget(budget, priceForHouse);
+            showButtonsAction(outputFix, outputHouse, outputError, budget, budgetHouse);
         } catch (NumberFormatException e) {
             // вывод сообщения об ошибке, если введенная строка не является числом
             outputError.setText(errorIfString);
@@ -163,9 +163,9 @@ public class MainController {
         try {
             // преобразовать введенную строку в число
             int priceForShopping = Integer.parseInt(inputShopping.getText());
-            budgetShopping = addMoney(priceForShopping, budgetShopping, income);
-            income = calculateIncome(income, priceForShopping);
-            showButtonsAction(outputFix, outputShopping, outputError, income, budgetShopping);
+            budgetShopping = addMoney(priceForShopping, budgetShopping, budget);
+            budget = calculateBudget(budget, priceForShopping);
+            showButtonsAction(outputFix, outputShopping, outputError, budget, budgetShopping);
         } catch (NumberFormatException e) {
             // вывод сообщения об ошибке, если введенная строка не является числом
             outputError.setText(errorIfString);
@@ -186,9 +186,9 @@ public class MainController {
         try {
             // преобразовать введенную строку в число
             int priceForTransport = Integer.parseInt(inputTransport.getText());
-            budgetTransport = addMoney(priceForTransport, budgetTransport, income);
-            income = calculateIncome(income, priceForTransport);
-            showButtonsAction(outputFix, outputTransport, outputError, income, budgetTransport);
+            budgetTransport = addMoney(priceForTransport, budgetTransport, budget);
+            budget = calculateBudget(budget, priceForTransport);
+            showButtonsAction(outputFix, outputTransport, outputError, budget, budgetTransport);
         } catch (NumberFormatException e) {
             // вывод сообщения об ошибке, если введенная строка не является числом
             outputError.setText(errorIfString);
@@ -209,9 +209,9 @@ public class MainController {
         try {
             // преобразовать введенную строку в число
             int priceForEntertainment = Integer.parseInt(inputEntertainment.getText());
-            budgetEntertainment = addMoney(priceForEntertainment, budgetEntertainment, income);
-            income = calculateIncome(income, priceForEntertainment);
-            showButtonsAction(outputFix, outputEntertainment, outputError, income, budgetEntertainment);
+            budgetEntertainment = addMoney(priceForEntertainment, budgetEntertainment, budget);
+            budget = calculateBudget(budget, priceForEntertainment);
+            showButtonsAction(outputFix, outputEntertainment, outputError, budget, budgetEntertainment);
         } catch (NumberFormatException e) {
             // вывод сообщения об ошибке, если введенная строка не является числом
             outputError.setText(errorIfString);
@@ -232,9 +232,9 @@ public class MainController {
         try {
             // преобразовать введенную строку в число
             int priceForOther = Integer.parseInt(inputOther.getText());
-            budgetOther = addMoney(priceForOther, budgetOther, income);
-            income = calculateIncome(income, priceForOther);
-            showButtonsAction(outputFix, outputOther, outputError, income, budgetOther);
+            budgetOther = addMoney(priceForOther, budgetOther, budget);
+            budget = calculateBudget(budget, priceForOther);
+            showButtonsAction(outputFix, outputOther, outputError, budget, budgetOther);
         } catch (NumberFormatException e) {
             // вывод сообщения об ошибке, если введенная строка не является числом
             outputError.setText(errorIfString);
@@ -249,8 +249,8 @@ public class MainController {
         try {
             int priceForFoodReturn = Integer.parseInt(inputFood.getText());
             budgetFood = returnMoney(budgetFood, priceForFoodReturn);
-            income = calculateIncomeReturn(income, priceForFoodReturn);
-            showButtonsAction(outputFix, outputFood, outputError, income, budgetFood);
+            budget = calculateBudgetReturn(budget, priceForFoodReturn);
+            showButtonsAction(outputFix, outputFood, outputError, budget, budgetFood);
         } catch (NumberFormatException e) {
             outputError.setText(errorIfString);
         } catch (CustomException e) {
@@ -264,8 +264,8 @@ public class MainController {
         try {
             int priceForHouseReturn = Integer.parseInt(inputHouse.getText());
             budgetHouse = returnMoney(budgetHouse, priceForHouseReturn);
-            income = calculateIncomeReturn(income, priceForHouseReturn);
-            showButtonsAction(outputFix, outputHouse, outputError, income, budgetHouse);
+            budget = calculateBudgetReturn(budget, priceForHouseReturn);
+            showButtonsAction(outputFix, outputHouse, outputError, budget, budgetHouse);
         } catch (NumberFormatException e) {
             outputError.setText(errorIfString);
         } catch (CustomException e) {
@@ -279,8 +279,8 @@ public class MainController {
         try {
             int priceForShoppingReturn = Integer.parseInt(inputShopping.getText());
             budgetShopping = returnMoney(budgetShopping, priceForShoppingReturn);
-            income = calculateIncomeReturn(income, priceForShoppingReturn);
-            showButtonsAction(outputFix, outputShopping, outputError, income, budgetShopping);
+            budget = calculateBudgetReturn(budget, priceForShoppingReturn);
+            showButtonsAction(outputFix, outputShopping, outputError, budget, budgetShopping);
         } catch (NumberFormatException e) {
             outputError.setText(errorIfString);
         } catch (CustomException e) {
@@ -294,8 +294,8 @@ public class MainController {
         try {
             int priceForTransportReturn = Integer.parseInt(inputTransport.getText());
             budgetTransport = returnMoney(budgetTransport, priceForTransportReturn);
-            income = calculateIncomeReturn(income, priceForTransportReturn);
-            showButtonsAction(outputFix, outputTransport, outputError, income, budgetTransport);
+            budget = calculateBudgetReturn(budget, priceForTransportReturn);
+            showButtonsAction(outputFix, outputTransport, outputError, budget, budgetTransport);
         } catch (NumberFormatException e) {
             outputError.setText(errorIfString);
         } catch (CustomException e) {
@@ -309,8 +309,8 @@ public class MainController {
         try {
             int priceForEntertainmentReturn = Integer.parseInt(inputEntertainment.getText());
             budgetEntertainment = returnMoney(budgetEntertainment, priceForEntertainmentReturn);
-            income = calculateIncomeReturn(income, priceForEntertainmentReturn);
-            showButtonsAction(outputFix, outputEntertainment, outputError, income, budgetEntertainment);
+            budget = calculateBudgetReturn(budget, priceForEntertainmentReturn);
+            showButtonsAction(outputFix, outputEntertainment, outputError, budget, budgetEntertainment);
         } catch (NumberFormatException e) {
             outputError.setText(errorIfString);
         } catch (CustomException e) {
@@ -324,8 +324,8 @@ public class MainController {
         try {
             int priceForOtherReturn = Integer.parseInt(inputOther.getText());
             budgetOther = returnMoney(budgetOther, priceForOtherReturn);
-            income = calculateIncomeReturn(income, priceForOtherReturn);
-            showButtonsAction(outputFix, outputOther, outputError, income, budgetOther);
+            budget = calculateBudgetReturn(budget, priceForOtherReturn);
+            showButtonsAction(outputFix, outputOther, outputError, budget, budgetOther);
         } catch (NumberFormatException e) {
             outputError.setText(errorIfString);
         } catch (CustomException e) {
@@ -637,7 +637,7 @@ public class MainController {
 
     @FXML
     private void clearAllNotesAction() {
-        income = 0;
+        budget = 0;
         freezeFixAmount = 0;
         budgetFood = 0;
         budgetHouse = 0;
