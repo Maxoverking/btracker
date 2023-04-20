@@ -5,17 +5,13 @@ import org.testng.annotations.Test;
 
 import static com.example.btracker.allClasses.Calculation.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
-import static org.testng.Assert.assertThrows;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class ReturnMoneyTests {
 
     @Test
     public void positiveIntegers() {
-        int priceForCategoryReturn = 10;
-        int budgetForCategory = 100;
-        int result = returnMoney(budgetForCategory, priceForCategoryReturn);
+        int result = returnMoney(100, 10);
         assertEquals(90, result);
     }
 
