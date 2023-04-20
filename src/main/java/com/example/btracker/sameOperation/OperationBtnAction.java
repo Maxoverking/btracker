@@ -5,38 +5,41 @@ import java.util.List;
 import java.util.Map;
 
 public class OperationBtnAction {
+
+
     /**
-     * Метод показывает траты по категориям
+     * Метод, выводящий на экран текущий общий бюджет и бюджет по категории после нажатия на кнопку ADD
      *
-     * @param outputFix      текст income + " € "
-     * @param outputCategory текст бюджет по категории
-     * @param outputError    ошибка
-     * @param income         бюджет
-     * @param budgetCategory бюджет по категории
+     * @param outputFix      вывод общего бюджета
+     * @param outputCategory вывод бюджета по категории
+     * @param outputError    вывод ошибки
+     * @param budget         общий бюджет
+     * @param budgetForCategory бюджет по категории
      */
 
     public static void showButtonsAction(Text outputFix, Text outputCategory, Text outputError,
-                                         int income, int budgetCategory) {
-        outputFix.setText(income + " € ");
-        outputCategory.setText(budgetCategory + " € ");
+                                         int budget, int budgetForCategory) {
+        outputFix.setText(budget + " € ");
+        outputCategory.setText(budgetForCategory + " € ");
         outputError.setText("");
     }
 
     /**
-     * Метод, который по нажатию кнопки выводит доходы и расходы за выбранный месяц на экран
+     * Метод, который по нажатию кнопки SHOW выводит все доходы и расходы за выбранный месяц на экран
      *
-     * @param outputIncome        - поле вывода для дохода
-     * @param outputFood          - поле вывода для категории расходов Food
-     * @param outputHouse         - поле вывода для категории расходов House
-     * @param outputShopping      - поле вывода для категории расходов Shopping
-     * @param outputTransport     - поле вывода для категории расходов Transport
-     * @param outputEntertainment - поле вывода для категории расходов Entertainment
-     * @param outputOther         - поле вывода для категории расходов Other
-     * @param budgetByMonth       - Map, в которой записаны доходы и расходы по месяцам
+     * @param outputIncome        вывод категории Income
+     * @param outputFood          вывод расходов в категории Food
+     * @param outputHouse         вывод расходов в категории House
+     * @param outputShopping      вывод расходов в категории Shopping
+     * @param outputTransport     вывод расходов в категории Transport
+     * @param outputEntertainment вывод расходов в категории Entertainment
+     * @param outputOther         вывод расходов в категории Other
+     * @param budgetByMonth       Map, в которой записаны доходы и расходы по месяцам
      */
 
     public static void showButtonsMonthAction(Text titleIncome, Text titleFood, Text titleHouse, Text titleShopping,
-                                              Text titleTransport, Text titleEntertainment, Text titleOther, Text outputIncome, Text outputFood, Text outputHouse,
+                                              Text titleTransport, Text titleEntertainment, Text titleOther, Text outputIncome,
+                                              Text outputFood, Text outputHouse,
                                               Text outputShopping, Text outputTransport, Text outputEntertainment,
                                               Text outputOther,
                                               String buttonText,
@@ -48,10 +51,10 @@ public class OperationBtnAction {
 
                 for (String value : list) {
                     String[] parts = value.split("=");
-// Получаем название переменной
-                    String category = parts[0];
-// Получаем значение переменной
-                    String expenses = parts[1];
+
+                    String category = parts[0];// Получаем название переменной
+
+                    String expenses = parts[1]; // Получаем значение переменной
                     switch (category) {
                         case "INCOME" -> {
                             titleIncome.setText(category);
@@ -59,27 +62,27 @@ public class OperationBtnAction {
                         }
                         case "FOOD" -> {
                             titleFood.setText(category);
-                            outputFood.setText(expenses);
+                            outputFood.setText(expenses  + " € ");
                         }
                         case "HOUSE" -> {
                             titleHouse.setText(category);
-                            outputHouse.setText(expenses);
+                            outputHouse.setText(expenses  + " € ");
                         }
                         case "SHOPPING" -> {
                             titleShopping.setText(category);
-                            outputShopping.setText(expenses);
+                            outputShopping.setText(expenses  + " € ");
                         }
                         case "TRANSPORT" -> {
                             titleTransport.setText(category);
-                            outputTransport.setText(expenses);
+                            outputTransport.setText(expenses  + " € ");
                         }
                         case "ENTERTAINMENT" -> {
                             titleEntertainment.setText(category);
-                            outputEntertainment.setText(expenses);
+                            outputEntertainment.setText(expenses  + " € ");
                                                     }
                         case "OTHER" -> {
                             titleOther.setText(category);
-                            outputOther.setText(expenses);
+                            outputOther.setText(expenses  + " € ");
                         }
                         default -> {
                         }
