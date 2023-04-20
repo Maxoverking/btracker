@@ -842,14 +842,14 @@
                 <Button fx:id="fixAmount" disable="true" mnemonicParsing="false"
                   onAction="#saveChangesAction" text="Save changes">
                     <HBox.margin>
-                        <Insets left="16.0" right="40.0"/>
+                        <Insets left="16.0" right="20.0"/>
                     </HBox.margin>
                 </Button>
                 <HBox prefHeight="16.0" prefWidth="16.0" >
                     <VBox.margin>
                         <Insets top="6.0" />
                     </VBox.margin>
-                    <Text fx:id="titleFix" strokeType="OUTSIDE" strokeWidth="0.0" text="BUDGET">
+                    <Text fx:id="titleFix" strokeType="OUTSIDE" strokeWidth="0.0" >
                         <HBox.margin>
                             <Insets left="5.0" right="10.0" />
                         </HBox.margin>

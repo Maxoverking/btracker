@@ -88,7 +88,7 @@ public class MainController {
             } else {
                 freezeFixAmount += newAmountIncome;
                 budget += new NewAmountIncome(newAmountIncome).income();
-                outputFix.setText(budget + " € ");
+                outputFix.setText("BUDGET  "+budget + " € ");
                 outputError.setText("");
                 outputIncome.setText(freezeFixAmount + " € ");
                 fixAmount.setDisable(false);

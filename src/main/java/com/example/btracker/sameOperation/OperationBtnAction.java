@@ -19,7 +19,7 @@ public class OperationBtnAction {
 
     public static void showButtonsAction(Text outputFix, Text outputCategory, Text outputError,
                                          int budget, int budgetForCategory) {
-        outputFix.setText(budget + " € ");
+        outputFix.setText("BUDGET  "+budget + " € ");
         outputCategory.setText(budgetForCategory + " € ");
         outputError.setText("");
     }
