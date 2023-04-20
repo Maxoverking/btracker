@@ -37,7 +37,7 @@
                 </Button>
             </HBox>
 
-                  <HBox opacity="0.83" prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #92A050;">
+            <HBox opacity="0.83" prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #92A050;">
                 <VBox.margin>
                     <Insets top="6.0" />
                 </VBox.margin>
@@ -842,17 +842,27 @@
                 <Button fx:id="fixAmount" disable="true" mnemonicParsing="false"
                   onAction="#saveChangesAction" text="Save changes">
                     <HBox.margin>
-                        <Insets left="16.0"/>
+                        <Insets left="16.0" right="40.0"/>
                     </HBox.margin>
                 </Button>
-                <Text fx:id="outputFix" strokeType="OUTSIDE" strokeWidth="0.0">
-                    <HBox.margin>
-                        <Insets left="30.0" top="6.0"/>
-                    </HBox.margin>
-                    <font>
-                        <Font size="16.0"/>
-                    </font>
-                </Text>
+                <HBox prefHeight="16.0" prefWidth="16.0" >
+                    <VBox.margin>
+                        <Insets top="6.0" />
+                    </VBox.margin>
+                    <Text fx:id="titleFix" strokeType="OUTSIDE" strokeWidth="0.0" text="BUDGET">
+                        <HBox.margin>
+                            <Insets left="5.0" right="10.0" />
+                        </HBox.margin>
+                        <font>
+                            <Font size="16.0"/>
+                        </font>
+                    </Text>
+                    <Text fx:id="outputFix" strokeType="OUTSIDE" strokeWidth="0.0" >
+                        <font>
+                            <Font size="16.0"/>
+                        </font>
+                    </Text>
+                </HBox>
             </HBox>
             <HBox prefHeight="26.0" prefWidth="209.0">
                 <VBox.margin>

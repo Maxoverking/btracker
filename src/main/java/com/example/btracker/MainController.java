@@ -70,6 +70,9 @@ public class MainController {
     public Button buttonIncome;
     @FXML
     private Text outputFix;
+
+    @FXML
+    private Text titleFix;
     private int budget = 0;
     private int freezeFixAmount = 0;
 
@@ -635,6 +638,7 @@ public class MainController {
         budgetEntertainment = 0;
         budgetOther = 0;
         outputError.setText("");
+        titleFix.setText("");
         outputFix.setText("");
         outputFood.setText("");
         outputHouse.setText("");
