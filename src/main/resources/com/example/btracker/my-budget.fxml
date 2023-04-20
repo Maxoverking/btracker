@@ -710,7 +710,7 @@
     </HBox>
 
 <!--    ОСНОВНОЙ БЛОК ДЛЯ ВВОДА ДАННЫХ ПО КАТЕГОРИЯМ-->
-    <HBox prefHeight="100.0" prefWidth="800.0">
+    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="800.0" >
         <VBox.margin>
             <Insets bottom="10.0" top="20.0"/>
         </VBox.margin>
