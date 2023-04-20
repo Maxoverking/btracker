@@ -17,7 +17,7 @@ public class Calculation {
      *
      * @param budget           общий бюджет по всем категориям
      * @param priceForCategory новая трата по категории
-     * @return новый бюджет
+     * @return новый общий бюджет
      */
     public static int calculateBudget(int budget, int priceForCategory) {
         if (budget > 0 && priceForCategory <= budget) {
