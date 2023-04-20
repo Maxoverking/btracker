@@ -35,27 +35,27 @@ public class AddToField {
         switch (idx) {
             case 0 -> {
                 titleFood.setText(category);
-                outputFood.setText(expenses);
+                outputFood.setText(expenses + " € ");
             }
             case 1 -> {
                 titleHouse.setText(category);
-                outputHouse.setText(expenses);
+                outputHouse.setText(expenses + " € ");
             }
             case 2 -> {
                 titleShopping.setText(category);
-                outputShopping.setText(expenses);
+                outputShopping.setText(expenses + " € ");
             }
             case 3 -> {
                 titleTransport.setText(category);
-                outputTransport.setText(expenses);
+                outputTransport.setText(expenses + " € ");
             }
             case 4 -> {
                 titleEntertainment.setText(category);
-                outputEntertainment.setText(expenses);
+                outputEntertainment.setText(expenses + " € ");
             }
             case 5 -> {
                 titleOther.setText(category);
-                outputOther.setText(expenses);
+                outputOther.setText(expenses + " € ");
             }
             default -> {
             }
