@@ -4,7 +4,7 @@ import com.example.btracker.exception.CustomException;
 import org.testng.annotations.Test;
 
 import static com.example.btracker.allClasses.Calculation.calculateBudget;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class CalculateBudgetTests {

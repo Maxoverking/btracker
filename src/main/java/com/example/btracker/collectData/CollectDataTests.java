@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 import static com.example.btracker.collectData.CollectData.collectData;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.testng.AssertJUnit.assertEquals;
 
 public class CollectDataTests {
 

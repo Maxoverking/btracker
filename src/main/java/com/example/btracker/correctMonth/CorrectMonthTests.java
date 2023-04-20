@@ -1,30 +1,26 @@
-
 package com.example.btracker.correctMonth;
-
 
 import com.example.btracker.exception.CustomException;
 import org.testng.annotations.Test;
 
-import static com.example.btracker.correctMonth.CorrectMonth.correctMonth;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
+
+import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 
+
 public class CorrectMonthTests {
-
     @Test
-
     public void returnMonth() {
-        String result = correctMonth("may");
-
+        String result = CorrectMonth.correctMonth("may");
         assertEquals("may", result);
     }
 
     @Test
-
-    public void returnEmptyMonthException() {
+    public void returnExceptionEmptyMonth() {
         boolean exceptionThrown = false;
         try {
-            correctMonth("");
+            CorrectMonth.correctMonth("");
         } catch (CustomException e) {
             exceptionThrown = true;
         }
@@ -32,15 +28,13 @@ public class CorrectMonthTests {
     }
 
     @Test
-
-    public void returnWrongMonthException() {
+    public void returnExceptionWrongMonth() {
         boolean exceptionThrown = false;
         try {
-            correctMonth("ghhd");
+            CorrectMonth.correctMonth("sdfsf");
         } catch (CustomException e) {
             exceptionThrown = true;
         }
         assertTrue(exceptionThrown);
     }
-
 }

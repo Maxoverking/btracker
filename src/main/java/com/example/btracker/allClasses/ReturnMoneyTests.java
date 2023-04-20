@@ -3,8 +3,8 @@ package com.example.btracker.allClasses;
 import com.example.btracker.exception.CustomException;
 import org.testng.annotations.Test;
 
-import static com.example.btracker.allClasses.Calculation.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static com.example.btracker.allClasses.Calculation.returnMoney;
+import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class ReturnMoneyTests {
