@@ -1,7 +1,6 @@
 package com.example.btracker.allClasses;
 
 import com.example.btracker.exception.CustomException;
-
 import static com.example.btracker.MainController.errorIfMinus;
 
 public class Income {
@@ -30,5 +29,4 @@ public class Income {
         income += priceForCategoryReturn;
         return income;
     }
-
 }

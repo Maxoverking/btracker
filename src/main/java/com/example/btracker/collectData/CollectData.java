@@ -7,7 +7,6 @@ import java.util.Map;
 
 public class CollectData {
 
-
     public static List<String> collectData (
                                             int incomeValue,int foodValue,int houseValue,
                                             int shoppingValue, int transportValue,int entertainmentValue,
@@ -22,8 +21,6 @@ public class CollectData {
         valuesAllCategory.add("TRANSPORT"+"="+transportValue);
         valuesAllCategory.add("ENTERTAINMENT"+"="+entertainmentValue);
         valuesAllCategory.add("OTHER"+"="+otherValue);
-
-
         return valuesAllCategory;
     }
 

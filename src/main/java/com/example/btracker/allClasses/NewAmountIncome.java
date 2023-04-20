@@ -8,7 +8,6 @@ public class NewAmountIncome {
     this.income = income;
   }
 
-
   public int getIncome() {
     return income;
   }
