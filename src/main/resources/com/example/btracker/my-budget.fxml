@@ -32,7 +32,7 @@
                 <Insets left="16.0" />
             </HBox.margin>
         </TextField>
-        <Button fx:id="fixAmount" disable="true" mnemonicParsing="false" onAction="#fixAmountAction" text="Save changes">
+        <Button fx:id="fixAmount" disable="true" mnemonicParsing="false" onAction="#saveChangesAction" text="Save changes">
             <HBox.margin>
                 <Insets left="16.0" />
             </HBox.margin>
