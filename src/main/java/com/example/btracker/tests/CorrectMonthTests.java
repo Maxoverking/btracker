@@ -1,4 +1,4 @@
-package com.example.btracker.Tests;
+package com.example.btracker.tests;
 
 import com.example.btracker.correctMonth.CorrectMonth;
 import com.example.btracker.exception.CustomException;

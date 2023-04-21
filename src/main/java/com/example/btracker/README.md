@@ -17,7 +17,7 @@
   - В поле budget выводится разница между доходами и расходами по выбранному месяцу.
 - Для удаления необходимой суммы из категории расходов:
   - Введите сумму, которую хотите удалить, и нажмите кнопку Return money.
-- Для очищения категории доходов нажмите кнопку со знаком " - ".
+- Для очищения категории доходов нажмите кнопку со знаком "-".
 - После введения всех данных нажмите Save changes:
   - В верхней части приложения выведется сумма доходов и расходов по этому месяцу;
   - Появится кнопка Show.
@@ -48,16 +48,16 @@
 - [StyleBtns.java](sameOperation/StyleBtns.java) - стиль кнопок;
 - [AddToField.java](sortingData/AddToField.java) - вывод данный после сортировки;
 - [SortingData.java](sortingData/SortingData.java) - сортировка расходов.
-- [Tests](Tests) - Юнит-тесты для методов:
+- [Tests](tests) - Юнит-тесты для методов:
   - Тесты на проверку правильности вычислений и выброса ошибок:
-    - [AddMoneyTests.java](Tests/AddMoneyTests.java);
-    - [CalculateBudgetReturnTests.java](Tests/CalculateBudgetReturnTests.java);
-    - [CalculateBudgetTests.java](Tests/CalculateBudgetTests.java);
-    - [ReturnMoneyTests.java](Tests/ReturnMoneyTests.java);
+    - [AddMoneyTests.java](tests/AddMoneyTests.java);
+    - [CalculateBudgetReturnTests.java](tests/CalculateBudgetReturnTests.java);
+    - [CalculateBudgetTests.java](tests/CalculateBudgetTests.java);
+    - [ReturnMoneyTests.java](tests/ReturnMoneyTests.java);
   - Тест на корректность ввода месяца: 
-    - [CorrectMonthTests.java](Tests/CorrectMonthTests.java).
+    - [CorrectMonthTests.java](tests/CorrectMonthTests.java).
   - Тест на заполнение данных:
-    - [CollectDataTests.java](Tests/CollectDataTests.java).
+    - [CollectDataTests.java](tests/CollectDataTests.java).
   - Тест на сортировку:
-    - [SortingDataTests.java](Tests/SortingDataTests.java).
+    - [SortingDataTests.java](tests/SortingDataTests.java).
 - [my-budget.fxml](..%2F..%2F..%2F..%2Fresources%2Fcom%2Fexample%2Fbtracker%2Fmy-budget.fxml) - разметка приложения.
