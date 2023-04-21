@@ -3,9 +3,13 @@ package com.example.btracker;
 import com.example.btracker.allClasses.GetMonthAndIncome;
 import com.example.btracker.allClasses.NewAmountIncome;
 import com.example.btracker.exception.CustomException;
+import java.util.ArrayList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 import java.util.HashMap;
@@ -21,10 +25,12 @@ import static com.example.btracker.sameOperation.StyleBtns.styleButtonsMonthAndS
 import static com.example.btracker.sameOperation.StyleBtns.styleButtonsMonthAndSort;
 import static com.example.btracker.sortingData.AddToField.addToField;
 import static com.example.btracker.sortingData.SortingData.convertMap;
+import static com.example.btracker.theme.Theme.theme;
 
 public class MainController {
 
-    private String currentMonth = "";
+
+  private String currentMonth = "";
     public static Map<String, List<String>> budgetByMonth = new HashMap<>();// Сохранение всех данных по месяцам
     public static final String errorIfMinus = "Negative income!";
     private static final String errorIfString = "Error: You didn't enter a number";
@@ -726,4 +732,20 @@ public class MainController {
                     outputTransport, outputEntertainment, outputOther);
         }
     }
+  @FXML
+  public VBox mainContainer;
+  @FXML
+  public CheckBox theme;
+  List<Text>  outputs = new ArrayList<>();
+  public void checkBoxThemeAction() {
+    outputs.add(outputFix);
+    outputs.add(titleIncome);
+    outputs.add(outputFood);
+    outputs.add(outputHouse);
+    outputs.add(outputShopping);
+    outputs.add(outputTransport);
+    outputs.add(outputEntertainment);
+    outputs.add(outputOther);
+    theme(mainContainer,theme,outputs);
+  }
 }

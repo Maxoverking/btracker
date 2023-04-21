@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.HBox?>
@@ -13,10 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-  minWidth="-Infinity" prefHeight="630.0" prefWidth="800.0"
-  xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-  fx:controller="com.example.btracker.MainController">
+<VBox fx:id="mainContainer"  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.btracker.MainController">
 
           <!--    БЛОК СТАТИСТИКИ ПО МЕСЯЦАМ-->
     <HBox alignment="CENTER" prefHeight="221.0" prefWidth="800.0" spacing="8.0">
@@ -352,7 +350,7 @@
          </HBox.margin>
         </VBox>
 <!--        SORT BOX-->
-        <VBox  alignment="CENTER" prefHeight="202.0" prefWidth="43.0">
+        <VBox alignment="CENTER" prefHeight="202.0" prefWidth="43.0">
 
                   <HBox alignment="CENTER" prefHeight="16.0" prefWidth="178.0">
                 <VBox.margin>
@@ -373,7 +371,7 @@
                 </VBox.margin>
             <Button fx:id="btnSortUp" mnemonicParsing="false" onAction="#btnSortUpAction" style="-fx-background-color: #763234;" text="-" textFill="#fffafa" visible="false" />
             </HBox>
-            <HBox alignment="CENTER"  prefHeight="16.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="16.0" prefWidth="200.0">
                 <VBox.margin>
                     <Insets top="6.0" />
                 </VBox.margin>
@@ -708,116 +706,116 @@
         </VBox>
         <!--           БЛОК МЕСЯЦЕВ ЗАКОНЧЕН-->
     </HBox>
+<!--    THEME-->
+    <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+        <VBox.margin>
+            <Insets left="69.0"/>
+        </VBox.margin>
+        <CheckBox fx:id="theme" mnemonicParsing="false" onAction="#checkBoxThemeAction"
+           text="THEME"/>
+    </HBox>
 
 <!--    ОСНОВНОЙ БЛОК ДЛЯ ВВОДА ДАННЫХ ПО КАТЕГОРИЯМ-->
-    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="800.0" >
+    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="800.0">
         <VBox.margin>
-            <Insets bottom="10.0" top="20.0"/>
+            <Insets bottom="10.0" top="2.0" />
         </VBox.margin>
 <!--        БЛОК КАТЕГОРИИ-->
         <VBox prefHeight="340.0" prefWidth="200.0">
 <!--            ENTER MONTH-->
             <HBox alignment="CENTER" prefHeight="26.0" prefWidth="201.0">
                 <opaqueInsets>
-                    <Insets/>
+                    <Insets />
                 </opaqueInsets>
                 <VBox.margin>
-                    <Insets bottom="10.0"/>
+                    <Insets bottom="10.0" />
                 </VBox.margin>
-                <Text fx:id="enterMonth" fill="#5ea453" strokeType="OUTSIDE"
-                  strokeWidth="0.0" text="Enter month">
+                <Text fx:id="enterMonth" fill="#5ea453" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter month">
                     <font>
-                        <Font size="18.0"/>
+                        <Font size="18.0" />
                     </font>
                 </Text>
             </HBox>
 <!--            INCOME-->
             <HBox alignment="CENTER" prefHeight="26.0" prefWidth="209.0">
                 <VBox.margin>
-                    <Insets bottom="19.0"/>
+                    <Insets bottom="19.0" />
                 </VBox.margin>
-                <Text fx:id="titleIncome" strokeType="OUTSIDE" strokeWidth="0.0"
-                  text="INCOME" textAlignment="CENTER" textOrigin="TOP">
+                <Text fx:id="titleIncome" strokeType="OUTSIDE" strokeWidth="0.0" text="INCOME" textAlignment="CENTER" textOrigin="TOP">
                     <effect>
-                        <Glow/>
+                        <Glow />
                     </effect>
                     <font>
-                        <Font size="18.0"/>
+                        <Font size="18.0" />
                     </font>
                 </Text>
             </HBox>
 <!--            FOOD-->
             <HBox alignment="CENTER" prefHeight="26.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets bottom="18.0"/>
+                    <Insets bottom="18.0" />
                 </VBox.margin>
-                <Text fx:id="titleFood" strokeType="OUTSIDE" strokeWidth="0.0"
-                  style="-fx-fill: #a11313;" text="FOOD ">
+                <Text fx:id="titleFood" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #a11313;" text="FOOD ">
                     <font>
-                        <Font size="18.0"/>
+                        <Font size="18.0" />
                     </font>
                 </Text>
             </HBox>
 <!--            HOUSE-->
             <HBox alignment="CENTER" prefHeight="26.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets bottom="18.0"/>
+                    <Insets bottom="18.0" />
                 </VBox.margin>
-                <Text fx:id="titleHouse" strokeType="OUTSIDE" strokeWidth="0.0"
-                  style="-fx-fill: #a11313;" text="HOUSE ">
+                <Text fx:id="titleHouse" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #a11313;" text="HOUSE ">
                     <font>
-                        <Font size="18.0"/>
+                        <Font size="18.0" />
                     </font>
                     <HBox.margin>
-                        <Insets/>
+                        <Insets />
                     </HBox.margin>
                 </Text>
             </HBox>
 <!--            SHOPPING-->
             <HBox alignment="CENTER" prefHeight="26.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets bottom="18.0"/>
+                    <Insets bottom="18.0" />
                 </VBox.margin>
-                <Text fx:id="titleShopping" strokeType="OUTSIDE" strokeWidth="0.0"
-                  style="-fx-fill: #a11313;" text="SHOPPING">
+                <Text fx:id="titleShopping" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #a11313;" text="SHOPPING">
                     <font>
-                        <Font size="18.0"/>
+                        <Font size="18.0" />
                     </font>
                 </Text>
             </HBox>
 <!--            TRANSPORT-->
             <HBox alignment="CENTER" prefHeight="26.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets bottom="18.0"/>
+                    <Insets bottom="18.0" />
                 </VBox.margin>
-                <Text fx:id="titleTransport" strokeType="OUTSIDE" strokeWidth="0.0"
-                  style="-fx-fill: #a11313;" text="TRANSPORT">
+                <Text fx:id="titleTransport" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #a11313;" text="TRANSPORT">
                     <font>
-                        <Font size="18.0"/>
+                        <Font size="18.0" />
                     </font>
                 </Text>
             </HBox>
 <!--            ENTERTAINMENT-->
             <HBox alignment="CENTER" prefHeight="26.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets bottom="18.0"/>
+                    <Insets bottom="18.0" />
                 </VBox.margin>
-                <Text fx:id="titleEntertainment" strokeType="OUTSIDE" strokeWidth="0.0"
-                  style="-fx-fill: #a11313;" text="ENTERTAINMENT">
+                <Text fx:id="titleEntertainment" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #a11313;" text="ENTERTAINMENT">
                     <font>
-                        <Font size="18.0"/>
+                        <Font size="18.0" />
                     </font>
                 </Text>
             </HBox>
 <!--            OTHER-->
             <HBox alignment="CENTER" prefHeight="26.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets bottom="22.0"/>
+                    <Insets bottom="22.0" />
                 </VBox.margin>
-                <Text fx:id="titleOther" strokeType="OUTSIDE" strokeWidth="0.0"
-                  style="-fx-fill: #a11313;" text="OTHER ">
+                <Text fx:id="titleOther" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #a11313;" text="OTHER ">
                     <font>
-                        <Font size="18.0"/>
+                        <Font size="18.0" />
                     </font>
                 </Text>
             </HBox>
@@ -826,193 +824,172 @@
 <!--       БЛОК СБОР ДАНЫХ , КНОПКА ADD , ВЫВОД -->
         <VBox prefHeight="340.0" prefWidth="380.0">
             <HBox.margin>
-                <Insets top="2.0"/>
+                <Insets top="2.0" />
             </HBox.margin>
 
             <HBox prefHeight="24.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets bottom="6.0"/>
+                    <Insets bottom="6.0" />
                 </VBox.margin>
-                <TextField fx:id="inputMonth" maxWidth="90" prefWidth="90"
-                  promptText="Month">
+                <TextField fx:id="inputMonth" maxWidth="90" prefWidth="90" promptText="Month">
                     <HBox.margin>
-                        <Insets/>
+                        <Insets />
                     </HBox.margin>
                 </TextField>
-                <Button fx:id="fixAmount" disable="true" mnemonicParsing="false"
-                  onAction="#saveChangesAction" text="Save changes">
+                <Button fx:id="fixAmount" disable="true" mnemonicParsing="false" onAction="#saveChangesAction" text="Save changes">
                     <HBox.margin>
-                        <Insets left="16.0" right="20.0"/>
+                        <Insets left="16.0" right="20.0" />
                     </HBox.margin>
                 </Button>
-                <HBox prefHeight="16.0" prefWidth="16.0" >
+                <HBox prefHeight="16.0" prefWidth="16.0">
                     <VBox.margin>
                         <Insets top="6.0" />
                     </VBox.margin>
-                    <Text fx:id="titleFix" strokeType="OUTSIDE" strokeWidth="0.0" >
+                    <Text fx:id="titleFix" strokeType="OUTSIDE" strokeWidth="0.0">
                         <HBox.margin>
                             <Insets left="5.0" right="10.0" />
                         </HBox.margin>
                         <font>
-                            <Font size="16.0"/>
+                            <Font size="16.0" />
                         </font>
                     </Text>
-                    <Text fx:id="outputFix" strokeType="OUTSIDE" strokeWidth="0.0" >
+                    <Text fx:id="outputFix" strokeType="OUTSIDE" strokeWidth="0.0">
                         <font>
-                            <Font size="16.0"/>
+                            <Font size="16.0" />
                         </font>
                     </Text>
                 </HBox>
             </HBox>
             <HBox prefHeight="26.0" prefWidth="209.0">
                 <VBox.margin>
-                    <Insets bottom="10.0" left="10.0" top="4.0"/>
+                    <Insets bottom="10.0" left="10.0" top="4.0" />
                 </VBox.margin>
-                <TextField fx:id="inputIncomeField" prefHeight="26.0" prefWidth="70.0"
-                  promptText="Amount">
+                <TextField fx:id="inputIncomeField" prefHeight="26.0" prefWidth="70.0" promptText="Amount">
                     <HBox.margin>
-                        <Insets right="42.0"/>
+                        <Insets right="42.0" />
                     </HBox.margin>
                 </TextField>
-                <Button fx:id="buttonIncome" mnemonicParsing="false"
-                  onAction="#btnIncomeAction" prefHeight="26.0" prefWidth="60.0"
-                  text="ADD"/>
-                <Text fx:id="outputIncome" fill="#5ea453" strokeType="OUTSIDE"
-                  strokeWidth="0.0">
+                <Button fx:id="buttonIncome" mnemonicParsing="false" onAction="#btnIncomeAction" prefHeight="26.0" prefWidth="60.0" text="ADD" />
+                <Text fx:id="outputIncome" fill="#5ea453" strokeType="OUTSIDE" strokeWidth="0.0">
                     <HBox.margin>
-                        <Insets left="62.0" top="-1.0"/>
+                        <Insets left="62.0" top="-1.0" />
                     </HBox.margin>
                     <font>
-                        <Font size="22.0"/>
+                        <Font size="22.0" />
                     </font>
                 </Text>
             </HBox>
             <HBox prefHeight="26.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets bottom="10.0" left="10.0" top="7.0"/>
+                    <Insets bottom="10.0" left="10.0" top="7.0" />
                 </VBox.margin>
-                <TextField fx:id="inputFood" prefHeight="26.0" prefWidth="70.0"
-                  promptText="Amount">
+                <TextField fx:id="inputFood" prefHeight="26.0" prefWidth="70.0" promptText="Amount">
                     <HBox.margin>
-                        <Insets right="42.0"/>
+                        <Insets right="42.0" />
                     </HBox.margin>
                 </TextField>
-                <Button fx:id="btnFood" mnemonicParsing="false" onAction="#btnFoodAction"
-                  prefHeight="26.0" prefWidth="60.0" text="ADD"/>
+                <Button fx:id="btnFood" mnemonicParsing="false" onAction="#btnFoodAction" prefHeight="26.0" prefWidth="60.0" text="ADD" />
                 <Text fx:id="outputFood" strokeType="OUTSIDE" strokeWidth="0.0">
                     <HBox.margin>
-                        <Insets left="63.0" top="4.0"/>
+                        <Insets left="63.0" top="4.0" />
                     </HBox.margin>
                     <font>
-                        <Font size="16.0"/>
+                        <Font size="16.0" />
                     </font>
                 </Text>
             </HBox>
             <HBox prefHeight="26.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets bottom="10.0" left="10.0" top="7.0"/>
+                    <Insets bottom="10.0" left="10.0" top="7.0" />
                 </VBox.margin>
-                <TextField fx:id="inputHouse" prefHeight="26.0" prefWidth="70.0"
-                  promptText="Amount">
+                <TextField fx:id="inputHouse" prefHeight="26.0" prefWidth="70.0" promptText="Amount">
                     <HBox.margin>
-                        <Insets right="42.0"/>
+                        <Insets right="42.0" />
                     </HBox.margin>
                 </TextField>
-                <Button fx:id="btnHouse" mnemonicParsing="false" onAction="#btnHouseAction"
-                  prefHeight="26.0" prefWidth="60.0" text="ADD"/>
+                <Button fx:id="btnHouse" mnemonicParsing="false" onAction="#btnHouseAction" prefHeight="26.0" prefWidth="60.0" text="ADD" />
                 <Text fx:id="outputHouse" strokeType="OUTSIDE" strokeWidth="0.0">
                     <HBox.margin>
-                        <Insets left="63.0" top="4.0"/>
+                        <Insets left="63.0" top="4.0" />
                     </HBox.margin>
                     <font>
-                        <Font size="16.0"/>
+                        <Font size="16.0" />
                     </font>
                 </Text>
             </HBox>
             <HBox prefHeight="26.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets bottom="10.0" left="10.0" top="7.0"/>
+                    <Insets bottom="10.0" left="10.0" top="7.0" />
                 </VBox.margin>
-                <TextField fx:id="inputShopping" prefHeight="26.0" prefWidth="70.0"
-                  promptText="Amount">
+                <TextField fx:id="inputShopping" prefHeight="26.0" prefWidth="70.0" promptText="Amount">
                     <HBox.margin>
-                        <Insets right="42.0"/>
+                        <Insets right="42.0" />
                     </HBox.margin>
                 </TextField>
-                <Button fx:id="btnShopping" mnemonicParsing="false"
-                  onAction="#btnShoppingAction" prefHeight="26.0" prefWidth="60.0"
-                  text="ADD"/>
+                <Button fx:id="btnShopping" mnemonicParsing="false" onAction="#btnShoppingAction" prefHeight="26.0" prefWidth="60.0" text="ADD" />
                 <Text fx:id="outputShopping" strokeType="OUTSIDE" strokeWidth="0.0">
                     <HBox.margin>
-                        <Insets left="63.0" top="4.0"/>
+                        <Insets left="63.0" top="4.0" />
                     </HBox.margin>
                     <font>
-                        <Font size="16.0"/>
+                        <Font size="16.0" />
                     </font>
                 </Text>
             </HBox>
             <HBox prefHeight="26.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets bottom="10.0" left="10.0" top="7.0"/>
+                    <Insets bottom="10.0" left="10.0" top="7.0" />
                 </VBox.margin>
-                <TextField fx:id="inputTransport" prefHeight="26.0" prefWidth="70.0"
-                  promptText="Amount">
+                <TextField fx:id="inputTransport" prefHeight="26.0" prefWidth="70.0" promptText="Amount">
                     <HBox.margin>
-                        <Insets right="42.0"/>
+                        <Insets right="42.0" />
                     </HBox.margin>
                 </TextField>
-                <Button fx:id="btnTransport" mnemonicParsing="false"
-                  onAction="#btnTransportAction" prefHeight="26.0" prefWidth="60.0"
-                  text="ADD"/>
+                <Button fx:id="btnTransport" mnemonicParsing="false" onAction="#btnTransportAction" prefHeight="26.0" prefWidth="60.0" text="ADD" />
                 <Text fx:id="outputTransport" strokeType="OUTSIDE" strokeWidth="0.0">
                     <HBox.margin>
-                        <Insets left="63.0" top="4.0"/>
+                        <Insets left="63.0" top="4.0" />
                     </HBox.margin>
                     <font>
-                        <Font size="16.0"/>
+                        <Font size="16.0" />
                     </font>
                 </Text>
             </HBox>
             <HBox prefHeight="26.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets bottom="10.0" left="10.0" top="7.0"/>
+                    <Insets bottom="10.0" left="10.0" top="7.0" />
                 </VBox.margin>
-                <TextField fx:id="inputEntertainment" prefHeight="26.0" prefWidth="70.0"
-                  promptText="Amount">
+                <TextField fx:id="inputEntertainment" prefHeight="26.0" prefWidth="70.0" promptText="Amount">
                     <HBox.margin>
-                        <Insets right="42.0"/>
+                        <Insets right="42.0" />
                     </HBox.margin>
                 </TextField>
-                <Button fx:id="btnEntertainment" mnemonicParsing="false"
-                  onAction="#btnEntertainmentAction" prefHeight="26.0" prefWidth="60.0"
-                  text="ADD"/>
+                <Button fx:id="btnEntertainment" mnemonicParsing="false" onAction="#btnEntertainmentAction" prefHeight="26.0" prefWidth="60.0" text="ADD" />
                 <Text fx:id="outputEntertainment" strokeType="OUTSIDE" strokeWidth="0.0">
                     <HBox.margin>
-                        <Insets left="63.0" top="3.0"/>
+                        <Insets left="63.0" top="3.0" />
                     </HBox.margin>
                     <font>
-                        <Font size="16.0"/>
+                        <Font size="16.0" />
                     </font>
                 </Text>
             </HBox>
             <HBox prefHeight="26.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets bottom="20.0" left="10.0" top="7.0"/>
+                    <Insets bottom="20.0" left="10.0" top="7.0" />
                 </VBox.margin>
-                <TextField fx:id="inputOther" prefHeight="26.0" prefWidth="70.0"
-                  promptText="Amount">
+                <TextField fx:id="inputOther" prefHeight="26.0" prefWidth="70.0" promptText="Amount">
                     <HBox.margin>
-                        <Insets right="42.0"/>
+                        <Insets right="42.0" />
                     </HBox.margin>
                 </TextField>
-                <Button fx:id="btnOther" mnemonicParsing="false" onAction="#btnOtherAction"
-                  prefHeight="26.0" prefWidth="60.0" text="ADD"/>
+                <Button fx:id="btnOther" mnemonicParsing="false" onAction="#btnOtherAction" prefHeight="26.0" prefWidth="60.0" text="ADD" />
                 <Text fx:id="outputOther" strokeType="OUTSIDE" strokeWidth="0.0">
                     <HBox.margin>
-                        <Insets left="63.0" top="3.0"/>
+                        <Insets left="63.0" top="3.0" />
                     </HBox.margin>
                     <font>
-                        <Font size="16.0"/>
+                        <Font size="16.0" />
                     </font>
                 </Text>
             </HBox>
@@ -1021,131 +998,110 @@
         <VBox prefHeight="338.0" prefWidth="217.0">
             <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets bottom="11.0" top="1.0"/>
+                    <Insets bottom="11.0" top="1.0" />
                 </VBox.margin>
-                <Text fx:id="outputError" fill="#eb0404" strokeType="OUTSIDE"
-                  strokeWidth="0.0">
+                <Text fx:id="outputError" fill="#eb0404" strokeType="OUTSIDE" strokeWidth="0.0">
                     <font>
-                        <Font name="System Bold Italic" size="14.0"/>
+                        <Font name="System Bold Italic" size="14.0" />
                     </font>
                     <HBox.margin>
-                        <Insets/>
+                        <Insets />
                     </HBox.margin>
                 </Text>
             </HBox>
             <HBox prefHeight="26.0" prefWidth="200.0">
-                <Button fx:id="minusBudgetField" mnemonicParsing="false"
-                  onAction="#minusIncomeFieldAction" style="-fx-background-color: #763234;"
-                  text="-" textFill="#fffafa">
+                <Button fx:id="minusBudgetField" mnemonicParsing="false" onAction="#minusIncomeFieldAction" style="-fx-background-color: #763234;" text="-" textFill="#fffafa">
                     <HBox.margin>
-                        <Insets right="7.0" top="1.0"/>
+                        <Insets right="7.0" top="1.0" />
                     </HBox.margin>
                     <font>
-                        <Font size="12.0"/>
+                        <Font size="12.0" />
                     </font>
                 </Button>
-                <Button fx:id="clearAllNotes" mnemonicParsing="false"
-                  onAction="#clearAllNotesAction" prefHeight="18.0" prefWidth="127.0"
-                  style="-fx-background-color: #B66D34;" text="CLEAR  ALL NOTES"
-                  textFill="#f8f8f8">
+                <Button fx:id="clearAllNotes" mnemonicParsing="false" onAction="#clearAllNotesAction" prefHeight="18.0" prefWidth="127.0" style="-fx-background-color: #B66D34;" text="CLEAR  ALL NOTES" textFill="#f8f8f8">
                     <HBox.margin>
-                        <Insets top="1.0"/>
+                        <Insets top="1.0" />
                     </HBox.margin>
                     <font>
-                        <Font size="12.0"/>
+                        <Font size="12.0" />
                     </font>
                 </Button>
             </HBox>
             <HBox prefHeight="26.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets top="16.0"/>
+                    <Insets top="16.0" />
                 </VBox.margin>
-                <Button fx:id="returnFoodMoney" mnemonicParsing="false"
-                  onAction="#returnFoodMoneyAction" style="-fx-background-color: #B66D34;"
-                  text="RETURN MONEY" textFill="WHITE">
+                <Button fx:id="returnFoodMoney" mnemonicParsing="false" onAction="#returnFoodMoneyAction" style="-fx-background-color: #B66D34;" text="RETURN MONEY" textFill="WHITE">
                     <HBox.margin>
-                        <Insets left="31.0"/>
+                        <Insets left="31.0" />
                     </HBox.margin>
                     <font>
-                        <Font size="12.0"/>
+                        <Font size="12.0" />
                     </font>
                 </Button>
             </HBox>
             <HBox prefHeight="26.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets top="18.0"/>
+                    <Insets top="18.0" />
                 </VBox.margin>
-                <Button fx:id="returnHouseMoney" mnemonicParsing="false"
-                  onAction="#returnHouseMoneyAction" style="-fx-background-color: #B66D34;"
-                  text="RETURN MONEY" textFill="WHITE">
+                <Button fx:id="returnHouseMoney" mnemonicParsing="false" onAction="#returnHouseMoneyAction" style="-fx-background-color: #B66D34;" text="RETURN MONEY" textFill="WHITE">
                     <HBox.margin>
-                        <Insets left="31.0" top="1.0"/>
+                        <Insets left="31.0" top="1.0" />
                     </HBox.margin>
                     <font>
-                        <Font size="12.0"/>
+                        <Font size="12.0" />
                     </font>
                 </Button>
             </HBox>
             <HBox prefHeight="26.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets top="18.0"/>
+                    <Insets top="18.0" />
                 </VBox.margin>
-                <Button fx:id="returnShoppingMoney" mnemonicParsing="false"
-                  onAction="#returnShoppingMoneyAction"
-                  style="-fx-background-color: #B66D34;" text="RETURN MONEY"
-                  textFill="WHITE">
+                <Button fx:id="returnShoppingMoney" mnemonicParsing="false" onAction="#returnShoppingMoneyAction" style="-fx-background-color: #B66D34;" text="RETURN MONEY" textFill="WHITE">
                     <HBox.margin>
-                        <Insets left="31.0" top="1.0"/>
+                        <Insets left="31.0" top="1.0" />
                     </HBox.margin>
                     <font>
-                        <Font size="12.0"/>
+                        <Font size="12.0" />
                     </font>
                 </Button>
             </HBox>
             <HBox prefHeight="26.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets top="18.0"/>
+                    <Insets top="18.0" />
                 </VBox.margin>
-                <Button fx:id="returnTransportMoney" mnemonicParsing="false"
-                  onAction="#returnTransportMoneyAction"
-                  style="-fx-background-color: #B66D34;" text="RETURN MONEY"
-                  textFill="WHITE">
+                <Button fx:id="returnTransportMoney" mnemonicParsing="false" onAction="#returnTransportMoneyAction" style="-fx-background-color: #B66D34;" text="RETURN MONEY" textFill="WHITE">
                     <HBox.margin>
-                        <Insets left="31.0" top="1.0"/>
+                        <Insets left="31.0" top="1.0" />
                     </HBox.margin>
                     <font>
-                        <Font size="12.0"/>
+                        <Font size="12.0" />
                     </font>
                 </Button>
             </HBox>
             <HBox prefHeight="26.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets top="18.0"/>
+                    <Insets top="18.0" />
                 </VBox.margin>
-                <Button fx:id="returnEntertainmentMoney" mnemonicParsing="false"
-                  onAction="#returnEntertainmentMoneyAction"
-                  style="-fx-background-color: #B66D34;" text="RETURN MONEY"
-                  textFill="WHITE">
+                <Button fx:id="returnEntertainmentMoney" mnemonicParsing="false" onAction="#returnEntertainmentMoneyAction" style="-fx-background-color: #B66D34;" text="RETURN MONEY" textFill="WHITE">
                     <HBox.margin>
-                        <Insets left="31.0" top="-1.0"/>
+                        <Insets left="31.0" top="-1.0" />
                     </HBox.margin>
                     <font>
-                        <Font size="12.0"/>
+                        <Font size="12.0" />
                     </font>
                 </Button>
             </HBox>
             <HBox prefHeight="26.0" prefWidth="200.0">
                 <VBox.margin>
-                    <Insets top="18.0"/>
+                    <Insets top="18.0" />
                 </VBox.margin>
-                <Button fx:id="returnOtherMoney" mnemonicParsing="false"
-                  onAction="#returnOtherMoneyAction" style="-fx-background-color: #B66D34;"
-                  text="RETURN MONEY" textFill="WHITE">
+                <Button fx:id="returnOtherMoney" mnemonicParsing="false" onAction="#returnOtherMoneyAction" style="-fx-background-color: #B66D34;" text="RETURN MONEY" textFill="WHITE">
                     <HBox.margin>
-                        <Insets left="31.0" top="-5.0"/>
+                        <Insets left="31.0" top="-5.0" />
                     </HBox.margin>
                     <font>
-                        <Font size="12.0"/>
+                        <Font size="12.0" />
                     </font>
                 </Button>
             </HBox>
