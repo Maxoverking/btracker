@@ -1,6 +1,6 @@
 # Btracker - трекер бюджета
 
-Проект подготовлен: @Maxoverking @MarynaPogrebniak @melondina в рамках курса "Базовое программирование"
+Над проектом работали: [Максим Аверкин](https://github.com/Maxoverking), [Марина Погребняк](https://github.com/MarynaPogrebniak), [Дина Мигунова](https://github.com/melondina) в рамках курса "Базовое программирование"
 
 Руководитель: Кирилл Шнырёв
 ### Функционал приложения:
