@@ -1,8 +1,6 @@
 # Btracker
-Проект подготовлен @MarynaPogrebniak @melondina @Maxoverking
-melondina
-MarynaPogrebniak
-
+Проект подготовлен: @Maxoverking @MarynaPogrebniak @melondina в рамках курса "Базовое программирование"
+Руководитель: Кирилл Шнырёв
 ### Функционал приложения:
 - Записывает расходы, доходы, бюджет по месяцам;
 - Выводит результаты подсчетов на экран;
@@ -54,11 +52,3 @@ MarynaPogrebniak
   - CorrectMonth;
   - SortingData.
 - [my-budget.fxml](..%2F..%2F..%2F..%2Fresources%2Fcom%2Fexample%2Fbtracker%2Fmy-budget.fxml) - разметка приложения.
-
-
-
-
-
-
-
-
