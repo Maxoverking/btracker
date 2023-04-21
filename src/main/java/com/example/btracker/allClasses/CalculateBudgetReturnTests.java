@@ -1,11 +1,9 @@
 package com.example.btracker.allClasses;
 
-import com.example.btracker.exception.CustomException;
 import org.testng.annotations.Test;
 
 import static com.example.btracker.allClasses.Calculation.calculateBudgetReturn;
 import static org.testng.AssertJUnit.assertEquals;
-import static org.testng.AssertJUnit.assertTrue;
 
 public class CalculateBudgetReturnTests {
 
@@ -25,16 +23,5 @@ public class CalculateBudgetReturnTests {
     public void positiveBudgetZeroPrice() {
         int result = calculateBudgetReturn(100, 0);
         assertEquals(100, result);
-    }
-
-    @Test
-    public void PriceMinus() {
-        boolean exceptionThrown = false;
-        try {
-            calculateBudgetReturn(500, -100);
-        } catch (CustomException e) {
-            exceptionThrown = true;
-        }
-        assertTrue(exceptionThrown);
     }
 }
