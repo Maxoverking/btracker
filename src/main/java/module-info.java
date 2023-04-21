@@ -11,4 +11,6 @@ module com.example.btracker {
   opens com.example.btracker.allClasses to javafx.fxml;
   exports com.example.btracker.collectData;
   opens com.example.btracker.collectData to javafx.fxml;
+  exports com.example.btracker.Tests;
+  opens com.example.btracker.Tests to javafx.fxml;
 }
