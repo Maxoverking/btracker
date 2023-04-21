@@ -36,7 +36,7 @@ public class Calculation {
      * @return - общая сумма расходов по категории
      */
     public static int addMoney(int priceForCategory, int budgetForCategory, int budget) {
-        if (priceForCategory > 0 && priceForCategory <= budget) {
+        if (priceForCategory >= 0 && priceForCategory <= budget) {
             return priceForCategory + budgetForCategory;
         } else {
             throw new CustomException(errorSpendMoreBudget);
