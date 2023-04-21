@@ -3,22 +3,23 @@ package com.example.btracker.sortingData;
 import javafx.scene.text.Text;
 
 public class AddToField {
-    /** Метод, выводящий данные после сортировки
+    /**
+     * Метод, выводящий данные после сортировки
      *
-     * @param idx индекс
-     * @param categories категории
-     * @param titleFood название категории Food
-     * @param titleHouse название категории House
-     * @param titleShopping название категории Shopping
-     * @param titleTransport название категории Transport
-     * @param titleEntertainment название категории Entertainment
-     * @param titleOther название категории Other
-     * @param outputFood расходы по категории Food
-     * @param outputHouse расходы по категории House
-     * @param outputShopping расходы по категории Shopping
-     * @param outputTransport расходы по категории Transport
+     * @param idx                 индекс
+     * @param categories          категории
+     * @param titleFood           название категории Food
+     * @param titleHouse          название категории House
+     * @param titleShopping       название категории Shopping
+     * @param titleTransport      название категории Transport
+     * @param titleEntertainment  название категории Entertainment
+     * @param titleOther          название категории Other
+     * @param outputFood          расходы по категории Food
+     * @param outputHouse         расходы по категории House
+     * @param outputShopping      расходы по категории Shopping
+     * @param outputTransport     расходы по категории Transport
      * @param outputEntertainment расходы по категории Entertainment
-     * @param outputOther расходы по категории
+     * @param outputOther         расходы по категории
      */
 
     public static void addToField(int idx, String categories,

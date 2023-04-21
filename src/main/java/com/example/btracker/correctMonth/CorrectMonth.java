@@ -16,7 +16,7 @@ public class CorrectMonth {
      * Если поле пустое или месяц введен некорректно, то возвращает соответствующую ошибку.
      *
      * @param month введенный месяц
-     * @return  название месяца
+     * @return название месяца
      */
 
     public static String correctMonth(String month) {
@@ -32,7 +32,7 @@ public class CorrectMonth {
     /**
      * Метод проверяет наличие введенного месяца в списке месяцев
      *
-     * @param month введенный месяц
+     * @param month  введенный месяц
      * @param months список месяцев
      * @return возвращает true/false в зависимости от наличия введенного месяца в списке месяцев.
      */

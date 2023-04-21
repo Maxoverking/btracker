@@ -1,6 +1,7 @@
 package com.example.btracker.sameOperation;
 
 import javafx.scene.text.Text;
+
 import java.util.List;
 import java.util.Map;
 
@@ -10,16 +11,16 @@ public class OperationBtnAction {
     /**
      * Метод, выводящий на экран текущий общий бюджет и бюджет по категории после нажатия на кнопку ADD
      *
-     * @param outputFix      вывод общего бюджета
-     * @param outputCategory вывод бюджета по категории
-     * @param outputError    вывод ошибки
-     * @param budget         общий бюджет
+     * @param outputFix         вывод общего бюджета
+     * @param outputCategory    вывод бюджета по категории
+     * @param outputError       вывод ошибки
+     * @param budget            общий бюджет
      * @param budgetForCategory бюджет по категории
      */
 
     public static void showButtonsAction(Text outputFix, Text outputCategory, Text outputError,
                                          int budget, int budgetForCategory) {
-        outputFix.setText("BUDGET  "+budget + " € ");
+        outputFix.setText(budget + " € ");
         outputCategory.setText(budgetForCategory + " € ");
         outputError.setText("");
     }
@@ -62,27 +63,27 @@ public class OperationBtnAction {
                         }
                         case "FOOD" -> {
                             titleFood.setText(category);
-                            outputFood.setText(expenses  + " € ");
+                            outputFood.setText(expenses + " € ");
                         }
                         case "HOUSE" -> {
                             titleHouse.setText(category);
-                            outputHouse.setText(expenses  + " € ");
+                            outputHouse.setText(expenses + " € ");
                         }
                         case "SHOPPING" -> {
                             titleShopping.setText(category);
-                            outputShopping.setText(expenses  + " € ");
+                            outputShopping.setText(expenses + " € ");
                         }
                         case "TRANSPORT" -> {
                             titleTransport.setText(category);
-                            outputTransport.setText(expenses  + " € ");
+                            outputTransport.setText(expenses + " € ");
                         }
                         case "ENTERTAINMENT" -> {
                             titleEntertainment.setText(category);
-                            outputEntertainment.setText(expenses  + " € ");
-                                                    }
+                            outputEntertainment.setText(expenses + " € ");
+                        }
                         case "OTHER" -> {
                             titleOther.setText(category);
-                            outputOther.setText(expenses  + " € ");
+                            outputOther.setText(expenses + " € ");
                         }
                         default -> {
                         }
@@ -92,5 +93,3 @@ public class OperationBtnAction {
         }
     }
 }
-
-

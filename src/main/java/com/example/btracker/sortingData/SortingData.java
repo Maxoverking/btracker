@@ -7,8 +7,9 @@ import java.util.Map;
 public class SortingData {
     /**
      * Метод, сортирующий данные по категориям и возвращающий отсортированный лист
-     * @param budgetByMonth Map, в которой хранятся все данные по месяцам и доходам и расходам
-     * @param currentMonth  текущий месяц
+     *
+     * @param budgetByMonth  Map, в которой хранятся все данные по месяцам и доходам и расходам
+     * @param currentMonth   текущий месяц
      * @param isSortUpOrDown направление сортировки (по возрастанию или убыванию)
      * @return отсортированный лист
      */
