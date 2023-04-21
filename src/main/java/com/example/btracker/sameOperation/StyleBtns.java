@@ -6,7 +6,8 @@ import javafx.scene.text.Text;
 
 public class StyleBtns {
 
-    /** Метод, отвечающий за видимость кнопки Show и цвет кнопки Month
+    /**
+     * Метод, отвечающий за видимость кнопки Show и цвет кнопки Month
      *
      * @param buttonShow кнопка Show
      * @param buttonMonth кнопка с названием месяца
@@ -23,7 +24,8 @@ public class StyleBtns {
         buttonMonth.setDisable(false);
     }
 
-    /** Метод, отвечающий за стиль кнопок месяц и сортировка
+    /**
+     * Метод, отвечающий за стиль кнопок месяц и сортировка
      *
      * @param buttonMonth кнопка с названием месяца
      * @param sortText текст кнопок для сортировки
