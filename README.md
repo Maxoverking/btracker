@@ -9,7 +9,7 @@
 - Ведется статистика за каждый месяц;
 - Сортировка расходов по конкретному месяцу.
 ### Точка входа:
-Запустить приложение можно через [Main.java](Main.java)
+Запустить приложение можно через [Main.java](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2FMain.java)
 ### Руководство пользователя:
 - В поле Month введите месяц;
 - Заполните поля по категориям и нажмите кнопку Add:
@@ -27,37 +27,37 @@
 ### Техническая документация:
 Для разработки приложения использована платформа JavaFX
 #### Схема работы приложения:
-![Схема работы приложения](../../../../resources/scheme.jpg)
+![Схема работы приложения](src%2Fmain%2Fresources%2Fscheme.jpg)
 #### Архитектура приложения - классы и методы (краткое описание):
-- [Main.java](Main.java) - запуск приложения;
-- [MainController.java](MainController.java) - взаимодействие всех элементов приложения;
-- [Calculation.java](allClasses/Calculation.java) - методы для подсчета расходов, общего бюджета:
+- [Main.java](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2FMain.java)- запуск приложения;
+- [MainController.java](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2FMainController.java) - взаимодействие всех элементов приложения;
+- [Calculation.java](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2FallClasses%2FCalculation.java) - методы для подсчета расходов, общего бюджета:
   - calculateBudget - подсчет общего бюджета;
   - calculateBudgeReturn - подсчет общего бюджета после удаления суммы из категории;
   - addMoney - подсчет расходов по одной категории;
   - returnMoney - подсчет расходов по одной категории после удаления суммы из этой категории;
   - calcEarnAndSpendForMonth - подсчет доходов и расходов за весь месяц и вывод на экран.
-- [GetMonthAndIncome.java](allClasses/GetMonthAndIncome.java) - конструктор для дохода и месяца;
-- [NewAmountIncome.java](allClasses/NewAmountIncome.java) - конструктор для дохода;
-- [CollectData.java](collectData/CollectData.java) - сбор данных по расходам и доходам за выбранный месяц;
-- [CorrectMonth.java](correctMonth/CorrectMonth.java) - проверка корректности ввода месяца;
-- [CustomException.java](exception/CustomException.java) - ошибки неправильного ввода;
-- [OperationBtnAction.java](sameOperation/OperationBtnAction.java) - методы, выводящие на экран информацию:
+- [GetMonthAndIncome.java](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2FallClasses%2FGetMonthAndIncome.java) - конструктор для дохода и месяца;
+- [NewAmountIncome.java](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2FallClasses%2FNewAmountIncome.java) - конструктор для дохода;
+- [CollectData.java](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2FcollectData%2FCollectData.java) - сбор данных по расходам и доходам за выбранный месяц;
+- [CorrectMonth.java](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2FcorrectMonth%2FCorrectMonth.java) - проверка корректности ввода месяца;
+- [CustomException.java](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2Fexception%2FCustomException.java) - ошибки неправильного ввода;
+- [OperationBtnAction.java](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2FsameOperation%2FOperationBtnAction.java) - методы, выводящие на экран информацию:
     - showButtonsAction - вывод расходов по категории;
     - showButtonsMonthAction - вывод расходов и доходов за выбранный месяц.
-- [StyleBtns.java](sameOperation/StyleBtns.java) - стиль кнопок;
-- [AddToField.java](sortingData/AddToField.java) - вывод данный после сортировки;
-- [SortingData.java](sortingData/SortingData.java) - сортировка расходов.
-- [Tests](Tests) - Юнит-тесты для методов:
+- [StyleBtns.java](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2FsameOperation%2FStyleBtns.java) - стиль кнопок;
+- [AddToField.java](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2FsortingData%2FAddToField.java) - вывод данный после сортировки;
+- [SortingData.java](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2FsortingData%2FSortingData.java) - сортировка расходов.
+- [tests](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2Ftests) - Юнит-тесты для методов:
   - Тесты на проверку правильности вычислений и выброса ошибок:
-    - [AddMoneyTests.java](Tests/AddMoneyTests.java);
-    - [CalculateBudgetReturnTests.java](Tests/CalculateBudgetReturnTests.java);
-    - [CalculateBudgetTests.java](Tests/CalculateBudgetTests.java);
-    - [ReturnMoneyTests.java](Tests/ReturnMoneyTests.java);
+    - [AddMoneyTests.java](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2Ftests%2FAddMoneyTests.java);
+    - [CalculateBudgetReturnTests.java](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2Ftests%2FCalculateBudgetReturnTests.java);
+    - [CalculateBudgetTests.java](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2Ftests%2FCalculateBudgetTests.java);
+    - [ReturnMoneyTests.java](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2Ftests%2FReturnMoneyTests.java);
   - Тест на корректность ввода месяца: 
-    - [CorrectMonthTests.java](Tests/CorrectMonthTests.java).
+    - [CorrectMonthTests.java](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2Ftests%2FCorrectMonthTests.java).
   - Тест на заполнение данных:
-    - [CollectDataTests.java](Tests/CollectDataTests.java).
+    - [CollectDataTests.java](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2Ftests%2FCollectDataTests.java).
   - Тест на сортировку:
-    - [SortingDataTests.java](Tests/SortingDataTests.java).
-- [my-budget.fxml](..%2F..%2F..%2F..%2Fresources%2Fcom%2Fexample%2Fbtracker%2Fmy-budget.fxml) - разметка приложения.
+    - [SortingDataTests.java](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2Ftests%2FSortingDataTests.java).
+- [my-budget.fxml](src%2Fmain%2Fresources%2Fcom%2Fexample%2Fbtracker%2Fmy-budget.fxml) - разметка приложения.
