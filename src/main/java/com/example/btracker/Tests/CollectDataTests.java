@@ -1,4 +1,4 @@
-package com.example.btracker.collectData;
+package com.example.btracker.Tests;
 
 
 import org.testng.annotations.Test;

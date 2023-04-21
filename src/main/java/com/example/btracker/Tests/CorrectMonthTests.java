@@ -1,5 +1,6 @@
-package com.example.btracker.correctMonth;
+package com.example.btracker.Tests;
 
+import com.example.btracker.correctMonth.CorrectMonth;
 import com.example.btracker.exception.CustomException;
 import org.testng.annotations.Test;
 

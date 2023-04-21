@@ -1,4 +1,4 @@
-package com.example.btracker.allClasses;
+package com.example.btracker.Tests;
 
 import org.testng.annotations.Test;
 
