@@ -30,7 +30,7 @@ public class MainController {
 
 
   private String currentMonth = "";
-    public static Map<String, List<String>> budgetByMonth = new HashMap<>();// Сохранение всех данных по месяцам
+    public static final Map<String, List<String>> budgetByMonth = new HashMap<>();// Сохранение всех данных по месяцам
     public static final String errorIfMinus = "Negative income!";
     private static final String errorIfString = "Error: You didn't enter a number";
 
@@ -735,7 +735,7 @@ public class MainController {
   public VBox mainContainer;
   @FXML
   public CheckBox theme;
-  List<Text>  outputs = new ArrayList<>();
+  final List<Text>  outputs = new ArrayList<>();
   public void checkBoxThemeAction() {
     outputs.add(outputFix);
     outputs.add(titleIncome);
