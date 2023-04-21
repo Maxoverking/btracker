@@ -65,7 +65,7 @@ public class Calculation {
      * @return - новый бюджет по одной из категорий
      */
     public static int returnMoney(int budgetForCategory, int priceForCategoryReturn) {
-        if (budgetForCategory > 0 && priceForCategoryReturn <= budgetForCategory && priceForCategoryReturn > 0) {
+        if (priceForCategoryReturn <= budgetForCategory && priceForCategoryReturn > 0) {
             return budgetForCategory - priceForCategoryReturn;
         }
         throw new CustomException(errorReturnMoney);
