@@ -1,4 +1,4 @@
-# Btracker
+# Btracker - трекер бюджета
 
 Проект подготовлен: @Maxoverking @MarynaPogrebniak @melondina в рамках курса "Базовое программирование"
 
