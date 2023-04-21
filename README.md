@@ -47,7 +47,8 @@
     - showButtonsMonthAction - вывод расходов и доходов за выбранный месяц.
 - [StyleBtns.java](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2FsameOperation%2FStyleBtns.java) - стиль кнопок;
 - [AddToField.java](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2FsortingData%2FAddToField.java) - вывод данный после сортировки;
-- [SortingData.java](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2FsortingData%2FSortingData.java) - сортировка расходов.
+- [Theme.java](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2Ftheme%2FTheme.java) - изменение цвета окна приложения;
+- [SortingData.java](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2FsortingData%2FSortingData.java) - сортировка расходов;
 - [tests](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2Ftests) - Юнит-тесты для методов:
   - Тесты на проверку правильности вычислений и выброса ошибок:
     - [AddMoneyTests.java](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fbtracker%2Ftests%2FAddMoneyTests.java);
