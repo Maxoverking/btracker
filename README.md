@@ -1,7 +1,6 @@
 # Btracker - трекер бюджета
 
 Над проектом работали: [Максим Аверкин](https://github.com/Maxoverking), [Марина Погребняк](https://github.com/MarynaPogrebniak), [Дина Мигунова](https://github.com/melondina) в рамках курса "Базовое программирование"
-Над розробкою сервера в рамках курса "<span style="color:green">React Node.js</span>" <span style="color:orange">GoIT</span> school працювали:
 
 Руководитель: Кирилл Шнырёв
 ### Функционал приложения:
