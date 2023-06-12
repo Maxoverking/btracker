@@ -3,7 +3,7 @@
 The project was worked on: [Максим Аверкин](https://github.com/Maxoverking), [Марина Погребняк](https://github.com/MarynaPogrebniak), [Дина Мигунова](https://github.com/melondina) in the "Basic Java programming" course
 
 Leader: Kirill Shnyrev
-### Функционал приложения:
+### Functionality of the app:
 - Records expenses, income, budget by month;
 - Outputs the results of the calculations to the screen;
 - Statistics are kept for each month;
